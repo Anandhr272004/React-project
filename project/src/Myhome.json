@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "name":"Home"
+    },
+    {
+        "id":2,
+        "name":"Shop"
+    },
+    {
+        "id":3,
+        "name":"About US"
+    },
+    {
+        "id":4,
+        "name":"Services"
+    },
+    {
+        "id":5,
+        "name":"Blog"
+    },
+    {
+        "id":6,
+        "name":"Contact Us"
+    }
+]
