@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import Example from './Home';
-
+import NavBar from './Home';
 function App() {
   return (
    <>
-   <Example/>
+   <NavBar/>
    </>
   );
 }
