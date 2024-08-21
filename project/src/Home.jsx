@@ -6,8 +6,7 @@ import data from './Navbar.json';
 import { IoIosContact } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 import sectionone from"./Sectionone.json";
-
-function NavBar() {
+const NavBar=()=> {
   return (
     <div className='Home'>
       <div className='nave'>
@@ -39,13 +38,16 @@ function NavBar() {
       <div className='sectionone'>
         <Container>
           <Row>
-            <Col lg={4} className='sectiona'>
+            <Col lg={4} md={5} className='sectiona'>
             {sectionone.map((sectionone=>(
-              <p key={sectionone.id}>{sectionone.name}</p>
+              <div key={sectionone.id}>
+              <p className='sectionab'>{sectionone.name}</p>
+              <p>{sectionone.title}</p>
+              </div>
             )))}
-            
             </Col>
             <Col lg={8} className='sectionb'>
+            <img src="D:\React-project\project\src\Images\couch.png"  />
             </Col>
           </Row>
 

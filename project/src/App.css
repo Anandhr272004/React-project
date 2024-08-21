@@ -48,8 +48,12 @@ margin-top: 12px;
 }
 
 .sectiona{
- color: #FFFFFF;
+
   background-color: yellowgreen;
+ 
+}
+.sectionab{
+  color: #FFFFFF;
   font-family:  "Inter ", sans-serif;
   font-size: 48px;
   font-weight:800;

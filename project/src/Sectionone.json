@@ -2,9 +2,13 @@
     {
         "id":1,
         "name":"Modern Interior"
+         
+        
     },
     {
         "id":2,
         "name":"Design Studio"
+       
     }
+   
 ]
