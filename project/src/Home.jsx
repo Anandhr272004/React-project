@@ -70,6 +70,8 @@ import { IoMdContact } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+// import {couch} from './Images/couch.png'
 import data from './Navbar.json'
 
 const NavBar = () => {
@@ -109,16 +111,23 @@ const NavBar = () => {
           <Row>
             <Col lg={5}md={4}sm={4} className='sectiona'>
             <p className='sectiona-1'>Modern Interior</p>
-            <p className='sectiona-1 '>Design Studio</p>
+            <p className='sectiona-1a '>Design Studio</p>
             <p className='sectiona-2'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet</p>
-            <p  className='sectiona-2'>velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+            <p  className='sectiona-2a'>velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+            {/* <span> */}
+            <Button id='sectiona-3'>Shop Now</Button>
+            <Button id='sectiona-4'>Explore</Button>
+            {/* </spa n> */}
             </Col>
             <Col lg={7}md={8}sm={8} className='sectionb'>
+            <img src= './Images/couch.png'  alt="..." />
+            {/* <img src="./"> */}
             </Col>
           </Row>
         </Container>
 
       </div>
+
 
 
 
