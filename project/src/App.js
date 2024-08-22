@@ -1,14 +1,16 @@
 import './App.css';
 import Example from './Example';
+import Form from './Form';
 import NavBar from './Home';
 function App() {
   return (
    <>
-   <NavBar/>
+   {/* <NavBar/> */}
    
    <hr />
    <p>tailwind css</p>
-   <Example/>
+   {/* <Example/> */}
+   <Form/>
    </>
   );
 }
