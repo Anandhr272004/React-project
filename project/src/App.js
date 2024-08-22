@@ -5,6 +5,9 @@ function App() {
   return (
    <>
    <NavBar/>
+   
+   <hr />
+   <p>tailwind css</p>
    <Example/>
    </>
   );
