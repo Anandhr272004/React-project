@@ -71,10 +71,11 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-// import {couch} from './Images/couch.png'
+import couch from './Images/couch.png'
+import dots from './Images/dots-light.svg'
 import data from './Navbar.json'
 
-const NavBar = () => {
+const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -110,8 +111,8 @@ const NavBar = () => {
         <Container>
           <Row>
             <Col lg={5}md={4}sm={4} className='sectiona'>
-            <p className='sectiona-1'>Modern Interior</p>
-            <p className='sectiona-1a '>Design Studio</p>
+            <h1 className='sectiona-1'>Modern Interior</h1>
+            <h1 className='sectiona-1a '>Design Studio</h1>
             <p className='sectiona-2'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet</p>
             <p  className='sectiona-2a'>velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
             {/* <span> */}
@@ -119,28 +120,21 @@ const NavBar = () => {
             <Button id='sectiona-4'>Explore</Button>
             {/* </spa n> */}
             </Col>
-            <Col lg={7}md={8}sm={8} className='sectionb'>
-            <img src= './Images/couch.png'  alt="..." />
-            {/* <img src="./"> */}
+            <Col lg={7}md={8}sm={8} >
+            <p>
+            <img src={dots} id='sectionb-1'/>
+            <img src={couch} alt="Couch" id='sectionb' />
+           
+            </p>
+          
             </Col>
           </Row>
         </Container>
 
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 };
 
-export default NavBar;
+export default Home;
