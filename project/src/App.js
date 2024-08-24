@@ -6,10 +6,10 @@ function App() {
   return (
    <>
    <Home/>
-   
+{/*    
    <hr />
    <p>tailwind css</p>
-   <Example/>
+   <Example/> */}
   
    </>
   );
