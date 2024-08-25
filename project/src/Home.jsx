@@ -14,6 +14,7 @@ const Home = () => {
 
   return (
     <div className='Home'>
+      <div className='section'>
       <div className='nave'>
         <Navbar expand="md" bg="teal" variant="dark" className="shadow-md">
           <Container>
@@ -41,23 +42,51 @@ const Home = () => {
 
 
 <header className="header-section">
-      <Container>
+      <Container fluid>
         <Row className="align-items-center">
-          <Col md={6}>
-            <h1 className="header-title">Modern Interior <br></br>Design Studio</h1>
+          <Col xs={12} md={6}>
+          <div className='header'>
+            <h1 className="header-title">Modern Interior <br />Design Studio</h1>
             <p className="header-subtitle">
               Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
               Aliquam vulputate velit imperdiet dolor tempor tristique.
             </p>
-            <Button id="shop">Shop Now</Button>
+            <Button id="shop" className='sp'>Shop Now</Button>
             <Button id="explore">Explore</Button>
+            </div>
           </Col>
-          <Col md={6}>
-            <img src={sofa} alt="Sofa" className="img-fluid" />
+          <Col xs={12} md={6} className=' text-center imgsofa'>
+            <img src={sofa} alt="Sofa" className="img img-fluid" />
           </Col>
         </Row>
       </Container>
     </header>
+    {/* // */}
+
+{/* 
+
+    <header className="header-section">
+  <Container fluid>
+    <Row className="align-items-center">
+      <Col xs={12} md={6} className="text-center text-md-left">
+        <p className="header-title">Modern Interior <br />Design Studio</p>
+        <p className="header-subtitle">
+          Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+          Aliquam vulputate velit imperdiet dolor tempor tristique.
+        </p>
+        <div className="button-group">
+          <Button id="shop" className="mr-2 mb-2 mb-md-0">Shop Now</Button>
+          <Button id="explore">Explore</Button>
+        </div>
+      </Col>
+      <Col xs={12} md={6} className="text-center imgsofa">
+        <img src={sofa} alt="Sofa" className="img img-fluid" />
+      </Col>
+    </Row>
+  </Container>
+</header> */}
+
+    </div>
 
     </div>
   );
