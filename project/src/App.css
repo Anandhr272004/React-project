@@ -9,10 +9,59 @@
   font-weight: 600;
   padding-top: 12px;
 }
+/* // */
 
+
+.custom-offcanvas .offcanvas-body {
+  background-color: #3c5845; /* Custom background color */
+  color: white; /* Optional: Set text color for better visibility */
+}
+
+.custom-offcanvas .offcanvas-header {
+  background-color: #3c5845; /* Ensure the header matches the body */
+  color: white; /* Optional: Set text color for better visibility */
+}
+
+.custom-offcanvas .nav-link {
+  color: white; /* Ensures nav links are visible against dark background */
+}
+
+.custom-offcanvas .nav-link:hover {
+  color: #ffdd57; /* Optional: Add hover effect for better UX */
+}
+
+
+
+/* // */
 .section {
   background-color: #3c5845;
-  height: 630px;
+
+}
+
+@media screen and (max-width:1440px) {
+  .section {
+    height: 550px;
+  }
+}
+@media screen and (max-width:1024px) {
+  .section {
+    height: 450px;
+  }
+}
+@media screen and (max-width:328px) {
+  .section {
+    height: 400px;
+  }
+}
+@media screen and (max-width:378px) {
+  .section {
+    height: 570px;
+  }
+}
+@media screen and (max-width:428px) {
+  .section {
+    height: 620px;
+  }
 }
 
 .nave {
@@ -44,6 +93,24 @@
   text-decoration: underline orange 2px;
 }
 
+#loginsigin{color: #FFFFFF;
+  opacity: 0.3;
+  font-family: "Inter ", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  /* height: 29px; */
+  border: 2px solid darkgrey;
+  border-radius: 15px;
+  /*  */
+  margin-top: 12px;
+  margin-right: 5px;
+  padding-right: 5px;
+  /*  */
+}
+#loginsigin:hover {
+  opacity: 1;
+  /* text-decoration: underline orange 2px; */
+}
 #contactone {
   font-size: 24px;
   padding-top: -30px;
@@ -144,7 +211,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
   .header-title {
     font-size: 32px;
-    font-weight:700;
+    font-weight: 700;
   }
 
   .header-subtitle {
@@ -155,10 +222,50 @@
 @media (min-width: 992px) {
   .header-title {
     font-size: 52px;
-    font-weight: 700; 
-   }
+    font-weight: 700;
+  }
 
   .header-subtitle {
     font-size: 18px;
   }
+}
+
+
+
+
+
+
+/* ///// */
+
+
+/* custom-navbar.css */
+
+/* Navbar background color */
+.navbar-custom {
+  background-color: #3c5845; /* Dark green background */
+}
+
+/* Navbar brand text color */
+.navbar-custom .navbar-brand {
+  color: #ff6347 !important; /* Tomato red */
+}
+
+/* Navbar link text color */
+.navbar-custom .nav-link {
+  color: #98fb98 !important; /* Pale green */
+}
+
+/* Navbar dropdown background and text color */
+.navbar-custom .dropdown-menu {
+  background-color: #2e4637; /* Darker green for dropdown */
+}
+
+.navbar-custom .dropdown-item {
+  color: #ffffff !important; /* White text for dropdown items */
+}
+
+/* Button styles */
+.navbar-custom .nav-link.bg-customgreen {
+  background-color: #3cb371 !important; /* Medium sea green */
+  color: #ffffff !important; /* White text */
 }

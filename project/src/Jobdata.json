@@ -1,0 +1,67 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "brand": "JobEntry",
+            "completed": false,
+            "link_1": [
+                {
+                    "to": "/index",
+                    "label": "Home"
+                },
+                {
+                    "to": "/about",
+                    "label": "About"
+                }
+            ],
+            "dropdown_1": {
+                "title_1": "Jobs",
+                "items": [
+                    {
+                        "to": "/jobs",
+                        "label": "Jobs"
+                    },
+                    {
+                        "to": "list",
+                        "label": "Job List"
+                    },
+                    {
+                        "to": "detail",
+                        "label": "Job Detail"
+                    }
+                ]
+            },
+            "dropdown_2": {
+                "title_2": "Pages",
+                "items": [
+                    {
+                        "to": "/pages",
+                        "label": "Pages"
+                    },
+                    {
+                        "to": "/category",
+                        "label": "Job Category"
+                    },
+                    {
+                        "to": "/testimonial",
+                        "label": "Testimonial"
+                    },
+                    {
+                        "to": "/404",
+                        "label": "404"
+                    }
+                ]
+            },
+            "link_2": [
+                {
+                    "to": "/contact",
+                    "label": "Contact"
+                }
+            ],
+            "button": {
+                "label": "Post A Job",
+                "link": ""
+            }
+        }
+    ]
+}
