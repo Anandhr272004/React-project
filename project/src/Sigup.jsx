@@ -7,7 +7,7 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors } ,
   } = useForm();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
