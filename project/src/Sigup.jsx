@@ -17,7 +17,7 @@ const Signup = () => {
   };
 
   return (
-    <Container fluid className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: '#fff' }}>
+    <Container fluid className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: ' #3c5845;' }}>
       <Row className="w-100 justify-content-center">
         <Col md={8} lg={5}>
           <Card className="p-4 shadow-smanimate__animated animate__slideInLeft"
@@ -26,7 +26,7 @@ const Signup = () => {
             }}
           >
             <Card.Body>
-              <div className="title">WELCOME TO <a href="/" className="text-4xl font-extrabold text-[#e42e0c]">MOTO</a></div>
+              <div className="title">WELCOME TO <a href="/" className="text-4xl font-extrabold text-[#3c5845] textDecoration: none ">Furni.</a></div>
               
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group controlId="formUsername" className="mb-3">
@@ -115,7 +115,7 @@ const Signup = () => {
                   </div>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" className="w-100">
+                <Button variant="danger" type="submit" className="w-100">
                   Sign Up
                 </Button>
               </Form>

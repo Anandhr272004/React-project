@@ -259,6 +259,7 @@
   color: #ffffff !important;
 } */
 
+/* // */
 
 
 * {
@@ -269,7 +270,7 @@
 
 .section{
   background-color: #3c5845;
-  height:auto;
+  height:570px;
 }
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .section {
@@ -293,14 +294,14 @@
 }
 
 .navbar-custom
- .nav-link-custom {
+ .nav-link-custom
+  {
   color: white;
   font-family: "Inter ", sans-serif;
   font-weight: 500;
   opacity: 0.5;
   font-size: 17px;
 }
-
 #cart{
   color:white;
   font-size: 22px;
@@ -371,3 +372,5 @@
     width: 40%;
   }
 }
+
+
