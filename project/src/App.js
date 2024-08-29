@@ -1,26 +1,18 @@
 import './App.css';
 import Example from './Example';
 import Home from './Home.jsx'
-import { BrowserRouter as Router } from 'react-router-dom';
-import NavbarComponent from './Navbar.jsx';
+import SignIn from './Sigin.jsx';
+import Signup from './Sigup.jsx';
+import './Sigin.css'
 
 function App() {
   return (
    <>
    <Home/>
+   <SignIn />
+   <Signup />
    
 
-   <Router>
-      {/* <div className="App"> */}
-        <NavbarComponent/>
-      {/* </div> */}
-     </Router>
-
-
-
-
-
-  
    {/* <p>tailwind css</p>
    <Example/> */}
    </>
