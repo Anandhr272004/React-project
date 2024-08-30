@@ -1,4 +1,4 @@
-.body{ font-family: 'Poppins', sans-serif;
+/* .body{ font-family: 'Poppins', sans-serif;
     line-height: 1.80857;}
     
     .card .btn-primary {
@@ -29,83 +29,77 @@
       transform: translateX(0);
     }
   }
-  
+   */
 
-  
-  .sign-in-container {
-    background-image: url('./Images/couch.png'); /* Replace with your background image path */
-    background-size: cover;
-    background-position: center;
-    color: #333;
-  }
-  
-  .sign-in-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for a clean look */
-    border-radius: 15px;
-  }
-  
-  .brand-name {
-    font-family: "Inter ", sans-serif; /* Add a custom font */
-    font-weight: bold;
-    color:#3c5845; /* Primary brand color */
-  }
-  
-  /* General button styles */
-  .btn-primary {
-    background-color: #007bff; /* Bootstrap primary color */
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  
-  /* Add custom transition to the button */
-  .btn {
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  /* Placeholder color */
-  .form-control::placeholder {
-    color: #888;
-    opacity: 1; /* Firefox lowers the opacity */
-  }
-  
+
+/* /// */
 
 
 
-  /* Customize the sign-in form */
-.con {
-    background-color:  #3c5845; /* Set your desired background color */
-    color: #ffffff; /* Set text color */
-    padding: 20px;
-    width: 25%;
+/* 
 
-    border-radius: 10px;
-    box-shadow: 10 4px 6px rgba(0, 0, 0, 0.1);
-  }
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+body {
+  min-height: 100vh;
   
-  /* Style the form inputs */
-  .form-control {
-    background-color: #34495e; /* Input background color */
-    color: #ffffff; /* Input text color */
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  /* Style the submit button */
-  .btn-primary {
-    background-color: #2980b9; /* Button background color */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #3498db; /* Hover color */
-  }
-  
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+h1,h2,h3,h4,h5,h6,label,span {
+  font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
+}
+body, html, .App, #root, .auth-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+.custom-control-label {
+  font-weight: 400;
+}
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: #7f7d7d;
+  margin: 0 auto;
+}
+.forgot-password a {
+  color: #167bff;
+} */

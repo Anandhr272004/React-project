@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Row, Col, Navbar, Nav, Container, Offcanvas, Button } from 'react-bootstrap';
 import { MdOutlineShoppingCart } from "react-icons/md";
-// import{ useNavigate} from 'react-router-dom'
 import { FaBars } from 'react-icons/fa';
 import sofa from './Images/couch.png';
 import data from './Navbar.json';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const Navgiate=useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="Home">
@@ -31,9 +31,11 @@ const Home = () => {
                   {data.map((item) => (
                     <Nav.Link key={item.id} href="/" className="nav-link-custom">{item.name}</Nav.Link>
                   ))}
-                  <Nav.Link href="/Sigin" className="nav-link-custom">Sign in</Nav.Link>
-                  <Nav.Link href="/Sigup" className="nav-link-custom">Sign up</Nav.Link>
-                  <Nav.Link href="/cart" id="cart"><MdOutlineShoppingCart /></Nav.Link>
+                  <Nav.Link  className="nav-link-custom"
+                    onClick={() => navigate('/Signin')}>Sign in</Nav.Link>
+                  <Nav.Link  className="nav-link-custom"
+                   onClick={()=> navigate('/Signup')}>Sign up</Nav.Link>
+                  <Nav.Link  id="cart"><MdOutlineShoppingCart /></Nav.Link>
                 </Nav>
 
               </Navbar.Collapse>
@@ -85,6 +87,4 @@ const Home = () => {
 };
 
 export default Home;
-
-
 
