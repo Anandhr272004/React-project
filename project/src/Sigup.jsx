@@ -1,25 +1,20 @@
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Container } from 'react-bootstrap';
 
 const Signup = () => {
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+    register, handleSubmit, formState: { errors }, } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
-    // Handle form submission logic
   };
 
   return (
-    <Container  className="d-flex align-items-center justify-content-center mt-20">
+    <Container  className="d-flex align-items-center justify-content-center mt-20 contain">
     <form onSubmit={handleSubmit(onSubmit)}>
       <h3>Sign Up</h3>
-
+   
       <div className="mb-3">
         <label>Name</label>
         <input
@@ -80,6 +75,7 @@ const Signup = () => {
       <p className="forgot-password text-right">
         Already registered <a href="/sign-in">sign in?</a>
       </p>
+    
     </form>
     </Container>
   );

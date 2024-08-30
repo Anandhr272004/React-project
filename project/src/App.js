@@ -4,24 +4,29 @@ import Example from './Example';
 import Home from './Home.jsx'
 import SignIn from './Sigin.jsx';
 import Signup from './Sigup.jsx';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbarone from './NavBar.jsx';
+import Login from './Login.jsx';
+import Signupone from './Signupone.jsx';
 
 
 function App() {
   return (
-   <>
+    <>
+      {/* <Navbarone /> */}
 
-   <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Signin" element={<SignIn />} />
-        <Route path="/Signup" element={<Signup />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Signin" element={<SignIn />} />
+          <Route path="/Signup" element={<Signup />} />
+        </Routes>
+      </Router>
+      <Login />
 
-   {/* <p>tailwind css</p>
+      {/* <p>tailwind css</p>
    <Example/> */}
-   </>
+    </>
   );
 }
 

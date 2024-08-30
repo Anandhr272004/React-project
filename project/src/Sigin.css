@@ -103,3 +103,79 @@ body, html, .App, #root, .auth-wrapper {
 .forgot-password a {
   color: #167bff;
 } */
+
+
+/* .contain{
+  border:1px solid red;
+} */
+
+
+
+/* 
+.dropdown-toggle-custom {
+  color: #000;
+  text-decoration: none;
+}
+
+.dropdown-menu-custom {
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-link-custom:hover .dropdown-menu-custom {
+  display: block;
+}
+
+.nav-link-custom {
+  position: relative;
+}
+
+.dropdown-menu-custom {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1000;
+} */
+
+
+
+
+/*  */
+
+
+.dropdown-toggle-custom {
+  color: #000;
+  text-decoration: none;
+  
+}
+
+.dropdown-menu-custom {
+ /* width: 100%;  */
+  padding: 20px;
+  
+  border-radius: 10px;
+  background-color: #f8f9fa; /* Optional background color */
+}
+
+.nav-link-custom:hover .dropdown-menu-custom {
+  display: block;
+  width: 260px;
+  height: 220px;
+  border: 1px solid red;
+}
+
+.nav-link-custom {
+  position: relative;
+}
+
+.dropdown-menu-custom {
+  position: absolute;
+  /* width: 70%; */
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}

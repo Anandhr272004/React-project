@@ -25,7 +25,7 @@
 
 .navbar-custom .navbar-brand {
   color: #fff;
-  font-size: 28px;
+  /* font-size: 28px; */
   font-weight: 600;
 }
 
@@ -36,11 +36,11 @@
   font-family: "Inter ", sans-serif;
   font-weight: 500;
   opacity: 0.5;
-  font-size: 17px;
+  /* font-size: 17px; */
 }
 #cart{
   color:white;
-  font-size: 22px;
+  /* font-size: 22px; */
   opacity: 0.5;
 }
 #cart:hover{
@@ -50,7 +50,6 @@
   text-decoration: underline gold 3px;
   opacity: 1;
   color: white;
-  /* color: #ffdd57; */
 }
 
 .custom-offcanvas .offcanvas-body,
@@ -60,10 +59,8 @@
 }
 
 .header-section {
-  /* background-color: #3c5845; */
   height:auto;
   color: white;
-  /* padding: 60px 0; */
 }
 
 .header-title {
@@ -106,5 +103,70 @@
   }
   .btn-custom, .btn-outline-custom {
     width: 40%;
+  }
+}
+
+/* Extra Large (xl) - 1200px and up */
+@media (min-width: 1200px) {
+  .navbar-custom {
+    padding: 1rem 2rem;
+  }
+  .nav-link-custom {
+    font-size: 1.2rem;
+  }
+  #cart {
+    font-size: 1.5rem;
+  }
+}
+
+/* Large (lg) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar-custom {
+    padding: 0.8rem 1.5rem;
+  }
+  .nav-link-custom {
+    font-size: 1.1rem;
+  }
+  #cart {
+    font-size: 1.3rem;
+  }
+}
+
+/* Medium (md) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-custom {
+    padding: 0.5rem 1rem;
+  }
+  .nav-link-custom {
+    font-size: 1rem;
+  }
+  #cart {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small (sm) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767px) {
+  .navbar-custom {
+    padding: 0.3rem 0.8rem;
+  }
+  .nav-link-custom {
+    font-size: 0.9rem;
+  }
+  #cart {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra Small (xs) - 575px and down */
+@media (max-width: 575px) {
+  .navbar-custom {
+    padding: 0.2rem 0.5rem;
+  }
+  .nav-link-custom {
+    font-size: 0.8rem;
+  }
+  #cart {
+    font-size: 1rem;
   }
 }
