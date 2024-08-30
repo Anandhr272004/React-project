@@ -7,7 +7,6 @@ import Signup from './Sigup.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbarone from './NavBar.jsx';
 import Login from './Login.jsx';
-import Signupone from './Signupone.jsx';
 
 
 function App() {

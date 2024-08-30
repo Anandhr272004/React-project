@@ -45,13 +45,14 @@ const Login = () => {
                   ))}
 
                   {/* Sign In Dropdown */}
+                
                   <Dropdown
                     onMouseEnter={() => setShowSignIn(true)}
                     onMouseLeave={() => setShowSignIn(false)}
                     show={showSignIn}
                     className="nav-link-custom"
                   >
-                    <Dropdown.Toggle variant="link" className="dropdown-toggle-custom">
+                    <Dropdown.Toggle variant="link" className="dropdown-toggle-custom ">
                       Sign in
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-menu-custom">
@@ -83,13 +84,15 @@ const Login = () => {
                     onMouseEnter={() => setShowSignUp(true)}
                     onMouseLeave={() => setShowSignUp(false)}
                     show={showSignUp}
-                    className="nav-link-custom"
+                    className="
+                    sigupone"
                   >
                     <Dropdown.Toggle variant="link" className="dropdown-toggle-custom">
                       Sign up
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu className="dropdown-menu-custom">
+                    <Dropdown.Menu className="
+                    siguponetwo">
                       <form className="px-4 py-3" onSubmit={handleSignUpSubmit(onSignUpSubmit)}>
                         <div className="form-group">
                           <label htmlFor="username">Username</label>
@@ -128,6 +131,7 @@ const Login = () => {
                       </form>
                     </Dropdown.Menu>
                   </Dropdown>
+        
 
                   <Nav.Link id="cart"><MdOutlineShoppingCart /></Nav.Link>
                 </Nav>

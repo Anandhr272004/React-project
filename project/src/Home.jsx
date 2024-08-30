@@ -4,11 +4,11 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaBars } from 'react-icons/fa';
 import sofa from './Images/couch.png';
 import data from './Navbar.json';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);  
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="Home">
@@ -37,10 +37,10 @@ const Home = () => {
                        <Nav.Link href="/" className="nav-link-custom" key={item.id}>{item.name}</Nav.Link>
                        ))}
                   <Nav.Link  className="nav-link-custom"
-                    // onClick={() => navigate('/Signin')}
+                    onClick={() => navigate('/Signin')}
                     >Sign in</Nav.Link>
                   <Nav.Link  className="nav-link-custom"
-                  //  onClick={()=> navigate('/Signup')}
+                   onClick={()=> navigate('/Signup')}
                    >Sign up</Nav.Link>
                   <Nav.Link  id="cart"><MdOutlineShoppingCart /></Nav.Link>
                 </Nav>
@@ -57,8 +57,10 @@ const Home = () => {
                     {data.map((item) => (
                       <Nav.Link key={item.id} href="/" className="nav-link-custom">{item.name}</Nav.Link>
                     ))}
-                    <Nav.Link href="/login" className="nav-link-custom">Login</Nav.Link>
-                    <Nav.Link href="/sigin" className="nav-link-custom">Sign in</Nav.Link>
+                    <Nav.Link href="/signin" className="nav-link-custom"
+                       onClick={() => navigate('/Signin')}>Sign in</Nav.Link>
+                    <Nav.Link href="/sigup" className="nav-link-custom"
+                   onClick={()=> navigate('/Signup')}>Sign up</Nav.Link>
                     <Nav.Link href="/cart" className="cart"><MdOutlineShoppingCart /></Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
