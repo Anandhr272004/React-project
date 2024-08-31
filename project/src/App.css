@@ -6,7 +6,7 @@
 
 .section{
   background-color: #3c5845;
-  height:570px;
+  height:600px;
 }
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .section {
@@ -170,3 +170,5 @@
     font-size: 1rem;
   }
 }
+
+

@@ -1,82 +1,61 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  const {
-    register, handleSubmit, formState: { errors }, } = useForm();
+  const { handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
   };
 
   return (
-    <Container  className="d-flex align-items-center justify-content-center mt-20 contain">
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h3>Sign Up</h3>
-   
-      <div className="mb-3">
-        <label>Name</label>
-        <input
-          type="text"
-          className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
-          placeholder="First name"
-          {...register('firstName', { required: 'Name is required' })}
-        />
-        {errors.firstName && (
-          <div className="invalid-feedback">{errors.Name.message}</div>
-        )}
-      </div>
+    <Container  className='sigclass'>
+      <Row className='sigrow'>
+        <Col>
+          <p className='sig'>Sign Up for Furni.</p>
+          <p className="text-muted">Create an account to start using Furni</p>
 
-      <div className="mb-3">
-        <label>Email address</label>
-        <input
-          type="email"
-          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-          placeholder="Enter email"
-          {...register('email', {
-            required: 'Email is required',
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: 'Invalid email address',
-            },
-          })}
-        />
-        {errors.email && (
-          <div className="invalid-feedback">{errors.email.message}</div>
-        )}
-      </div>
+          <Form onSubmit={handleSubmit(onSubmit)} className="mt-4">
+            <Form.Group controlId="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter Name" />
+            </Form.Group>
 
-      <div className="mb-3">
-        <label>Password</label>
-        <input
-          type="password"
-          className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-          placeholder="Enter password"
-          {...register('password', {
-            required: 'Password is required',
-            minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters long',
-            },
-          })}
-        />
-        {errors.password && (
-          <div className="invalid-feedback">{errors.password.message}</div>
-        )}
-      </div>
+            <Form.Group controlId="email" className="mt-3">
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control type="email" placeholder="Enter Email Address" />
+            </Form.Group>
 
-      <div className="d-grid">
-        <button type="submit" className="btn btn-primary">
-          Sign Up
-        </button>
-      </div>
+            <Form.Group controlId="password" className="mt-3">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Enter Password" />
+            </Form.Group>
 
-      <p className="forgot-password text-right">
-        Already registered <a href="/sign-in">sign in?</a>
-      </p>
-    
-    </form>
+            <Button
+              type="submit"
+              className="w-100 mt-4 sigbutton"
+              variant="primary"
+            >
+              Sign Up
+            </Button>
+          </Form>
+
+          <div className="d-flex align-items-center mt-4 text-muted">
+            <hr className="w-100" />
+            <span className="px-2">OR</span>
+            <hr className="w-100" />
+          </div>
+
+          <div className="d-flex justify-content-center align-items-center mt-3">
+            <p className="mb-0">Already registered?</p>
+            <Button variant="link" onClick={() => navigate('/Signin')}>Sign In
+            </Button>
+          </div>
+        </Col>
+      </Row>
     </Container>
   );
 };
