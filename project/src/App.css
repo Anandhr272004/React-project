@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .section{
   background-color: #3c5845;
   height:600px;
@@ -20,7 +21,8 @@
 
 #Brand{
   color: #fff;
-  font-size:  32px;
+  font-size:  35px;
+  font-weight: 600;
 }
 
 .navbar-custom .navbar-brand {
