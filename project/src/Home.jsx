@@ -5,22 +5,14 @@
 // import sofa from './Images/couch.png';
 // import data from './Navbar.json';
 // import { useNavigate } from 'react-router-dom';
-// import { useForm } from 'react-hook-form';
 
 // const Home = () => {
 //   const [isOpen, setIsOpen] = useState(false);
 //   const [showSignIn, setShowSignIn] = useState(false);
 //   const navigate = useNavigate();
 
-//   // Hook form for Sign In
-//   const {
-//     register: registerSignIn,
-//     handleSubmit: handleSignInSubmit,
-//     formState: { errors: errorsSignIn }
-//   } = useForm();
-
-//   const onSignInSubmit = (data) => {
-//     console.log(data);
+//   const onSignInSubmit = (e) => {
+//     e.preventDefault();
 //     // Handle sign-in logic here
 //   };
 
@@ -32,17 +24,16 @@
 //             <Container>
 //               <Navbar.Brand id='Brand'>Furni.</Navbar.Brand>
 
-//               <Navbar.Toggle className="d-md-none" onClick={() => setIsOpen(true)}>
+//               {/* Toggle button for screens below 768px */}
+//               <Navbar.Toggle aria-controls="navbar-nav" onClick={() => setIsOpen(!isOpen)}>
 //                 <FaBars />
 //               </Navbar.Toggle>
 
-//               <Navbar.Collapse id="navbar-nav" className="d-none d-md-flex ">
+//               <Navbar.Collapse id="navbar-nav" className="d-md-flex">
 //                 <Nav className="ml-auto">
 //                   {data.map((item) => (
 //                     <Nav.Link href="/" className="nav-link-custom" key={item.id}>{item.name}</Nav.Link>
 //                   ))}
-//                   {/* <Nav.Link className="nav-link-custom" onClick={() => navigate('/Signin')}>Sign in</Nav.Link> */}
-
 //                   <Dropdown
 //                     onMouseEnter={() => setShowSignIn(true)}
 //                     onMouseLeave={() => setShowSignIn(false)}
@@ -53,24 +44,14 @@
 //                       Sign in
 //                     </Dropdown.Toggle>
 //                     <Dropdown.Menu className="dropdown-menu-custom">
-//                       <form className="px-4" onSubmit={handleSignInSubmit(onSignInSubmit)}>
+//                       <form className="px-4" onSubmit={onSignInSubmit}>
 //                         <div className="form-group">
 //                           <label htmlFor="email">Email address</label>
-//                           <input
-//                             type="email"
-//                             className="form-control"
-//                             id="email"
-//                             placeholder="youremail@example.com"
-//                           />
+//                           <input type="email" className="form-control" id="email" placeholder="youremail@example.com" />
 //                         </div>
 //                         <div className="form-group">
 //                           <label htmlFor="password">Password</label>
-//                           <input
-//                             type="password"
-//                             className="form-control"
-//                             id="password"
-//                             placeholder="Password"
-//                           />
+//                           <input type="password" className="form-control" id="password" placeholder="Password" />
 //                         </div>
 //                         <Button type="submit" className="btn btn-primary btn-block mt-3">
 //                           Sign in
@@ -84,6 +65,7 @@
 //                 </Nav>
 //               </Navbar.Collapse>
 
+//               {/* Offcanvas for screens below 768px */}
 //               <Offcanvas show={isOpen} onHide={() => setIsOpen(false)} placement="end" className="custom-offcanvas">
 //                 <Offcanvas.Header closeButton>
 //                   <Offcanvas.Title>Menu</Offcanvas.Title>
@@ -104,7 +86,7 @@
 //                         Sign in
 //                       </Dropdown.Toggle>
 //                       <Dropdown.Menu className="dropdown-menu-custom">
-//                         <form className="px-4" onSubmit={handleSignInSubmit(onSignInSubmit)}>
+//                         <form className="px-4" onSubmit={onSignInSubmit}>
 //                           <div className="form-group">
 //                             <label htmlFor="email">Email address</label>
 //                             <input
@@ -129,7 +111,6 @@
 //                         </form>
 //                       </Dropdown.Menu>
 //                     </Dropdown>
-
 
 //                     <Nav.Link href="/signup" className="nav-link-custom" onClick={() => navigate('/Signup')}>Sign up</Nav.Link>
 //                     <Nav.Link href="/cart" className="cart"><MdOutlineShoppingCart /></Nav.Link>
@@ -163,6 +144,9 @@
 // export default Home;
 
 
+
+
+
 import React, { useState } from 'react';
 import { Row, Col, Navbar, Nav, Container, Offcanvas, Button, Dropdown } from 'react-bootstrap';
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -178,27 +162,40 @@ const Home = () => {
 
   const onSignInSubmit = (e) => {
     e.preventDefault();
-    // const email = e.target.email.value;
-    // const password = e.target.password.value;
-    // console.log({ email, password });
+    // Handle sign-in logic here
   };
 
   return (
     <div className="Home">
       <div className='section'>
         <div className='navebar'>
-          <Navbar expand="md" className="navbar-custom">
+          <Navbar 
+            expand="md" 
+            className="navbar-custom" 
+            style={{
+              backgroundColor: '#3c5845',
+              padding: '1rem 2rem',
+              zIndex: 10
+            }}
+          >
             <Container>
-              <Navbar.Brand id='Brand'>Furni.</Navbar.Brand>
+              <Navbar.Brand id='Brand' style={{ color: '#fff', fontSize: '35px', fontWeight: '600' }}>Furni.</Navbar.Brand>
 
-              <Navbar.Toggle className="d-md-none" onClick={() => setIsOpen(true)}>
+              {/* Toggle button for screens below 768px */}
+              <Navbar.Toggle 
+                aria-controls="navbar-nav" 
+                onClick={() => setIsOpen(!isOpen)}
+                style={{ display: 'none' }}
+              >
                 <FaBars />
               </Navbar.Toggle>
 
-              <Navbar.Collapse id="navbar-nav" className="d-none d-md-flex">
+              <Navbar.Collapse id="navbar-nav" className="d-md-flex">
                 <Nav className="ml-auto">
                   {data.map((item) => (
-                    <Nav.Link href="/" className="nav-link-custom" key={item.id}>{item.name}</Nav.Link>
+                    <Nav.Link href="/" className="nav-link-custom" key={item.id}>
+                      {item.name}
+                    </Nav.Link>
                   ))}
                   <Dropdown
                     onMouseEnter={() => setShowSignIn(true)}
@@ -213,11 +210,11 @@ const Home = () => {
                       <form className="px-4" onSubmit={onSignInSubmit}>
                         <div className="form-group">
                           <label htmlFor="email">Email address</label>
-                          <input type="email"  className="form-control" id="email" placeholder="youremail@example.com" />
+                          <input type="email" className="form-control" id="email" placeholder="youremail@example.com" />
                         </div>
                         <div className="form-group">
                           <label htmlFor="password">Password</label>
-                          <input   type="password"className="form-control" id="password" placeholder="Password" />
+                          <input type="password" className="form-control" id="password" placeholder="Password" />
                         </div>
                         <Button type="submit" className="btn btn-primary btn-block mt-3">
                           Sign in
@@ -231,6 +228,7 @@ const Home = () => {
                 </Nav>
               </Navbar.Collapse>
 
+              {/* Offcanvas for screens below 768px */}
               <Offcanvas show={isOpen} onHide={() => setIsOpen(false)} placement="end" className="custom-offcanvas">
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Menu</Offcanvas.Title>
@@ -238,7 +236,9 @@ const Home = () => {
                 <Offcanvas.Body>
                   <Nav>
                     {data.map((item) => (
-                      <Nav.Link key={item.id} href="/" className="nav-link-custom">{item.name}</Nav.Link>
+                      <Nav.Link key={item.id} href="/" className="nav-link-custom">
+                        {item.name}
+                      </Nav.Link>
                     ))}
 
                     <Dropdown
@@ -307,3 +307,4 @@ const Home = () => {
 };
 
 export default Home;
+   
