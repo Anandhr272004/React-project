@@ -115,9 +115,7 @@ const SignIn = () => {
           </Form>
 
           <div className="or-divider">
-            <hr />
-            <span>OR</span>
-            <hr />
+            <hr /><span>OR</span><hr />
           </div>
 
           <div className="sign-up-button">
