@@ -1,7 +1,7 @@
 import './App.css';
 import './Sigin.css'
 import Example from './Example';
-import Home from './Home.jsx'
+import Home from './index.jsx'
 import Navbarone from './NavBar.jsx';
 import Login from './Login.jsx';
 
