@@ -1,13 +1,4 @@
 
-/* .dropdown-toggle-custom {
-  color:white;
-  text-decoration: none;
-  margin-top: 10px;
-  font-size: 16px;
-} */
-
-
-
 .nav-link-custom:hover .dropdown-menu-custom {
   display: block;
   width: 260px;
@@ -48,6 +39,7 @@
 }
 
 /* //signup page */
+
 /* Container styles */
 .sigclass {
   height: 100vh;
@@ -59,7 +51,7 @@
 
 /* Row and Column styles */
 .sigrow {
-  max-width: 768px;
+  max-width: 500px;
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -69,10 +61,17 @@
 
 /* Typography */
 .sig {
-  font-size: 28px;
+  /* font-size: 28px;
+  text-align: center;
   font-weight: 700;
-  color: #007bff; /* Primary color for the header */
-  margin-bottom: 15px;
+  color: #007bff; 
+  margin-bottom: 10px; */
+
+  font-size: 35px;
+  margin-bottom: 16px;
+  color: #007bff;
+  font-weight: bold;
+  text-align: center;
 }
 
 p {
@@ -158,25 +157,24 @@ button.btn-link:hover {
 }
 
 
-/* //login form */
+/* //sigin form */
 
-
-.container-custom {
+ .container-custom {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 80px;
-
+  padding: 0 15px;
 }
 
 .form-container {
-  border: 2px solid  rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 16px;
   background-color: white;
-  width: 30%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .headertitle {
@@ -184,11 +182,12 @@ button.btn-link:hover {
   margin-bottom: 16px;
   color: #007bff;
   font-weight: bold;
-  /* background-color: red; */
+  text-align: center;
 }
 
 .text-muted {
   color: #6c757d;
+  text-align: center;
 }
 
 .forgot-password-link {
@@ -217,10 +216,65 @@ button.btn-link:hover {
 
 .sign-up-button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 16px;
 }
 
+/* Media Queries for Responsive Design */
 
+@media (max-width: 768px) {
+  .form-container {
+    padding: 12px;
+  }
 
+  .headertitle {
+    font-size: 32px;
+  }
+
+  .forgot-password-link {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    margin-top: 12px;
+  }
+
+  .or-divider {
+    margin-top: 12px;
+  }
+
+  .sign-up-button {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-custom {
+    margin-top: 40px;
+  }
+
+  .headertitle {
+    font-size: 28px;
+  }
+
+  .text-muted {
+    font-size: 14px;
+  }
+
+  .forgot-password-link {
+    font-size: 12px;
+  }
+
+  .submit-button {
+    margin-top: 10px;
+  }
+
+  .or-divider {
+    margin-top: 10px;
+  }
+
+  .sign-up-button {
+    margin-top: 10px;
+  }
+}

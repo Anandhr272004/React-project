@@ -16,7 +16,7 @@ const Signup = () => {
       <Row className='sigrow'>
         <Col>
           <p className='sig'>Sign Up for Furni.</p>
-          <p className="text-muted">Create an account to start using Furni</p>
+          <h6 className="text-muted">Create an account to start using Furni</h6>
 
           <Form onSubmit={handleSubmit(onSubmit)} className="mt-4">
             <Form.Group controlId="name">
