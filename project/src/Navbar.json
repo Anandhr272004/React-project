@@ -1,27 +1,20 @@
-[
-   
-    {
-      "id": 1,
-      "name": "Home"
-    },
-    {
-      "id": 2,
-      "name": "Shop"
-    },
-    {
-      "id": 3,
-      "name": "About us"
-    },
-    {
-      "id": 4,
-      "name": "Services"
-    },
-    {
-      "id": 5,
-      "name": "Blog"
-    },
-    {
-      "id": 6,
-      "name": "Contact us"
-    }
-  ]
+{
+  "navbar": [
+    { "label": "Home", "link": "/" },
+    { "label": "Shop", "link": "/shop" },
+    { "label": "About us", "link": "/about" },
+    { "label": "Blog", "link": "/blog" },
+    { "label": "Contact us", "link": "/contact" }
+  ],
+  "header": {
+    "title": "Modern Interior ",
+    "titleone": "Design Studio",
+    "subtitle": "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.",
+    "buttons": [
+      { "label": "Shop Now", "id": "shop" },
+      { "label": "Explore", "id": "explore" }
+    ],
+    "image": "sofa",
+    "imageAlt": "Sofa"
+  }
+}
