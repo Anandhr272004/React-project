@@ -10,10 +10,11 @@ import Navone from './Navone.jsx';
 function App() {
   return (
     <>
-      {/* <Navbarone /> */}
+     
 <Home />
 {/* <Navone /> */}
-      
+
+       {/* <Navbarone /> */}
       {/* <Login /> */}
 
       {/* <p>tailwind css</p>

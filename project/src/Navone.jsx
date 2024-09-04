@@ -20,6 +20,7 @@ const Navone = () => {
 
   return (
     <div className="Home">
+      <div className="section">
       <Navbar expand="md" className="navbar-custom">
         <Container>
           <Navbar.Brand href="#home" id="Brand">
@@ -185,6 +186,7 @@ const Navone = () => {
           </Row>
         </Container>
       </header>
+      </div>
     </div>
   );
 };
