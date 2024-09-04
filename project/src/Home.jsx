@@ -582,15 +582,7 @@ const Home = () => {
               <Navbar.Brand href="/home" id="Brand">
                 Furni.
               </Navbar.Brand>
-
               {/* Hamburger Toggle Button */}
-              {/* <Button variant="outline-secondary" onClick={handleOffcanvasShow} id="three">
-                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                  <div style={{ width: "25px", height: "3px", backgroundColor: "black", marginBottom: "4px" }}></div>
-                  <div style={{ width: "25px", height: "3px", backgroundColor: "black", marginBottom: "4px" }}></div>
-                  <div style={{ width: "25px", height: "3px", backgroundColor: "black" }}></div>
-                </div>
-              </Button> */}
               <Button
                 variant="outline-secondary"
                 onClick={handleOffcanvasShow}
