@@ -16,7 +16,7 @@
 //   return (
 //     <div className="Home">
 //       <div className="section">
-//         <div className="navebar">       
+//         <div className="navebar">
 //           <Navbar expand="lg" className="px-3 navbar-custom">
 //             <Container>
 //               <Navbar.Brand href="/home" id="Brand">Furni.</Navbar.Brand>
@@ -65,7 +65,7 @@
 //                       </form>
 //                     </Dropdown.Menu>
 //                   </Dropdown>
-                  
+
 //                   <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")}>
 //                     Sign up
 //                   </Nav.Link>
@@ -112,10 +112,9 @@
 // import React, { useState } from "react";
 // import { Row, Col, Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
 // import { MdOutlineShoppingCart } from "react-icons/md";
-// import data from "./Navbar.json"; 
-// import sofa from "./Images/couch.png"; 
+// import data from "./Navbar.json";
+// import sofa from "./Images/couch.png";
 // import { useNavigate } from "react-router-dom";
-
 
 // const Home = () => {
 //   const [showSignIn, setShowSignIn] = useState(false);
@@ -129,7 +128,7 @@
 //   return (
 //     <div className="Home">
 //       <div className="section">
-//         <div className="navebar">       
+//         <div className="navebar">
 //           <Navbar expand="lg" className="px-3 navbar-custom">
 //             <Container>
 //               <Navbar.Brand href="/home" id="Brand">Furni.</Navbar.Brand>
@@ -138,7 +137,7 @@
 //                 <Nav className="ml-auto">
 //                   {/* Map over the navbar data */}
 //                   {data.navbar.map((item, index) => (
-//                     <Nav.Link key={index} href={item.link} className="nav-link-custom"> 
+//                     <Nav.Link key={index} href={item.link} className="nav-link-custom">
 //                     {item.label} </Nav.Link>
 //                   ))}
 
@@ -165,7 +164,7 @@
 //                       </form>
 //                     </Dropdown.Menu>
 //                   </Dropdown>
-                  
+
 //                   <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")}>
 //                     Sign up
 //                   </Nav.Link>
@@ -186,12 +185,12 @@
 //                   {data.header.title.split("\n").map((line, index) => (
 //                     <React.Fragment key={index}>
 //                       {line}  <br />
-//                     </React.Fragment>  
+//                     </React.Fragment>
 //                   ))}
 //                   {data.header.titleone.split("\n").map((line, index) => (
 //                     <React.Fragment key={index}>
 //                       {line}  <br />
-//                     </React.Fragment>  
+//                     </React.Fragment>
 //                   ))}
 //                 </h1>
 //                 <p className="header-subtitle">
@@ -221,14 +220,13 @@
 
 // export default Home;
 
-
 //adding offcanvas style
 
 // import React, { useState } from "react";
 // import { Row, Col, Navbar, Nav, Container, Button, Dropdown, Offcanvas } from "react-bootstrap";
 // import { MdOutlineShoppingCart } from "react-icons/md";
-// import data from "./Navbar.json"; 
-// import sofa from "./Images/couch.png"; 
+// import data from "./Navbar.json";
+// import sofa from "./Images/couch.png";
 // import { useNavigate } from "react-router-dom";
 
 // const Home = () => {
@@ -247,7 +245,7 @@
 //   return (
 //     <div className="Home">
 //       <div className="section">
-//         <div className="navebar">       
+//         <div className="navebar">
 //           <Navbar expand="lg" className="px-3 navbar-custom">
 //             <Container>
 //               <Navbar.Brand href="/home" id="Brand">Furni.</Navbar.Brand>
@@ -255,7 +253,7 @@
 //               <Navbar.Collapse id="basic-navbar-nav">
 //                 <Nav className="ml-auto">
 //                   {data.navbar.map((item, index) => (
-//                     <Nav.Link key={index} href={item.link} className="nav-link-custom"> 
+//                     <Nav.Link key={index} href={item.link} className="nav-link-custom">
 //                       {item.label}
 //                     </Nav.Link>
 //                   ))}
@@ -283,7 +281,7 @@
 //                       </form>
 //                     </Dropdown.Menu>
 //                   </Dropdown>
-                  
+
 //                   <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")}>
 //                     Sign up
 //                   </Nav.Link>
@@ -329,7 +327,7 @@
 //                       </form>
 //                     </Dropdown.Menu>
 //                   </Dropdown>
-                  
+
 //                   <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")}>
 //                     Sign up
 //                   </Nav.Link>
@@ -349,12 +347,12 @@
 //                   {data.header.title.split("\n").map((line, index) => (
 //                     <React.Fragment key={index}>
 //                       {line}  <br />
-//                     </React.Fragment>  
+//                     </React.Fragment>
 //                   ))}
 //                   {data.header.titleone.split("\n").map((line, index) => (
 //                     <React.Fragment key={index}>
 //                       {line}  <br />
-//                     </React.Fragment>  
+//                     </React.Fragment>
 //                   ))}
 //                 </h1>
 //                 <p className="header-subtitle">
@@ -388,8 +386,8 @@
 // import React, { useState } from "react";
 // import { Row, Col, Navbar, Nav, Container, Button, Dropdown, Offcanvas } from "react-bootstrap";
 // import { MdOutlineShoppingCart } from "react-icons/md";
-// import data from "./Navbar.json"; 
-// import sofa from "./Images/couch.png"; 
+// import data from "./Navbar.json";
+// import sofa from "./Images/couch.png";
 // import { useNavigate } from "react-router-dom";
 
 // const Home = () => {
@@ -408,7 +406,7 @@
 //   return (
 //     <div className="Home">
 //       <div className="section">
-//         <div className="navebar">       
+//         <div className="navebar">
 //           <Navbar expand="lg" className="px-3 navbar-custom">
 //             <Container>
 //               <Navbar.Brand href="/home" id="Brand">Furni.</Navbar.Brand>
@@ -419,7 +417,7 @@
 //               <Navbar.Collapse id="basic-navbar-nav">
 //                 <Nav className="ml-auto">
 //                   {data.navbar.map((item, index) => (
-//                     <Nav.Link key={index} href={item.link} className="nav-link-custom"> 
+//                     <Nav.Link key={index} href={item.link} className="nav-link-custom">
 //                       {item.label}
 //                     </Nav.Link>
 //                   ))}
@@ -546,14 +544,20 @@
 
 // export default Home;
 
-
-
-
 import React, { useState } from "react";
-import { Row, Col, Navbar, Nav, Container, Button, Dropdown, Offcanvas } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Navbar,
+  Nav,
+  Container,
+  Button,
+  Dropdown,
+  Offcanvas,
+} from "react-bootstrap";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import data from "./Navbar.json"; 
-import sofa from "./Images/couch.png"; 
+import data from "./Navbar.json";
+import sofa from "./Images/couch.png";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -572,24 +576,38 @@ const Home = () => {
   return (
     <div className="Home">
       <div className="section">
-        <div className="navebar">       
+        <div className="navebar">
           <Navbar expand="lg" className="px-3 navbar-custom">
             <Container>
-              <Navbar.Brand href="/home" id="Brand">Furni.</Navbar.Brand>
-              
+              <Navbar.Brand href="/home" id="Brand">
+                Furni.
+              </Navbar.Brand>
+
               {/* Hamburger Toggle Button */}
-              <Button variant="outline-secondary" onClick={handleOffcanvasShow} id="three">
+              {/* <Button variant="outline-secondary" onClick={handleOffcanvasShow} id="three">
                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                   <div style={{ width: "25px", height: "3px", backgroundColor: "black", marginBottom: "4px" }}></div>
                   <div style={{ width: "25px", height: "3px", backgroundColor: "black", marginBottom: "4px" }}></div>
                   <div style={{ width: "25px", height: "3px", backgroundColor: "black" }}></div>
                 </div>
+              </Button> */}
+              <Button
+                variant="outline-secondary"
+                onClick={handleOffcanvasShow}
+                id="hamburger-button" className="three"
+              > <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6H20M4 12H20M4 18H20" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
               </Button>
 
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                   {data.navbar.map((item, index) => (
-                    <Nav.Link key={index} href={item.link} className="nav-link-custom"> 
+                    <Nav.Link
+                      key={index}
+                      href={item.link}
+                      className="nav-link-custom"
+                    >
                       {item.label}
                     </Nav.Link>
                   ))}
@@ -600,25 +618,43 @@ const Home = () => {
                     show={showSignIn}
                     className="nav-link-custom"
                   >
-                    <h5 variant="link" className="siginone">Sign in</h5>
+                    <h5 variant="link" className="siginone">
+                      Sign in
+                    </h5>
                     <Dropdown.Menu className="dropdown-menu-custom">
                       <form className="px-4" onSubmit={onSignInSubmit}>
                         <div className="form-group">
                           <label htmlFor="email">Email address</label>
-                          <input type="email" className="form-control" id="email" placeholder="youremail@example.com" />
+                          <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            placeholder="youremail@example.com"
+                          />
                         </div>
                         <div className="form-group">
                           <label htmlFor="password">Password</label>
-                          <input type="password" className="form-control" id="password" placeholder="Password" />
+                          <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            placeholder="Password"
+                          />
                         </div>
-                        <Button type="submit" className="btn btn-primary btn-block mt-3">
+                        <Button
+                          type="submit"
+                          className="btn btn-primary btn-block mt-3"
+                        >
                           Sign in
                         </Button>
                       </form>
                     </Dropdown.Menu>
                   </Dropdown>
 
-                  <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")}>
+                  <Nav.Link
+                    className="nav-link-custom"
+                    onClick={() => navigate("/Signup")}
+                  >
                     Sign up
                   </Nav.Link>
                   <Nav.Link id="cart">
@@ -629,48 +665,78 @@ const Home = () => {
             </Container>
           </Navbar>
 
-<Offcanvas show={showOffcanvas} onHide={handleOffcanvasClose} placement="end" id="offcanvasstyle" className="custom-offcanvas">
-  <Offcanvas.Header closeButton>
-    <Offcanvas.Title className="navbar-custom">Menu</Offcanvas.Title>
-  </Offcanvas.Header>
-  <Offcanvas.Body>
-    {data.navbar.map((item, index) => (
-      <Nav.Link key={index} href={item.link} className="nav-link-custom" id="all">
-        {item.label}
-      </Nav.Link>
-    ))}
-    <Dropdown
-      onMouseEnter={() => setShowSignIn(true)}
-      onMouseLeave={() => setShowSignIn(false)}
-      show={showSignIn}
-      className="nav-link-custom"  
-    >
-      <h5 variant="link" className="siginone"  id="all">Sign in</h5> 
-      <Dropdown.Menu className="dropdown-menu-custom"> 
-        <form className="px-4" onSubmit={onSignInSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email address</label>
-            <input type="email" className="form-control" id="email" placeholder="youremail@example.com" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" className="form-control" id="password" placeholder="Password" />
-          </div>
-          <Button type="submit" className="btn btn-primary btn-block mt-3">
-            Sign in
-          </Button>
-        </form>
-      </Dropdown.Menu>
-    </Dropdown>
+          <Offcanvas
+            show={showOffcanvas}
+            onHide={handleOffcanvasClose}
+            placement="end"
+            id="offcanvasstyle"
+            className="custom-offcanvas"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title className="navbar-custom">Menu</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              {data.navbar.map((item, index) => (
+                <Nav.Link
+                  key={index}
+                  href={item.link}
+                  className="nav-link-custom"
+                  id="all"
+                >
+                  {item.label}
+                </Nav.Link>
+              ))}
+              <Dropdown
+                onMouseEnter={() => setShowSignIn(true)}
+                onMouseLeave={() => setShowSignIn(false)}
+                show={showSignIn}
+                className="nav-link-custom"
+              >
+                <h5 variant="link" className="siginone" id="all">
+                  Sign in
+                </h5>
+                <Dropdown.Menu className="dropdown-menu-custom">
+                  <form className="px-4" onSubmit={onSignInSubmit}>
+                    <div className="form-group">
+                      <label htmlFor="email">Email address</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        placeholder="youremail@example.com"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password">Password</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="btn btn-primary btn-block mt-3"
+                    >
+                      Sign in
+                    </Button>
+                  </form>
+                </Dropdown.Menu>
+              </Dropdown>
 
-    <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")} id="all">
-      Sign up
-    </Nav.Link>
-    <Nav.Link id="cart">
-      <MdOutlineShoppingCart />
-    </Nav.Link>
-  </Offcanvas.Body>
-</Offcanvas>
+              <Nav.Link
+                className="nav-link-custom"
+                onClick={() => navigate("/Signup")}
+                id="all"
+              >
+                Sign up
+              </Nav.Link>
+              <Nav.Link id="cart">
+                <MdOutlineShoppingCart />
+              </Nav.Link>
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
 
         <header className="header-section">
@@ -703,7 +769,11 @@ const Home = () => {
                 ))}
               </Col>
               <Col xs={12} md={6} className="text-center">
-                <img src={sofa} alt={data.header.imageAlt} className="img-fluid" />
+                <img
+                  src={sofa}
+                  alt={data.header.imageAlt}
+                  className="img-fluid"
+                />
               </Col>
             </Row>
           </Container>

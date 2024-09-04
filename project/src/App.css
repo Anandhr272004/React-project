@@ -10,12 +10,58 @@
   background-color: #3c5845;
   height: 600px;
 }
-@media (min-width:800px) {
-  #three{
-    display: none;
-  }
+/* //tonggle button */
+.three svg {
+  width: 48px; /* Adjust size as needed */
+  height: 38px; /* Adjust size as needed */
+  stroke: black; /* Icon color */
+  border: 1px solid black;
+  border-radius: 5px;
   
 }
+@media (min-width:800px) {
+  .three svg{
+    display: none;
+  }
+}
+@media (max-width:430px) {
+  .three svg{
+    width: 45px;
+  }
+}
+#hamburger-button {
+  border: none; /* Remove default border */
+  background: transparent; /* Remove default background */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Ensure content is centered */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: "";
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 2px 0; /* Margin between lines */
+}
+
+.hamburger-icon::before {
+  margin-top: 0;
+}
+
+.hamburger-icon::after {
+  margin-bottom: 0;
+}
+
 #offcanvasstyle{
   background-color: #3c5845;
   color: #fff;
