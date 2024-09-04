@@ -245,7 +245,7 @@ const Home = () => {
       <div className="section-two">
         <Container className="section2">
           <Row>
-            <Col lg={3} className="section2one">
+            <Col lg={3} md={3} className="section2one">
               <h2 className="craft">Crafted with</h2>
               <h2 className="excellent">excellent material.</h2>
               <p className="donec">
@@ -257,8 +257,9 @@ const Home = () => {
               <Button id="exploreone">Explore</Button>{' '}
             </Col>
 
-            <Col lg={3} className="productcol"><Card className="product-card">
-                <Card.Img variant="top"  className="product-image"src="./Images/product-1.png" />
+            <Col lg={3}  md={3}className="productcol">
+            <Card className="productcard">
+                <Card.Img variant="top"  className="img-fluid"src="./Images/product-1.png" />
                 <Card.Body>
                   <Card.Title>Nordic Chair</Card.Title>
                   <Card.Text>$50.00</Card.Text>
@@ -267,20 +268,22 @@ const Home = () => {
               </Card>
               </Col>
           
-              <Col lg={3} className="productcol"><Card className="product-card">
-                <Card.Img variant="top"  className="product-image"  src="./Images/product-2.png"/>
+              <Col lg={3} md={3} className="productcol">
+              <Card className="productcard">
+                <Card.Img variant="top"  className="img-fluid"  src="./Images/product-2.png"/>
                 <Card.Body>
-                  <Card.Title>title</Card.Title>
-                  <Card.Text>$price</Card.Text>
+                  <Card.Title>Kruzo Aero Chair</Card.Title>
+                  <Card.Text>$78.00</Card.Text>
                   <Button variant="primary">Explore</Button>
                 </Card.Body>
               </Card>
               </Col>
-              <Col lg={3} className="productcol"><Card className="product-card">
-                <Card.Img variant="top"  className="product-image" />
+              <Col lg={3} md={3} className="productcol">
+              <Card className="productcard">
+                <Card.Img variant="top"  className="img-fluid" src="./Images/product-3.png"/>
                 <Card.Body>
-                  <Card.Title>title</Card.Title>
-                  <Card.Text>$price</Card.Text>
+                  <Card.Title>Ergonomic Chair</Card.Title>
+                  <Card.Text>$43.00</Card.Text>
                   <Button variant="primary">Explore</Button>
                 </Card.Body>
               </Card>
