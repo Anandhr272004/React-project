@@ -51,7 +51,7 @@ const Signup = () => {
 
           <div className="d-flex justify-content-center align-items-center mt-3">
             <p className="mb-0">Already registered?</p>
-            <Button variant="link" onClick={() => navigate('/Signin')}>Sign In
+            <Button variant="link" onClick={() => navigate('/')}>Sign In
             </Button>
           </div>
         </Col>

@@ -288,12 +288,8 @@ const Home = () => {
                 </Card.Body>
               </Card>
               </Col>
-             
-              
+     
               </Row>
-              
-            
-        
         </Container>
       </div>
     </div>
