@@ -14,7 +14,7 @@
       { "label": "Shop Now", "id": "shop" },
       { "label": "Explore", "id": "explore" }
     ],
-    "image": "sofa",
+    "image": "./Images/couch.png",
     "imageAlt": "Sofa"
   }
 }

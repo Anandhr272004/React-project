@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 /* Section styles */
@@ -177,13 +178,6 @@
   font-size: 18px;
   opacity: 0.5;
 }
-
-/* .custom-offcanvas .dropdown-toggle-custom {
-  padding-top: 10px;
-  font-size: 18px;
-  padding-right: 8px;
-  padding-left: 8px;
-} */
 #all{
   padding-top: 5px;
   padding-bottom: 5px;
@@ -254,7 +248,41 @@
 }
 
 
-
+/* section2 */
+.section2{
+  /* border: 1px solid red; */
+  padding-top: 130px;
+}
+.section2one{
+  border:1px solid green;
+}
+.craft{
+  font-family: "Inter", sans-serif;
+  font-size:36px;
+  color: black;
+  font-weight: bold;
+}
+.excellent{
+  font-size: 32px;
+  color: black;
+  font-weight: 600;
+}
+.donec{
+  font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 28px;
+    color: #6a6a6a;
+    font-size: 14px;
+}
+#exploreone{
+  /* width: 42%; */
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+}
 .product-card {
   text-align: center;
   margin-bottom: 20px;

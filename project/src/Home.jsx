@@ -1,115 +1,4 @@
-//dynamic code
 
-// import React, { useState } from "react";
-// import { Row, Col, Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
-// import { MdOutlineShoppingCart } from "react-icons/md";
-// import data from "./Navbar.json";
-// import sofa from "./Images/couch.png";
-// import { useNavigate } from "react-router-dom";
-
-// const Home = () => {
-//   const [showSignIn, setShowSignIn] = useState(false);
-//   const navigate = useNavigate();
-
-//   const onSignInSubmit = (e) => {
-//     e.preventDefault();
-//     // Handle sign-in logic here
-//   };
-
-//   return (
-//     <div className="Home">
-//       <div className="section">
-//         <div className="navebar">
-//           <Navbar expand="lg" className="px-3 navbar-custom">
-//             <Container>
-//               <Navbar.Brand href="/home" id="Brand">Furni.</Navbar.Brand>
-//               <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//               <Navbar.Collapse id="basic-navbar-nav">
-//                 <Nav className="ml-auto">
-//                   {/* Map over the navbar data */}
-//                   {data.navbar.map((item, index) => (
-//                     <Nav.Link key={index} href={item.link} className="nav-link-custom">
-//                     {item.label} </Nav.Link>
-//                   ))}
-
-//                   <Dropdown
-//                     onMouseEnter={() => setShowSignIn(true)}
-//                     onMouseLeave={() => setShowSignIn(false)}
-//                     show={showSignIn}
-//                     className="nav-link-custom"
-//                   >
-//                     <h5 variant="link" className="dropdown-toggle-custom">Sign in</h5>
-//                     <Dropdown.Menu className="dropdown-menu-custom">
-//                       <form className="px-4" onSubmit={onSignInSubmit}>
-//                         <div className="form-group">
-//                           <label htmlFor="email">Email address</label>
-//                           <input type="email" className="form-control"   id="email"
-//                             placeholder="youremail@example.com"  />
-//                         </div>
-//                         <div className="form-group">
-//                           <label htmlFor="password">Password</label>
-//                           <input  type="password" className="form-control" id="password" placeholder="Password" />
-//                         </div>
-//                         <Button type="submit"  className="btn btn-primary btn-block mt-3"  >
-//                           Sign in </Button>
-//                       </form>
-//                     </Dropdown.Menu>
-//                   </Dropdown>
-
-//                   <Nav.Link className="nav-link-custom" onClick={() => navigate("/Signup")}>
-//                     Sign up
-//                   </Nav.Link>
-//                   <Nav.Link id="cart">
-//                     <MdOutlineShoppingCart />
-//                   </Nav.Link>
-//                 </Nav>
-//               </Navbar.Collapse>
-//             </Container>
-//           </Navbar>
-//         </div>
-
-//         <header className="header-section">
-//           <Container>
-//             <Row className="align-items-center">
-//               <Col xs={12} md={6}>
-//                 <h1 className="header-title">
-//                   {data.header.title.split("\n").map((line, index) => (
-//                     <React.Fragment key={index}>
-//                       {line}  <br />
-//                     </React.Fragment>
-//                   ))}
-//                   {data.header.titleone.split("\n").map((line, index) => (
-//                     <React.Fragment key={index}>
-//                       {line}  <br />
-//                     </React.Fragment>
-//                   ))}
-//                 </h1>
-//                 <p className="header-subtitle">
-//                   {data.header.subtitle.split("\n").map((line, index) => (
-//                     <React.Fragment key={index}>
-//                       {line} <br />
-//                     </React.Fragment>
-//                   ))}
-//                 </p>
-//                 {/* Map over the buttons */}
-//                 {data.header.buttons.map((button, index) => (
-//                   <Button key={index} id={button.id}>
-//                     {button.label}
-//                   </Button>
-//                 ))}
-//               </Col>
-//               <Col xs={12} md={6} className="text-center">
-//                 <img src={sofa} alt={data.header.imageAlt} className="img-fluid" />
-//               </Col>
-//             </Row>
-//           </Container>
-//         </header>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Home;
 import React, { useState } from "react";
 import {
   Row,
@@ -123,7 +12,6 @@ import {
 } from "react-bootstrap";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Navbar.json";
-import sofa from "./Images/couch.png";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -343,7 +231,7 @@ const Home = () => {
               </Col>
               <Col xs={12} md={6} className="text-center">
                 <img
-                  src={sofa}
+                  src={data.header.image}
                   alt={data.header.imageAlt}
                   className="img-fluid"
                 />
@@ -355,22 +243,40 @@ const Home = () => {
 
       {/* //section2 */}
       <div className="section-two">
-        <Container>
+        <Container className="section2">
           <Row>
-            <Col lg={3}>
-              <p>Crafted with</p>
-              <p>excellent material.</p>
-              <p>
+            <Col lg={3} className="section2one">
+              <h2 className="craft">Crafted with</h2>
+              <h2 className="excellent">excellent material.</h2>
+              <p className="donec">
                 Donec vitae odio quis nisl dapibus malesuada.
                 <br />
                 Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor
                 tempor tristique.
               </p>
+              <Button id="exploreone">Explore</Button>{' '}
             </Col>
 
-            <Col lg={9}>
-            <Row>
-              <Col lg={4} className="productcol"><Card className="product-card">
+            <Col lg={3} className="productcol"><Card className="product-card">
+                <Card.Img variant="top"  className="product-image"src="./Images/product-1.png" />
+                <Card.Body>
+                  <Card.Title>Nordic Chair</Card.Title>
+                  <Card.Text>$50.00</Card.Text>
+                  <Button variant="primary">Explore</Button>
+                </Card.Body>
+              </Card>
+              </Col>
+          
+              <Col lg={3} className="productcol"><Card className="product-card">
+                <Card.Img variant="top"  className="product-image"  src="./Images/product-2.png"/>
+                <Card.Body>
+                  <Card.Title>title</Card.Title>
+                  <Card.Text>$price</Card.Text>
+                  <Button variant="primary">Explore</Button>
+                </Card.Body>
+              </Card>
+              </Col>
+              <Col lg={3} className="productcol"><Card className="product-card">
                 <Card.Img variant="top"  className="product-image" />
                 <Card.Body>
                   <Card.Title>title</Card.Title>
@@ -379,28 +285,12 @@ const Home = () => {
                 </Card.Body>
               </Card>
               </Col>
-              <Col lg={4} className="productcol"><Card className="product-card">
-                <Card.Img variant="top"  className="product-image" />
-                <Card.Body>
-                  <Card.Title>title</Card.Title>
-                  <Card.Text>$price</Card.Text>
-                  <Button variant="primary">Explore</Button>
-                </Card.Body>
-              </Card>
-              </Col>
-              <Col lg={4} className="productcol"><Card className="product-card">
-                <Card.Img variant="top"  className="product-image" />
-                <Card.Body>
-                  <Card.Title>title</Card.Title>
-                  <Card.Text>$price</Card.Text>
-                  <Button variant="primary">Explore</Button>
-                </Card.Body>
-              </Card>
-              </Col>
+             
+              
               </Row>
               
-            </Col>
-          </Row>
+            
+        
         </Container>
       </div>
     </div>
