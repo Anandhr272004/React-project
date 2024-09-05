@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import {Row,  Col,  Navbar,Nav,Container,Button,Dropdown,Offcanvas, Card} from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Navbar,
+  Nav,
+  Container,
+  Button,
+  Dropdown,
+  Offcanvas,
+  Card,
+} from "react-bootstrap";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Navbar.json";
 import { useNavigate } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
 
-const Home = () => {
+const Ex = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +44,6 @@ const Home = () => {
                 id="hamburger-button"
                 className="three"
               >
-                {" "}
                 <svg
                   width="24"
                   height="24"
@@ -240,8 +249,9 @@ const Home = () => {
               <h2 className="craft">Crafted with</h2>
               <h2 className="excellent">excellent material.</h2>
               <p className="donec">
-                Donec vitae odio quis nisl dapibus malesuada.
-                Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
+                velit. Aliquam vulputate velit imperdiet dolor tempor
+                tristique.
               </p>
               <Button id="exploreone">Explore</Button>
             </Col>
@@ -249,55 +259,68 @@ const Home = () => {
             {/* Product Cards */}
             <Col lg={3} md={3} sm={6} xs={12} className="productcol">
               <Card className="productcard" id="procard">
-                <Card.Img variant="top" className="img-fluid product-thumbnail" src="./Images/product-1.png" />
+                <Card.Img
+                  variant="top"
+                  className="img-fluid product-thumbnail"
+                  src="./Images/product-1.png"
+                />
                 <Card.Body>
                   <Card.Title className="nordic">Nordic Dime Chair</Card.Title>
                   <Card.Text className="nordic">$50.00</Card.Text>
                   <div className="card-img-overlay">
-                    <span className="hover-icon"> <FaPlusCircle className="ironcross" /> </span>
+                    <span className="hover-icon">
+                      {" "}
+                      <FaPlusCircle className="ironcross" />{" "}
+                    </span>
                   </div>
-
                 </Card.Body>
               </Card>
             </Col>
 
             <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-
               <Card className="productcard" id="procard">
-                <Card.Img variant="top" className="img-fluid product-thumbnail" src="./Images/product-2.png" />
+                <Card.Img
+                  variant="top"
+                  className="img-fluid product-thumbnail"
+                  src="./Images/product-2.png"
+                />
                 <Card.Body>
                   <Card.Title className="nordic">Kruzo Aero Chair</Card.Title>
                   <Card.Text className="nordic">$78.00</Card.Text>
                   <div className="card-img-overlay">
-                    <span className="hover-icon"> <FaPlusCircle className="ironcross" /> </span>
+                    <span className="hover-icon">
+                      {" "}
+                      <FaPlusCircle className="ironcross" />{" "}
+                    </span>
                   </div>
                 </Card.Body>
               </Card>
             </Col>
 
             <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-              <Card className="productcard"id="procard" >
-                <Card.Img variant="top" className="img-fluid product-thumbnail" src="./Images/product-3.png" />
+              <Card className="productcard" id="procard">
+                <Card.Img
+                  variant="top"
+                  className="img-fluid product-thumbnail"
+                  src="./Images/product-3.png"
+                />
                 <Card.Body>
                   <Card.Title className="nordic">Ergonomic Chair</Card.Title>
-                  <Card.Text className="nordic" >$43.00</Card.Text>
-
+                  <Card.Text className="nordic">$43.00</Card.Text>
                   <div className="card-img-overlay">
-                    <span className="hover-icon"> <FaPlusCircle className="ironcross" /> </span>
+                    <span className="hover-icon">
+                      {" "}
+                      <FaPlusCircle className="ironcross" />{" "}
+                    </span>
                   </div>
                 </Card.Body>
               </Card>
             </Col>
-
           </Row>
         </Container>
       </div>
-
-
-
-
     </div>
   );
 };
 
-export default Home;
+export default Ex;

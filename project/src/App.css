@@ -377,8 +377,8 @@
 }
 #procard{
   /* border: none; */
-  /* background-color:#f2f4f5;  */
-  background-color: red;
+  background-color:#f2f4f5; 
+  /* background-color: red; */
 }
 
 .productcard:hover {
@@ -421,5 +421,29 @@
   .productcard .card-img-overlay {
     top: 91%;
     left: 42%; 
+}
+}
+@media (min-width:300px)and  (max-width:370px)  {
+  .productcard .card-img-overlay {
+    top: 89%;
+    left: 40%; 
+}
+}
+@media   (max-width:290px)  {
+  .productcard .card-img-overlay {
+    top: 88%;
+    left: 39%; 
+}
+}
+@media   (max-width:260px)  {
+  .productcard .card-img-overlay {
+    top: 85%;
+    left: 36%; 
+}
+}
+@media   (max-width:210px)  {
+  .productcard .card-img-overlay {
+    top: 85%;
+    left: 32%; 
 }
 }
