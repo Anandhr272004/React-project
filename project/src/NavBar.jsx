@@ -1,36 +1,68 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure Bootstrap CSS is imported
+import { Container, Row, Col, Button,Card } from 'react-bootstrap';
+import { FaCirclePlus } from "react-icons/fa6";
 
-const ProductCard = ({ image, title, price }) => (
-  <Col md={4} className="product-card mb-4">
-    <img src={image} alt={title} className="product-image img-fluid" />
-    <h3>{title}</h3>
-    <p>{price}</p>
-    <Button variant="primary">Explore</Button>
-  </Col>
-);
 
-const ProductGrid = () => (
-  <Container>
-    <Row>
-      <ProductCard 
-        image="path-to-nordic-chair-image.jpg" 
-        title="Nordic Chair" 
-        price="$50.00" 
-      />
-      <ProductCard 
-        image="path-to-kuazo-aero-chair-image.jpg" 
-        title="Kuazo Aero Chair" 
-        price="$78.00" 
-      />
-      <ProductCard 
-        image="path-to-ergonomic-chair-image.jpg" 
-        title="Ergonomic Chair" 
-        price="$43.00" 
-      />
-    </Row>
-  </Container>
-);
+const NavBar=()=>{
+  return (
+    <div className="sectiontwo">
+    <Container className="section21">
+      <Row>
+        <Col lg={3} md={3} sm={12} className="section2one1">
+          <h2 className="craft1">Crafted with</h2>
+          <h2 className="excellent1">excellent material.</h2>
+          <p className="donec1">
+            Donec vitae odio quis nisl dapibus malesuada.
+            Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+          </p>
+          <Button id="exploreone1">Explore</Button>
+        </Col>
 
-export default ProductGrid;
+        {/* Product Cards */}
+
+        <Col lg={3} md={3} sm={6} xs={12} className="productcol1">
+          <Card className="product-card">
+            <div className="cardimg">
+              <span className="hovericon"><FaCirclePlus /></span>
+            </div>
+            <Card.Img variant="top" className="img-fluid" src="./Images/product-1.png" />
+            <Card.Body>
+              <Card.Title className="nordic1">Nordic Dime Chair</Card.Title>
+              <Card.Text className="nordic11">$50.00</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col lg={3} md={3} sm={6} xs={12} className="productcol1">
+          <Card className="product-card">
+            <div className="cardimg">
+              <span className="hovericon"><FaCirclePlus /></span>
+            </div>
+            <Card.Img variant="top" className="img-fluid" src="./Images/product-2.png" />
+            <Card.Body>
+              <Card.Title className="nordic">Kruzo Aero Chair</Card.Title>
+              <Card.Text className="nordic1">$78.00</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col lg={3} md={3} sm={6} xs={12} className="productcol1">
+          <Card className="product-card">
+            <div className="cardimg">
+              <span className="hovericon"><FaCirclePlus /></span>
+            </div>
+            <Card.Img variant="top" className="img-fluid" src="./Images/product-3.png" />
+            <Card.Body>
+              <Card.Title className="nordic">Ergonomic Chair</Card.Title>
+              <Card.Text className="nordic1">$43.00</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+      </Row>
+    </Container>
+  </div>
+  )
+}
+
+export default NavBar;

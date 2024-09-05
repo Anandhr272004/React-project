@@ -3,8 +3,7 @@ import { Row, Col, Navbar, Nav, Container, Button, Dropdown, Offcanvas, Card } f
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Navbar.json";
 import { useNavigate } from "react-router-dom";
-import { FaPlusCircle } from "react-icons/fa";
-
+import { FaCirclePlus } from "react-icons/fa6";
 const Home = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -248,48 +247,22 @@ const Home = () => {
 
             {/* Product Cards */}
 
-            <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-              <Card className="productcard">
-                <div className="card-img-overlay">
-                  <span className="hover-icon">+</span>
-                </div>
-                <Card.Img variant="top" className="img-fluid" src="./Images/product-1.png" />
-                <Card.Body>
-                  <Card.Title className="nordic">Nordic Dime Chair</Card.Title>
-                  <Card.Text className="nordic1">$50.00</Card.Text>
-                  {/* <Button variant="primary">Explore</Button> */}
-                </Card.Body>
-              </Card>
-            </Col>
 
-            <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-              <Card className="productcard">
-                <div className="card-img-overlay">
-                  <span className="hover-icon">+</span>
-                </div>
-                <Card.Img variant="top" className="img-fluid" src="./Images/product-2.png" />
-                <Card.Body>
-                  <Card.Title className="nordic">Kruzo Aero Chair</Card.Title>
-                  <Card.Text className="nordic1">$78.00</Card.Text>
-                  {/* <Button variant="primary">Explore</Button> */}
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-              <Card className="productcard">
-                <div className="card-img-overlay">
-                  <span className="hover-icon">+</span>
-                </div>
-                <Card.Img variant="top" className="img-fluid" src="./Images/product-3.png" />
-                <Card.Body>
-                  <Card.Title className="nordic">Ergonomic Chair</Card.Title>
-                  <Card.Text className="nordic1">$43.00</Card.Text>
-                  {/* <Button variant="primary">Explore</Button> */}
-                </Card.Body>
-              </Card>
-            </Col>
-
+            {data.products.map((product) => (
+              <Col lg={3} md={3} sm={6} xs={12} className="productcol" key={product.id}>
+                <Card className="productcard" id="procard">
+                  <div className="card-img-overlay">
+                    <span className="hover-icon"><FaCirclePlus /></span> 
+                  </div>
+                  <Card.Img variant="top" className="img-fluid" src={product.image} alt={product.title} />
+                  <Card.Body>
+                    <Card.Title className="nordic">{product.title}</Card.Title>
+                    <Card.Text className="nordic1">{product.price}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+            
           </Row>
         </Container>
       </div>
