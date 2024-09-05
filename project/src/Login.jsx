@@ -3,7 +3,7 @@ import { Row, Col, Navbar, Nav, Container, Offcanvas, Button, Dropdown } from 'r
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaBars } from 'react-icons/fa';
 import sofa from './Images/couch.png';
-import data from './Navbar.json';
+import data from './Home.json';
 import { useForm } from 'react-hook-form';
 
 const Login = () => {

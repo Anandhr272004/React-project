@@ -1,277 +1,164 @@
 import React, { useState } from "react";
-import { Row, Col, Navbar, Nav, Container, Button, Dropdown, Offcanvas, Card } from "react-bootstrap";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import data from "./Navbar.json";
-import { useNavigate } from "react-router-dom";
+import { Row, Col, Navbar, Nav, Container, Button, Card } from "react-bootstrap";
+import data from "./Home.json";
 import { FaCirclePlus } from "react-icons/fa6";
+import { FiTruck } from "react-icons/fi";
+
+
+import { FaShippingFast, FaShoppingBag, FaHeadset, FaExchangeAlt } from 'react-icons/fa';
+import Nbarone from "./Nbarone";
+
 const Home = () => {
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const navigate = useNavigate();
 
-  const onSignInSubmit = (e) => {
-    e.preventDefault();
-    // Handle sign-in logic here
-  };
+    return (
+        <div className="Home">
+            <div className="section">
 
-  const handleOffcanvasClose = () => setShowOffcanvas(false);
-  const handleOffcanvasShow = () => setShowOffcanvas(true);
+                <Nbarone />
 
-  return (
-    <div className="Home">
-      <div className="section">
-        <div className="navebar">
-          <Navbar expand="lg" className="px-3 navbar-custom">
-            <Container>
-              <Navbar.Brand href="/home" id="Brand">
-                Furni.
-              </Navbar.Brand>
-              {/* Hamburger Toggle Button */}
-              <Button
-                variant="outline-secondary"
-                onClick={handleOffcanvasShow}
-                id="hamburger-button"
-                className="three"
-              >
-                {" "}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 6H20M4 12H20M4 18H20"
-                    stroke="black"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Button>
+                <header className="header-section">
+                    <Container>
+                        <Row className="align-items-center">
+                            <Col xs={12} md={6}>
+                                <h1 className="header-title">
+                                    {data.header.title.split("\n").map((line, index) => (
+                                        <React.Fragment key={index}>
+                                            {line} <br />
+                                        </React.Fragment>
+                                    ))}
+                                    {data.header.titleone.split("\n").map((line, index) => (
+                                        <React.Fragment key={index}>
+                                            {line} <br />
+                                        </React.Fragment>
+                                    ))}
+                                </h1>
+                                <p className="header-subtitle">
+                                    {data.header.subtitle.split("\n").map((line, index) => (
+                                        <React.Fragment key={index}>
+                                            {line} <br />
+                                        </React.Fragment>
+                                    ))}
+                                </p>
+                                {data.header.buttons.map((button, index) => (
+                                    <Button key={index} id={button.id}>
+                                        {button.label}
+                                    </Button>
+                                ))}
+                            </Col>
+                            <Col xs={12} md={6} className="text-center">
+                                <img
+                                    src={data.header.image}
+                                    alt={data.header.imageAlt}
+                                    className="img-fluid"
+                                />
+                            </Col>
+                        </Row>
+                    </Container>
+                </header>
+            </div>
 
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                  {data.navbar.map((item, index) => (
-                    <Nav.Link
-                      key={index}
-                      href={item.link}
-                      className="nav-link-custom"
-                    >
-                      {item.label}
-                    </Nav.Link>
-                  ))}
+            {/* //section2 */}
+            <div className="bg-bluecolor">
+                <div className="section-two">
+                    <Container className="section2">
+                        <Row>
+                            <Col lg={3} md={3} sm={12} className="section2one">
+                                <h2 className="craft">Crafted with</h2>
+                                <h2 className="excellent">excellent material.</h2>
+                                <p className="donec">
+                                    Donec vitae odio quis nisl dapibus malesuada.
+                                    Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                                </p>
+                                <Button id="exploreone">Explore</Button>
+                            </Col>
 
-                  <Dropdown
-                    onMouseEnter={() => setShowSignIn(true)}
-                    onMouseLeave={() => setShowSignIn(false)}
-                    show={showSignIn}
-                    className="nav-link-custom"
-                  >
-                    <h5 variant="link" className="siginone">
-                      Sign in
-                    </h5>
-                    <Dropdown.Menu className="dropdown-menu-custom">
-                      <form className="px-4" onSubmit={onSignInSubmit}>
-                        <div className="form-group">
-                          <label htmlFor="email">Email address</label>
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            placeholder="youremail@example.com"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="password">Password</label>
-                          <input
-                            type="password"
-                            className="form-control"
-                            id="password"
-                            placeholder="Password"
-                          />
-                        </div>
-                        <Button
-                          type="submit"
-                          className="btn btn-primary btn-block mt-3"
-                        >
-                          Sign in
-                        </Button>
-                      </form>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                            {/* Product Cards */}
 
-                  <Nav.Link
-                    className="nav-link-custom"
-                    onClick={() => navigate("/Signup")}
-                  >
-                    Sign up
-                  </Nav.Link>
-                  <Nav.Link id="cart">
-                    <MdOutlineShoppingCart />
-                  </Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
+                            {data.products.map((product) => (
+                                <Col lg={3} md={3} sm={6} xs={12} className="productcol" key={product.id}>
+                                    <Card className="productcard some" id="procard">
+                                        <Card.Img variant="top" className="img-fluid" src={product.image} alt={product.title} />
+                                        <Card.Body>
+                                            <Card.Title className="nordic">{product.title}</Card.Title>
+                                            <Card.Text className="nordic1">{product.price}</Card.Text>
+                                        </Card.Body>
+                                        <div className="card-img-overlay">
+                                            <span className="hover-icon"><FaCirclePlus /></span>
+                                        </div>
+                                    </Card>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Container>
+                </div>
 
-          <Offcanvas
-            show={showOffcanvas}
-            onHide={handleOffcanvasClose}
-            placement="end"
-            id="offcanvasstyle"
-            className="custom-offcanvas"
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title className="navbar-custom">Menu</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              {data.navbar.map((item, index) => (
-                <Nav.Link
-                  key={index}
-                  href={item.link}
-                  className="nav-link-custom"
-                  id="all"
-                >
-                  {item.label}
-                </Nav.Link>
-              ))}
-              <Dropdown
-                onMouseEnter={() => setShowSignIn(true)}
-                onMouseLeave={() => setShowSignIn(false)}
-                show={showSignIn}
-                className="nav-link-custom"
-              >
-                <h5 variant="link" className="siginone" id="all">
-                  Sign in
-                </h5>
-                <Dropdown.Menu className="dropdown-menu-custom">
-                  <form className="px-4" onSubmit={onSignInSubmit}>
-                    <div className="form-group">
-                      <label htmlFor="email">Email address</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        placeholder="youremail@example.com"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="password">Password</label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="btn btn-primary btn-block mt-3"
-                    >
-                      Sign in
-                    </Button>
-                  </form>
-                </Dropdown.Menu>
-              </Dropdown>
+                <div className="section-three ">
+                    <Container className="why-choose-us-section">
+                        <Row>
+                            <Col lg={6}>
+                                <h2>Why Choose Us</h2>
+                                <p>
+                                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
+                                    velit imperdiet dolor tempor tristique.
+                                </p>
+                                <Row className="features">
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-container">
+                                            <FaShippingFast size={35} className="mb-3" />
 
-              <Nav.Link
-                className="nav-link-custom"
-                onClick={() => navigate("/Signup")}
-                id="all"
-              >
-                Sign up
-              </Nav.Link>
-              <Nav.Link id="cart">
-                <MdOutlineShoppingCart />
-              </Nav.Link>
-            </Offcanvas.Body>
-          </Offcanvas>
+                                        </div>
+                                        <h5>Fast & Free Shipping</h5>
+                                        <p>
+                                            Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+                                            vulputate.
+                                        </p>
+                                    </Col>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-container">
+                                            <FaShoppingBag size={35} className="mb-3" />
+                                        </div>
+                                        <h5>Easy to Shop</h5>
+                                        <p>
+                                            Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+                                            vulputate.
+                                        </p>
+                                    </Col>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-container">
+                                            <FaHeadset size={35} className="mb-3" />
+                                        </div>
+                                        <h5>24/7 Support</h5>
+                                        <p>
+                                            Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+                                            vulputate.
+                                        </p>
+                                    </Col>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-container">
+                                            <FaExchangeAlt size={35} className="mb-3" />
+                                        </div>
+                                        <h5>Hassle Free Returns</h5>
+                                        <p>
+                                            Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+                                            vulputate.
+                                        </p>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col lg={6} className="image-container">
+                                <img src="./Images/why-choose-us-img.jpg" alt="Sofa" className="sofa-image" />
+                                <img src="./Images/dots-yellow.svg" alt="Yellow Dots" className="dots-image" />
+                            </Col>
+                        </Row>
+                    </Container>
+               </div>
+            </div>
+
         </div>
-
-        <header className="header-section">
-          <Container>
-            <Row className="align-items-center">
-              <Col xs={12} md={6}>
-                <h1 className="header-title">
-                  {data.header.title.split("\n").map((line, index) => (
-                    <React.Fragment key={index}>
-                      {line} <br />
-                    </React.Fragment>
-                  ))}
-                  {data.header.titleone.split("\n").map((line, index) => (
-                    <React.Fragment key={index}>
-                      {line} <br />
-                    </React.Fragment>
-                  ))}
-                </h1>
-                <p className="header-subtitle">
-                  {data.header.subtitle.split("\n").map((line, index) => (
-                    <React.Fragment key={index}>
-                      {line} <br />
-                    </React.Fragment>
-                  ))}
-                </p>
-                {data.header.buttons.map((button, index) => (
-                  <Button key={index} id={button.id}>
-                    {button.label}
-                  </Button>
-                ))}
-              </Col>
-              <Col xs={12} md={6} className="text-center">
-                <img
-                  src={data.header.image}
-                  alt={data.header.imageAlt}
-                  className="img-fluid"
-                />
-              </Col>
-            </Row>
-          </Container>
-        </header>
-      </div>
-
-      {/* //section2 */}
-      <div className="section-two">
-        <Container className="section2">
-          <Row>
-            <Col lg={3} md={3} sm={12} className="section2one">
-              <h2 className="craft">Crafted with</h2>
-              <h2 className="excellent">excellent material.</h2>
-              <p className="donec">
-                Donec vitae odio quis nisl dapibus malesuada.
-                Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-              </p>
-              <Button id="exploreone">Explore</Button>
-            </Col>
-
-            {/* Product Cards */}
-
-
-            {data.products.map((product) => (
-              <Col lg={3} md={3} sm={6} xs={12} className="productcol" key={product.id}>
-                <Card className="productcard" id="procard">
-                  <div className="card-img-overlay">
-                    <span className="hover-icon"><FaCirclePlus /></span> 
-                  </div>
-                  <Card.Img variant="top" className="img-fluid" src={product.image} alt={product.title} />
-                  <Card.Body>
-                    <Card.Title className="nordic">{product.title}</Card.Title>
-                    <Card.Text className="nordic1">{product.price}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-            
-          </Row>
-        </Container>
-      </div>
-
-
-
-
-    </div>
-  );
+    );
 };
 
 export default Home;
+
+
+
