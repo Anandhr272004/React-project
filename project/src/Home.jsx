@@ -1,15 +1,6 @@
 
 import React, { useState } from "react";
-import {
-  Row,
-  Col,
-  Navbar,
-  Nav,
-  Container,
-  Button,
-  Dropdown,
-  Offcanvas, Card
-} from "react-bootstrap";
+import {Row,  Col,  Navbar,Nav,Container,Button,Dropdown,Offcanvas, Card} from "react-bootstrap";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Navbar.json";
 import { useNavigate } from "react-router-dom";

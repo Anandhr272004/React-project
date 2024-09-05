@@ -380,9 +380,9 @@
 }
 
 .productcard:hover {
-  transform: translateY(-30px);
-  background-color:rgb(255, 0, 0);
-  border: none;
+  transform: translateY(-40px);
+  /* background-color:rgb(255, 0, 0); */
+  /* border: none; */
 }
 
 .ironcross {
