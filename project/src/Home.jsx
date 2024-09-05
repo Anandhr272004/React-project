@@ -7,6 +7,7 @@ import { FiTruck } from "react-icons/fi";
 
 import { FaShippingFast, FaShoppingBag, FaHeadset, FaExchangeAlt } from 'react-icons/fa';
 import Nbarone from "./Nbarone";
+import Section from "./Section";
 
 const Home = () => {
 
@@ -59,7 +60,7 @@ const Home = () => {
 
             {/* //section2 */}
             <div className="bg-bluecolor">
-                <div className="section-two">
+                {/* <div className="section-two">
                     <Container className="section2">
                         <Row>
                             <Col lg={3} md={3} sm={12} className="section2one">
@@ -72,7 +73,7 @@ const Home = () => {
                                 <Button id="exploreone">Explore</Button>
                             </Col>
 
-                            {/* Product Cards */}
+                            
 
                             {data.products.map((product) => (
                                 <Col lg={3} md={3} sm={6} xs={12} className="productcol" key={product.id}>
@@ -90,7 +91,8 @@ const Home = () => {
                             ))}
                         </Row>
                     </Container>
-                </div>
+                </div> */}
+                <Section />
 
                 <div className="section-three ">
                     <Container className="why-choose-us-section">

@@ -158,9 +158,14 @@
   
   #procard:hover .hover-icon {
     opacity: 1;
-    transform: translate(-0%, 10%);
+    transform: translate(-50%, 10%);
   }
-  
+  @media screen and(max-width:430px) {
+    #procard{
+        margin-bottom: 10px;
+    }
+    
+  }
   #procard {
     /* background-color: #f2f4f5; */
     height: 108%;
@@ -173,6 +178,6 @@
   
   #procard:hover {
     transform: translateY(-10px);
-    border:0.1px solid gray;
+    /* border:0.1px solid gray; */
   }
   
