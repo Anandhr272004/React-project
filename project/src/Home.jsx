@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Row,  Col,  Navbar,Nav,Container,Button,Dropdown,Offcanvas, Card} from "react-bootstrap";
+import { Row, Col, Navbar, Nav, Container, Button, Dropdown, Offcanvas, Card } from "react-bootstrap";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Navbar.json";
 import { useNavigate } from "react-router-dom";
@@ -247,44 +247,45 @@ const Home = () => {
             </Col>
 
             {/* Product Cards */}
+
             <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-              <Card className="productcard" id="procard">
-                <Card.Img variant="top" className="img-fluid product-thumbnail" src="./Images/product-1.png" />
+              <Card className="productcard">
+                <div className="card-img-overlay">
+                  <span className="hover-icon">+</span>
+                </div>
+                <Card.Img variant="top" className="img-fluid" src="./Images/product-1.png" />
                 <Card.Body>
                   <Card.Title className="nordic">Nordic Dime Chair</Card.Title>
-                  <Card.Text className="nordic">$50.00</Card.Text>
-                  <div className="card-img-overlay">
-                    <span className="hover-icon"> <FaPlusCircle className="ironcross" /> </span>
-                  </div>
-
+                  <Card.Text className="nordic1">$50.00</Card.Text>
+                  {/* <Button variant="primary">Explore</Button> */}
                 </Card.Body>
               </Card>
             </Col>
 
             <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-
-              <Card className="productcard" id="procard">
-                <Card.Img variant="top" className="img-fluid product-thumbnail" src="./Images/product-2.png" />
+              <Card className="productcard">
+                <div className="card-img-overlay">
+                  <span className="hover-icon">+</span>
+                </div>
+                <Card.Img variant="top" className="img-fluid" src="./Images/product-2.png" />
                 <Card.Body>
                   <Card.Title className="nordic">Kruzo Aero Chair</Card.Title>
-                  <Card.Text className="nordic">$78.00</Card.Text>
-                  <div className="card-img-overlay">
-                    <span className="hover-icon"> <FaPlusCircle className="ironcross" /> </span>
-                  </div>
+                  <Card.Text className="nordic1">$78.00</Card.Text>
+                  {/* <Button variant="primary">Explore</Button> */}
                 </Card.Body>
               </Card>
             </Col>
 
             <Col lg={3} md={3} sm={6} xs={12} className="productcol">
-              <Card className="productcard"id="procard" >
-                <Card.Img variant="top" className="img-fluid product-thumbnail" src="./Images/product-3.png" />
+              <Card className="productcard">
+                <div className="card-img-overlay">
+                  <span className="hover-icon">+</span>
+                </div>
+                <Card.Img variant="top" className="img-fluid" src="./Images/product-3.png" />
                 <Card.Body>
                   <Card.Title className="nordic">Ergonomic Chair</Card.Title>
-                  <Card.Text className="nordic" >$43.00</Card.Text>
-
-                  <div className="card-img-overlay">
-                    <span className="hover-icon"> <FaPlusCircle className="ironcross" /> </span>
-                  </div>
+                  <Card.Text className="nordic1">$43.00</Card.Text>
+                  {/* <Button variant="primary">Explore</Button> */}
                 </Card.Body>
               </Card>
             </Col>
