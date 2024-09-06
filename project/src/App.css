@@ -367,7 +367,7 @@
   .text1, .text2, .text3, .text4 {
     margin-top: -15px;
     transform: translateY(22px);
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 
 /* For screens between 1024px and 1440px (laptops, desktops) */
@@ -381,11 +381,8 @@
 /* For tablet screens (768px to 1024px) */
 @media (max-width: 1024px) {
   .text1, .text2, .text3, .text4 {
-    /* margin-top: -8px; */
     transform: translateY(30px);
-    
-    /* padding: 8px; */
-    font-size: 13px; /* Slightly reduce font size for tablets */
+    font-size: 13px;
   }
 }
 
@@ -394,9 +391,8 @@
   .text1, .text2, .text3, .text4 {
     margin-top: -5px;
     transform: translateY(20px);
-    /* padding: 6px; */
-    font-size: 14px; /* Make text smaller for better fit */
-    border: 1px solid orange; /* You can adjust border styling for smaller screens if desired */
+    font-size: 14px;
+    /* border: 1px solid orange;  */
   }
 }
 
@@ -404,22 +400,21 @@
 @media (max-width: 576px) {
   .text1, .text3 {
     margin-top: 0;
-    transform: translateY(6px); /* Lower the translateY for mobile screens */
-    /* padding: 5px; */
-    font-size: 13px; /* Further reduce font size for mobile readability */
-    border: 1px solid orange; /* Optional: Lighter border for smaller screens */
+    transform: translateY(6px); 
+    font-size: 13px; 
+    /* border: 1px solid orange;  */
   }
   .text2{
     margin-top: 0;
     transform: translateY(16px);
-    font-size: 13px; /* Further reduce font size for mobile readability */
-    border: 1px solid orange; 
+    font-size: 13px; 
+    /* border: 1px solid orange;  */
   }
   .text2{
     margin-top: 0;
     transform: translateY(12px);
-    font-size: 13px; /* Further reduce font size for mobile readability */
-    border: 1px solid orange; 
+    font-size: 13px; 
+    /* border: 1px solid orange;  */
   }
 }
 
@@ -427,32 +422,32 @@
 @media (max-width: 400px) {
   .text1, .text2,  .text4 {
     margin-top: 0;
-    transform: translateY(15px); /* Minimal translate for very small screens */
+    transform: translateY(15px);
     padding: 4px;
     font-size: 12px;
-    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+    /* border: 1px solid orange;  */
   }
   .text3 {
     margin-top: 0;
-    transform: translateY(8px); /* Minimal translate for very small screens */
-    padding: 4px;
+    transform: translateY(8px);
+    padding: 4px; 
     font-size: 12px;
-    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+    /* border: 1px solid orange;  */
   }
 }
 @media (max-width: 350px) {
   .text1, .text2,  .text4 {
     margin-top: 0;
-    transform: translateY(15px); /* Minimal translate for very small screens */
+    transform: translateY(15px); 
     padding: 4px;
     font-size: 12px;
-    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+    /* border: 1px solid orange; */
   }
   .text3 {
     margin-top: 0;
-    transform: translateY(17px); /* Minimal translate for very small screens */
+    transform: translateY(17px); 
     padding: 4px;
     font-size: 12px;
-    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+    /* border: 1px solid orange;  */
   }
 }
