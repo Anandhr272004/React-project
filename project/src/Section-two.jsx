@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaPlusCircle } from 'react-icons/fa';
 import data from './Home.json';
+import './Section_two.css'
 
 const Section_two= () => {
   return (

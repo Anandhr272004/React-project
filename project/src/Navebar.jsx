@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Container, Button, Navbar, Nav,Dropdown, Offcanvas} from "react-bootstrap";
-import { Badge } from 'react-bootstrap';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Home.json";
 import { useNavigate } from "react-router-dom"; 
+import './Navebar.css'
 
-
-const Nbarone=()=>{
+const Navebar=()=>{
   
   const [showSignIn, setShowSignIn] = useState(false);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -198,4 +197,4 @@ const Nbarone=()=>{
   )
 }
 
-export default Nbarone;
+export default Navebar;

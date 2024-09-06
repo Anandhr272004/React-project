@@ -1,19 +1,25 @@
 import React from "react";
 import { Row, Col, Container, Button, Image } from "react-bootstrap";
 import data from "./Home.json";
-import Nbarone from "./Nbarone";
 import SectionThree from "./Section-three";
 import Section_two from "./Section-two";
 import { FaRegCircle } from "react-icons/fa6";
-import './App.css';
+
+import { FaCircle } from "react-icons/fa";
+import Navebar from "./Navebar";
 
 const Home = () => {
-
+    const featureList = [
+        "Donec vitae odio quis nisl dapibus malesuada",
+        "Donec vitae odio quis nisl dapibus malesuada",
+        "Donec vitae odio quis nisl dapibus malesuada",
+        "Donec vitae odio quis nisl dapibus malesuada"
+    ];
     return (
         <div className="Home">
             <div className="section">
 
-                <Nbarone />
+                <Navebar />
 
                 <header className="header-section">
                     <Container>
@@ -69,35 +75,58 @@ const Home = () => {
                 </div>
 
                 {/* section4 */}
-                <div className="section-four mt-5">
-                    <Container>
+                <div className="section-four">
+                    <Container className="section_four">
                         <Row>
                             <Col lg={7}>
                                 <div className="image-grid">
-                                    <Image src="./Images/dots-green.svg" alt="Green Dots" className="green-dots" />
-                                    <Image src="./Images/img-grid-1.jpg" alt="Interior Design 1" className="grid-image large-image" />
-                                    <Image src="./Images/img-grid-2.jpg" className="grid-image small-image" />
-                                    <Image src="./Images/img-grid-3.jpg" alt="Interior Design 3" className="grid-image large-image" />
+                                    <Image src="./Images/dots-green.svg" alt="Green Dots" className="greendots" />
+                                    <Image src="./Images/product.png" alt="Interior Design 1" className="gridimage" />
                                 </div>
                             </Col>
                             <Col lg={5} className="text-section">
-                                <h1>We Help You Make Modern Interior Design</h1>
-                                <p>
+                                <h1 className="wehelp">We Help You Make Modern Interior Design</h1>
+                                <p className="donec">
                                     Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
                                     Nulla ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                                     Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
-                                    Nulla ac aliqueet dolor tempor tristique.
+
                                 </p>
-                                <ul>
-                                    <li><span><FaRegCircle />Donec vitae odio quis nisl dapibus malesuada</span></li>
-                                    <li><span><FaRegCircle />Donec vitae odio quis nisl dapibus malesuada</span></li>
-                                    <li><span><FaRegCircle />Donec vitae odio quis nisl dapibus malesuada</span></li>
-                                   
-                                </ul>
-                                <Button variant="primary">Explore</Button>
+                                <Row>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-text">
+                                            <FaRegCircle className="feature-icon" />
+                                            <p className="text1">Donec vitae odio quis nisl dapibus malesuada Lorem, ipsum.</p>
+                                        </div>
+                                    </Col>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-text">
+                                            <FaRegCircle className="feature-icon" />
+                                            <p className="text2">Donec vitae odio quis nisl Lorem, ipsum dolor. dapibus malesuada.</p>
+                                        </div>
+                                    </Col>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-text">
+                                            <FaRegCircle className="feature-icon" />
+                                            <p className="text3">Donec Lorem ipsum dolor sit amet. vitae odio quis nisl dapibus malesuada.</p>
+                                        </div>
+                                    </Col>
+                                    <Col sm={6} className="feature-item">
+                                        <div className="icon-text">
+                                            <FaRegCircle className="feature-icon" />
+                                            <p className="text4">Donec vitae Lorem ipsum dolor sit amet. odio quis nisl dapibus Lorem, ipsummal esuada.</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <div className="explore-btn-container">
+                                <Button id="exploreone4">Explore</Button>
+                                </div>
                             </Col>
                         </Row>
                     </Container>
+
+
+
                 </div>
 
             </div>

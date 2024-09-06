@@ -1,213 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-
-/* Section styles */
-.section {
-  background-color: #3c5845;
-  height: 600px;
-}
-.bg-bluecolor{
-    background-color: #f2f4f5;
-
-}
-/* //tonggle button */
-.three svg {
-  width: 48px;
-  /* Adjust size as needed */
-  height: 38px;
-  /* Adjust size as needed */
-  stroke: black;
-  /* Icon color */
-  border: 1px solid black;
-  border-radius: 5px;
-
-}
-
-@media (min-width:800px) {
-  .three svg {
-    display: none;
-  }
-}
-
-@media (max-width:430px) {
-  .three svg {
-    width: 45px;
-  }
-}
-
-#hamburger-button {
-  border: none;
-  /* Remove default border */
-  background: transparent;
-  /* Remove default background */
-  padding: 0;
-  /* Remove default padding */
-  display: flex;
-  /* Ensure content is centered */
-  align-items: center;
-  /* Center content vertically */
-  justify-content: center;
-  /* Center content horizontally */
-}
-
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hamburger-icon::before,
-.hamburger-icon::after {
-  content: "";
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  margin: 2px 0;
-  /* Margin between lines */
-}
-
-.hamburger-icon::before {
-  margin-top: 0;
-}
-
-.hamburger-icon::after {
-  margin-bottom: 0;
-}
-
-#offcanvasstyle {
-  background-color: #3c5845;
-  color: #fff;
-}
-
-@media screen and (max-width: 1024px) and (min-width: 768px) {
-  .section {
-    background-color: #3c5845;
-    height: 480px;
-  }
-
-  .header-section {
-    margin-top: 40px;
-  }
-}
-
-/* Brand styles */
-#Brand {
-  color: white;
-  font-size: 35px;
-  font-weight: 600;
-}
-
-/* Navbar custom styles */
-.navbar-custom .navbar-brand {
-  color: #fff;
-  font-weight: 600;
-}
-
-.navbar-custom .nav-link-custom {
-  color: white;
-  font-family: "Inter ", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  opacity: 0.5;
-  /* padding-right: 40px; */
-}
-
-
-/* Shopping cart icon */
-#cart {
-  color: white;
-  opacity: 0.5;
-  font-size: 25px;
-  padding-top: 10px;
-}
-
-#cart:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width:430px) {
-  #cart {
-    padding-top: 5px;
-    font-size: 28px;
-  }
-
-}
-
-/* Navbar hover styles */
-.navbar-custom .nav-link-custom:hover {
-  text-decoration: underline gold 3px;
-  opacity: 1;
-  color: white;
-}
-
-.siginone {
-  padding-top: 10px;
-  font-size: 18px;
-  padding-right: 8px;
-  padding-left: 8px;
-}
-
-@media (max-width:430px) {
-  .siginone {
-    padding-top: 10px;
-    margin-bottom: 0px;
-    padding-left: 0px;
-  }
-}
-
-@media (max-width:775px) {
-  .siginone {
-    padding-top: 10px;
-    margin-bottom: 0px;
-    padding-left: 0px;
-  }
-
-}
-
-.dropdowntoggle {
-  padding-top: 10px;
-  font-size: 15px;
-  font-weight: 400;
-  padding-right: 8px;
-  padding-left: 13px;
-}
-
-/* Offcanvas styles */
-.custom-offcanvas .offcanvas-body,
-.custom-offcanvas .offcanvas-header {
-  background-color: #3c5845;
-  color: white;
-}
-
-.custom-offcanvas .nav-link-custom {
-  color: white;
-  opacity: 0.5;
-}
-
-.custom-offcanvas .nav-link-custom:hover {
-  text-decoration: underline gold 3px;
-  opacity: 1;
-  color: white;
-}
-
-.navbar-custom .nav-link-custom,
-.custom-offcanvas .nav-link-custom {
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  opacity: 0.5;
-}
-
-#all {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 
 /* Header section */
 .header-section {
@@ -281,4 +71,195 @@
 }
 
 
-/* section2 */
+/* section- four-4 */
+/* 
+.section_four{
+  border: 1px solid greenyellow;
+  margin-top:150px;
+  height: 470px;
+}
+.greendots{
+  position: relative;
+  left:-100px;
+  top: -120px;
+  width: 39%;
+  height: auto;
+  border: 1px solid red;
+}
+.gridimage{
+  position: absolute;
+  top: 297%;
+  right:45%;
+  width: 48%;
+
+}
+.wehelp{
+  font-weight: 400 ;
+}
+.donec{
+  padding-top: 10px;
+  display: block;
+}
+#exploreone4{
+
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+}
+.iconecircle{
+  font-size: 9px;
+}
+.iconewords{
+  position: relative;
+  top:-17px;
+  left:10px;
+  font-size: 15px;
+  line-gap-override: 10px;
+} */
+
+
+/* Main container */
+.section_four {
+  padding: 50px;
+  margin-top: 100px;
+}
+
+/* Image Grid Styling important */
+.image-grid {
+  position: relative;
+}
+
+.greendots {
+  position: absolute;
+  top: -110px;
+  left: -100px;
+  width: 300px;
+  height: auto;
+  z-index: 1;
+}
+@media (max-width:1030px) {
+  .greendots{
+    display: none;
+  }
+  
+}
+.gridimage {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  z-index: 2;
+}
+.wehelp {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.donec {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+#exploreone4{
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+}
+@media (max-width: 991px) {
+  .wehelp {
+    font-size: 28px;
+  }
+
+  .gridimage {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .text-section {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .iconewords {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .greendots {
+    top: -30px;
+    left: -50px;
+    width: 100px;
+  }
+
+  .wehelp {
+    font-size: 24px;
+  }
+
+  .iconewords {
+    font-size: 14px;
+  }
+
+  #exploreone4 {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gridimage {
+    width: 100%;
+  }
+
+  .greendots {
+    display: none;
+  }
+
+  .wehelp {
+    font-size: 22px;
+  }
+
+  .iconecircle {
+    font-size: 20px;
+  }
+
+  .iconewords {
+    font-size: 14px;
+  }
+
+  .text-section {
+    padding: 0 10px;
+  }
+}
+
+/* // */
+
+.explore-section {
+  padding: 20px;
+  background-color: #f1f3f4; /* Light background like in the image */
+}
+
+.feature-item {
+  margin-bottom: 15px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.feature-icon {
+  color: #070707; /* Adjust icon color to match design */
+  margin-right: 10px;
+}
+
+.text1{
+  padding-top: 10px;
+}

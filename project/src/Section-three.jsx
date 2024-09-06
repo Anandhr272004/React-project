@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { FaShippingFast, FaShoppingBag, FaHeadset, FaExchangeAlt } from "react-icons/fa";
 import data from './Home.json';
-
+import './Section_three.css'
 
 const iconMapping = {
     FaShippingFast: <FaShippingFast size={35} className="mb-3" />,
