@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button, Navbar, Nav,Dropdown, Offcanvas} from "react-bootstrap";
+import { Badge } from 'react-bootstrap';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import data from "./Home.json";
 import { useNavigate } from "react-router-dom"; 
@@ -103,6 +104,9 @@ const Nbarone=()=>{
                     </Dropdown.Menu>
                   </Dropdown>
 
+                  {/* <span style="font-size: 2xl; font-weight: bold; color: white;">|</span> */}
+                  <span className="fs-2xl fw-bold text-white mt-2">|</span>
+                  
                   <Nav.Link
                     className="nav-link-custom"
                     onClick={() => navigate("/Signup")}

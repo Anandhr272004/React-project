@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaPlusCircle } from 'react-icons/fa';
 import data from './Home.json';
 
-const Section = () => {
+const Section_two= () => {
   return (
     <div className="section-two">
       <Container className="section2">
@@ -45,4 +45,4 @@ const Section = () => {
   );
 };
 
-export default Section;
+export default Section_two;
