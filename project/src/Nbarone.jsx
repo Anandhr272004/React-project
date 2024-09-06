@@ -190,14 +190,7 @@ const Nbarone=()=>{
             </Offcanvas.Body>
           </Offcanvas>
         </div>
-        // </div>
-
-
-
-
-
-
-
+      
   )
 }
 

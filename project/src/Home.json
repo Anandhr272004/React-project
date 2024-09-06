@@ -36,5 +36,35 @@
       "price": "$43.00",
       "image": "./Images/product-3.png"
     }
-  ]
+  ],
+  "whyChooseUs": {
+    "sectionTitle": "Why Choose Us",
+    "sectionDescription": "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.",
+    "features": [
+      {
+        "icon": "FaShippingFast",
+        "title": "Fast & Free Shipping",
+        "description": "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+      },
+      {
+        "icon": "FaShoppingBag",
+        "title": "Easy to Shop",
+        "description": "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+      },
+      {
+        "icon": "FaHeadset",
+        "title": "24/7 Support",
+        "description": "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+      },
+      {
+        "icon": "FaExchangeAlt",
+        "title": "Hassle Free Returns",
+        "description": "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+      }
+    ],
+    "images": {
+      "mainImage": "./Images/why-choose-us-img.jpg",
+      "dotsImage": "./Images/dots-yellow.svg"
+    }
+  }
 }
