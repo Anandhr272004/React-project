@@ -9,12 +9,7 @@ import { FaCircle } from "react-icons/fa";
 import Navebar from "./Navebar";
 
 const Home = () => {
-    const featureList = [
-        "Donec vitae odio quis nisl dapibus malesuada",
-        "Donec vitae odio quis nisl dapibus malesuada",
-        "Donec vitae odio quis nisl dapibus malesuada",
-        "Donec vitae odio quis nisl dapibus malesuada"
-    ];
+
     return (
         <div className="Home">
             <div className="section">
@@ -75,7 +70,7 @@ const Home = () => {
                 </div>
 
                 {/* section4 */}
-                <div className="section-four">
+                {/* <div className="section-four">
                     <Container className="section_four">
                         <Row>
                             <Col lg={7}>
@@ -124,10 +119,67 @@ const Home = () => {
                             </Col>
                         </Row>
                     </Container>
+                </div> */}
 
 
 
+
+
+<div className="section-four">
+    <Container className="section_four">
+        <Row className="align-items-center">
+            <Col lg={7} className="image-col">
+                <div className="image-grid">
+                    <Image src="./Images/dots-green.svg" alt="Green Dots" className="greendots" />
+                    <Image src="./Images/product.png" alt="Interior Design 1" className="gridimage" />
                 </div>
+            </Col>
+            <Col lg={5} className="text-section">
+                <h1 className="wehelp">We Help You Make Modern Interior Design</h1>
+                <p className="donec">
+                    Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
+                    Nulla ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                    Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
+                </p>
+                <Row>
+                    <Col sm={6} xs={12} className="feature-item">
+                        <div className="icon-text">
+                            {/* <Row>
+                                <Col lg={2}> <FaRegCircle className="feature-icon" /></Col>
+                                <Col lg={10}>
+                                <span className="text1">Donec vitae odio quis nisl dapibus malesuada Lorem, ipsum.</span></Col>
+                            </Row> */}
+                            <FaRegCircle className="feature-icon" /> 
+                            <p className="text1" id="text1">Donec vitae odio quis nisl dapibus malesuada Lorem, ipsum.</p>
+                        </div>
+                    </Col>
+                    <Col sm={6} xs={12} className="feature-item">
+                        <div className="icon-text">
+                            
+                            <FaRegCircle className="feature-icon" />
+                            <p className="text2">Donec vitae odio quis nisl Lorem, ipsum dolor. dapibus malesuada.</p>
+                        </div>
+                    </Col>
+                    <Col sm={6} xs={12} className="feature-item">
+                        <div className="icon-text">
+                            <FaRegCircle className="feature-icon" />
+                            <p className="text3">Donec Lorem ipsum dolor sit amet. vitae odio quis nisl</p>
+                        </div>
+                    </Col>
+                    <Col sm={6} xs={12} className="feature-item">
+                        <div className="icon-text">
+                            <FaRegCircle className="feature-icon" />
+                            <p className="text4">Donec vitae Lorem ipsum dolor sit amet. odio quis nisl malesuada.</p>
+                        </div>
+                    </Col>
+                </Row>
+                <div className="explore-btn-container">
+                    <Button id="exploreone4">Explore</Button>
+                </div>
+            </Col>
+        </Row>
+    </Container>
+</div>
 
             </div>
 

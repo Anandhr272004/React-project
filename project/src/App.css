@@ -72,62 +72,13 @@
 
 
 /* section- four-4 */
-/* 
-.section_four{
-  border: 1px solid greenyellow;
-  margin-top:150px;
-  height: 470px;
-}
-.greendots{
-  position: relative;
-  left:-100px;
-  top: -120px;
-  width: 39%;
-  height: auto;
-  border: 1px solid red;
-}
-.gridimage{
-  position: absolute;
-  top: 297%;
-  right:45%;
-  width: 48%;
-
-}
-.wehelp{
-  font-weight: 400 ;
-}
-.donec{
-  padding-top: 10px;
-  display: block;
-}
-#exploreone4{
-
-  font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 30px;
-  color: #ffffff;
-  background: #2f2f2f;
-  border-color: #2f2f2f;
-}
-.iconecircle{
-  font-size: 9px;
-}
-.iconewords{
-  position: relative;
-  top:-17px;
-  left:10px;
-  font-size: 15px;
-  line-gap-override: 10px;
-} */
-
-
 /* Main container */
-.section_four {
+/* .section_four {
   padding: 50px;
   margin-top: 100px;
 }
 
-/* Image Grid Styling important */
+
 .image-grid {
   position: relative;
 }
@@ -239,11 +190,10 @@
   }
 }
 
-/* // */
 
 .explore-section {
   padding: 20px;
-  background-color: #f1f3f4; /* Light background like in the image */
+  background-color: #f1f3f4; 
 }
 
 .feature-item {
@@ -256,10 +206,253 @@
 }
 
 .feature-icon {
-  color: #070707; /* Adjust icon color to match design */
+  color: #070707; 
   margin-right: 10px;
 }
 
 .text1{
   padding-top: 10px;
+} */
+
+/* ///////////////////////////////////// */
+.section_four {
+  padding: 50px;
+  margin-top: 100px;
+}
+@media (max-width:430px) {
+  .section_four{
+    margin-top: 30px;
+  }
+  
+}
+.image-grid {
+  position: relative;
+}
+
+.greendots {
+  position: absolute;
+  top: -110px;
+  left: -100px;
+  width: 300px;
+  height: auto;
+  z-index: 1;
+}
+
+@media (max-width:1030px) {
+  .greendots{
+    display: none;
+  }
+  
+}
+.gridimage {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.wehelp {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.donec {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+#exploreone4 {
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+}
+
+@media (max-width: 991px) {
+  .wehelp {
+    font-size: 28px;
+  }
+
+  .gridimage {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .text-section {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .icon-text {
+    font-size: 14px;
+  }
+
+  .feature-item {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .wehelp {
+    font-size: 24px;
+  }
+
+  #exploreone4 {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image-col {
+    text-align: center;
+  }
+
+}
+@media (max-width:770px) {
+  .text-section{
+    padding-top: 50px;
+  }
+}
+@media (max-width:450px) {
+  .wehelp{
+    margin-top: 50px;
+  }
+}
+@media (max-width: 576px) {
+  .gridimage {
+    width: 100%;
+  }
+  
+  .greendots {
+    display: none;
+  }
+
+  .wehelp {
+    font-size: 22px;
+  }
+
+  .icon-text {
+    font-size: 14px;
+  }
+
+  .text-section {
+    padding: 0 10px;
+  }
+
+  .explore-btn-container {
+    text-align: center;
+  }
+}
+
+/* Feature Item Styling */
+.feature-item {
+  margin-bottom: 15px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.feature-icon {
+  color: #070707;
+  margin-right: 10px;
+}
+
+  .text1, .text2, .text3, .text4 {
+    margin-top: -15px;
+    transform: translateY(22px);
+    border: 1px solid red;
+  }
+
+/* For screens between 1024px and 1440px (laptops, desktops) */
+@media (max-width: 1440px) {
+  .text1, .text2, .text3, .text4 {
+    margin-top: -10px;
+    transform: translateY(20px);
+  }
+}
+
+/* For tablet screens (768px to 1024px) */
+@media (max-width: 1024px) {
+  .text1, .text2, .text3, .text4 {
+    /* margin-top: -8px; */
+    transform: translateY(30px);
+    
+    /* padding: 8px; */
+    font-size: 13px; /* Slightly reduce font size for tablets */
+  }
+}
+
+/* For small tablets and large mobile screens (576px to 768px) */
+@media (max-width: 768px) {
+  .text1, .text2, .text3, .text4 {
+    margin-top: -5px;
+    transform: translateY(20px);
+    /* padding: 6px; */
+    font-size: 14px; /* Make text smaller for better fit */
+    border: 1px solid orange; /* You can adjust border styling for smaller screens if desired */
+  }
+}
+
+/* For mobile screens (up to 576px) */
+@media (max-width: 576px) {
+  .text1, .text3 {
+    margin-top: 0;
+    transform: translateY(6px); /* Lower the translateY for mobile screens */
+    /* padding: 5px; */
+    font-size: 13px; /* Further reduce font size for mobile readability */
+    border: 1px solid orange; /* Optional: Lighter border for smaller screens */
+  }
+  .text2{
+    margin-top: 0;
+    transform: translateY(16px);
+    font-size: 13px; /* Further reduce font size for mobile readability */
+    border: 1px solid orange; 
+  }
+  .text2{
+    margin-top: 0;
+    transform: translateY(12px);
+    font-size: 13px; /* Further reduce font size for mobile readability */
+    border: 1px solid orange; 
+  }
+}
+
+/* For very small mobile screens (up to 400px) */
+@media (max-width: 400px) {
+  .text1, .text2,  .text4 {
+    margin-top: 0;
+    transform: translateY(15px); /* Minimal translate for very small screens */
+    padding: 4px;
+    font-size: 12px;
+    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+  }
+  .text3 {
+    margin-top: 0;
+    transform: translateY(8px); /* Minimal translate for very small screens */
+    padding: 4px;
+    font-size: 12px;
+    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+  }
+}
+@media (max-width: 350px) {
+  .text1, .text2,  .text4 {
+    margin-top: 0;
+    transform: translateY(15px); /* Minimal translate for very small screens */
+    padding: 4px;
+    font-size: 12px;
+    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+  }
+  .text3 {
+    margin-top: 0;
+    transform: translateY(17px); /* Minimal translate for very small screens */
+    padding: 4px;
+    font-size: 12px;
+    border: 1px solid orange; /* Maintain consistent border, you can adjust as needed */
+  }
 }
