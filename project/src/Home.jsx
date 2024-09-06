@@ -135,7 +135,7 @@ const Home = () => {
                 </div>
             </Col>
             <Col lg={5} className="text-section">
-                <h1 className="wehelp">We Help You Make Modern Interior Design</h1>
+                <p className="wehelp">We Help You Make Modern Interior Design</p>
                 <p className="donec">
                     Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
                     Nulla ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
@@ -144,11 +144,6 @@ const Home = () => {
                 <Row>
                     <Col sm={6} xs={12} className="feature-item">
                         <div className="icon-text">
-                            {/* <Row>
-                                <Col lg={2}> <FaRegCircle className="feature-icon" /></Col>
-                                <Col lg={10}>
-                                <span className="text1">Donec vitae odio quis nisl dapibus malesuada Lorem, ipsum.</span></Col>
-                            </Row> */}
                             <FaRegCircle className="feature-icon" /> 
                             <p className="text1" id="text1">Donec vitae odio quis nisl dapibus malesuada Lorem, ipsum.</p>
                         </div>

@@ -73,147 +73,6 @@
 
 /* section- four-4 */
 /* Main container */
-/* .section_four {
-  padding: 50px;
-  margin-top: 100px;
-}
-
-
-.image-grid {
-  position: relative;
-}
-
-.greendots {
-  position: absolute;
-  top: -110px;
-  left: -100px;
-  width: 300px;
-  height: auto;
-  z-index: 1;
-}
-@media (max-width:1030px) {
-  .greendots{
-    display: none;
-  }
-  
-}
-.gridimage {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  z-index: 2;
-}
-.wehelp {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.donec {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-#exploreone4{
-  font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 30px;
-  color: #ffffff;
-  background: #2f2f2f;
-  border-color: #2f2f2f;
-}
-@media (max-width: 991px) {
-  .wehelp {
-    font-size: 28px;
-  }
-
-  .gridimage {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .text-section {
-    text-align: center;
-    padding-left: 0;
-  }
-
-  .iconewords {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .greendots {
-    top: -30px;
-    left: -50px;
-    width: 100px;
-  }
-
-  .wehelp {
-    font-size: 24px;
-  }
-
-  .iconewords {
-    font-size: 14px;
-  }
-
-  #exploreone4 {
-    width: 100%;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 576px) {
-  .gridimage {
-    width: 100%;
-  }
-
-  .greendots {
-    display: none;
-  }
-
-  .wehelp {
-    font-size: 22px;
-  }
-
-  .iconecircle {
-    font-size: 20px;
-  }
-
-  .iconewords {
-    font-size: 14px;
-  }
-
-  .text-section {
-    padding: 0 10px;
-  }
-}
-
-
-.explore-section {
-  padding: 20px;
-  background-color: #f1f3f4; 
-}
-
-.feature-item {
-  margin-bottom: 15px;
-}
-
-.icon-text {
-  display: flex;
-  align-items: center;
-}
-
-.feature-icon {
-  color: #070707; 
-  margin-right: 10px;
-}
-
-.text1{
-  padding-top: 10px;
-} */
-
 /* ///////////////////////////////////// */
 .section_four {
   padding: 50px;
@@ -251,13 +110,11 @@
   border-radius: 15px;
   z-index: 2;
 }
-
 .wehelp {
   font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-weight: 600;
+  color: black;
 }
-
 .donec {
   font-size: 16px;
   line-height: 1.6;
@@ -276,6 +133,7 @@
 @media (max-width: 991px) {
   .wehelp {
     font-size: 28px;
+    margin-top: 0px;
   }
 
   .gridimage {
