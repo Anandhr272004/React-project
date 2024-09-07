@@ -95,5 +95,25 @@
     "buttonsfour": [
       { "label": "Explore", "id": "explore" }
     ]
-  }
+  },
+  "sectionfive": [
+    {
+      "id": 1,
+      "name": "Nordic Chair",
+      "description": "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
+      "image": "./Images/product-1.png"
+    },
+    {
+      "id": 2,
+      "name": "Kruzo Aero Chair",
+      "description": "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
+      "image": "./Images/product-2.png"
+    },
+    {
+      "id": 3,
+      "name": "Ergonomic Chair",
+      "description": "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
+      "image": "./Images/product-3.png"
+    }
+  ]
 }

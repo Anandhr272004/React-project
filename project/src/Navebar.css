@@ -10,8 +10,9 @@
     background-color: #3c5845;
     height: 600px;
   }
+  /* / background colors / */
   .bg-bluecolor{
-      background-color: #f2f4f5;
+      background-color:rgb(245,247,246,255);
   
   }
   /* //tonggle button */

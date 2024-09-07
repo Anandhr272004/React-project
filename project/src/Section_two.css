@@ -170,12 +170,16 @@
     
   }
   #procard {
-    background-color: #f2f4f5;
+    background-color:
+     #eef4f7
+    /* rgba(220,229,228,255) */
+    ;
+    border-radius: 5%;
     height: 108%;
     position: relative;
     overflow: hidden;
     border: none;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   

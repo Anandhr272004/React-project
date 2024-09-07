@@ -1,13 +1,14 @@
 import React from "react";
-import { Row, Col, Container, Button, Image } from "react-bootstrap";
+import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 import data from "./Home.json";
 import SectionThree from "./Section-three";
 import Section_two from "./Section-two";
 import { FaRegCircle } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import Navebar from "./Navebar";
 
 const Home = () => {
-
+    const navigate = useNavigate();
     return (
         <div className="Home">
             <div className="section">
@@ -82,25 +83,54 @@ const Home = () => {
                                 <h1 className="wehelp">{data.sectionFour.heading}</h1>
                                 <p className="donec">{data.sectionFour.description}</p>
                                 <Row>
-                                    {data.sectionFour.features.map((featu,index)=>(
-                                         <Col key={index} sm={6} xs={12} className="feature-item">
-                                         <div className="icon-text">
-                                             <FaRegCircle className="feature-icon" />
-                                             <p className="text1" id="text1">{featu.text}</p>
-                                         </div>
-                                     </Col>
+                                    {data.sectionFour.features.map((featu, index) => (
+                                        <Col key={index} sm={6} xs={12} className="feature-item">
+                                            <div className="icon-text">
+                                                <FaRegCircle className="feature-icon" />
+                                                <p className="text1" id="text1">{featu.text}</p>
+                                            </div>
+                                        </Col>
                                     ))}
                                 </Row>
                                 <div className="explore-btn-container">
-                                    {data.sectionFour.buttonsfour.map((buttonfour)=>(
-                                         <Button id="exploreone4" key={buttonfour.id}>{buttonfour.label}</Button>
-                                   ) )}
-                                   
+                                    {data.sectionFour.buttonsfour.map((buttonfour) => (
+                                        <Button id="exploreone4" key={buttonfour.id}>{buttonfour.label}</Button>
+                                    ))}
+
                                 </div>
                             </Col>
                         </Row>
                     </Container>
+                </div>
 
+
+                {/* section-five */}
+                <div className="section-five mt-5">
+                    <Container>
+                        <Row className="justify-content-center mt-4">
+                            {data.sectionfive.map((five) => (
+                                <Col key={five.id} lg={4} md={4} sm={12} className="mb-4">
+                                    <Row>
+                                        <Col lg={5}>
+                                            <Card id="five">
+                                                <Card.Img
+                                                    variant="top"
+                                                    src={five.image}
+                                                    id="five1" />
+                                            </Card>
+                                        </Col>
+                                        <Col lg={7}>
+                                            <Card.Body>
+                                                <Card.Title id="five2">{five.name}</Card.Title>
+                                                <p>{five.description}</p>
+                                                <p id='five4'>Read More</p>
+                                            </Card.Body>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Container>
                 </div>
 
             </div>
