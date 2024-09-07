@@ -66,5 +66,34 @@
       "mainImage": "./Images/why-choose-us-img.jpg",
       "dotsImage": "./Images/dots-yellow.svg"
     }
+  },
+  "sectionFour": {
+    "heading": "We Help You Make Modern Interior Design",
+    "description": "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nulla ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.",
+    "images": {
+      "dots": "./Images/dots-green.svg",
+      "product": "./Images/product.png"
+    },
+    "features": [
+      {
+        "icon": "FaRegCircle",
+        "text": "Donec vitae odio quis nisl dapibus malesuada Lorem, ipsum."
+      },
+      {
+        "icon": "FaRegCircle",
+        "text": "Donec vitae odio quis nisl Lorem, ipsum dolor. dapibus malesuada."
+      },
+      {
+        "icon": "FaRegCircle",
+        "text": "Donec Lorem ipsum dolor sit amet. vitae odio quis nisl."
+      },
+      {
+        "icon": "FaRegCircle",
+        "text": "Donec vitae Lorem ipsum dolor sit amet. odio quis nisl malesuada."
+      }
+    ], 
+    "buttonsfour": [
+      { "label": "Explore", "id": "explore" }
+    ]
   }
 }
