@@ -406,7 +406,7 @@
     display: none;
   }
 } */
- 
+
 @media (max-width:770px) {
   #five4,#five2{
     text-align: left;
@@ -416,4 +416,15 @@
   #five4,#five2{
     text-align: center;
   }
+}
+
+/* /.section-six/ */
+.section-six{
+  margin-top: 130px;
+}
+@media (max-width:768px) {
+  .section-six{
+    margin-top: 80px;
+  }
+  
 }

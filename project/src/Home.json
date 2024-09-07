@@ -115,5 +115,28 @@
       "description": "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
       "image": "./Images/product-3.png"
     }
+  ],
+  "testimonials":[
+    {
+      "id": 1,
+      "content": "“Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”",
+      "img": "./Images/person-1.png",
+      "name": "Maria Jones",
+      "designation": "CEO, Co-Founder, XYZ Inc."
+    },
+    {
+      "id": 2,
+      "content": "“Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”",
+      "img": "./Images/person_2.jpg",
+      "name": "John Doe",
+      "designation": "CTO, ABC Corp."
+    },
+    {
+      "id": 3,
+      "content": "“Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”",
+      "img": "./Images/person_3.jpg",
+      "name": "Jimmy",
+      "designation": "CTS, TCS Corp."
+    }
   ]
 }

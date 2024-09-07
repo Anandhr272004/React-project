@@ -135,7 +135,7 @@ const Home = () => {
                 </div>
 
                 {/* /section-six - testimonial/ */}
-                <div className="section-six mt-5">
+                <div className="section-six">
                     <SectionSix />
                 </div>
 

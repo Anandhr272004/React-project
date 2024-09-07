@@ -1,8 +1,16 @@
-
+.test{
+    text-align: center;
+    font-family: "Inter", sans-serif;
+}
+.testimonial-img{
+    border-radius: 50%; /* rounded-circle */
+  margin-top: 1.5rem; /* mt-4 */
+  margin: auto;
+}
 .testimonial-carousel .testimonial-content {
-    max-width: 700px;
+    max-width: 730px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 20px;
   }
   
   .testimonial-carousel .testimonial-content p {
@@ -46,7 +54,33 @@
     .testimonial-carousel .text-muted {
       font-size: 0.8rem;
     }
+    .testimonial-carousel .testimonial-content p{
+        font-size: 1rem;
+
+    }
   }
   
+  
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: white;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+}
 
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
 
+.carousel-control-prev-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns%3D"http%3A//www.w3.org/2000/svg" fill%3D"%23fff" viewBox%3D"0 0 8 8"%3E%3Cpath d%3D"M5.5 0L4.5 1 2 4l2.5 3 1-1L4 4l1.5-4z"/%3E%3C/svg%3E');
+}
+
+.carousel-control-next-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns%3D"http%3A//www.w3.org/2000/svg" fill%3D"%23fff" viewBox%3D"0 0 8 8"%3E%3Cpath d%3D"M2.5 0L3.5 1 6 4 3.5 7 2.5 6l2.5-3L2.5 0z"/%3E%3C/svg%3E');
+} 
+ */
