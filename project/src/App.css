@@ -401,8 +401,19 @@
 
 /* / below - 600px  continer will disappere/ */
 
-@media (max-width:600px) {
+/* @media (max-width:600px) {
   .section-five{
     display: none;
+  }
+} */
+ 
+@media (max-width:770px) {
+  #five4,#five2{
+    text-align: left;
+  }
+}
+@media (max-width:500px) {
+  #five4,#five2{
+    text-align: center;
   }
 }

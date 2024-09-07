@@ -6,6 +6,7 @@ import Section_two from "./Section-two";
 import { FaRegCircle } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import Navebar from "./Navebar";
+import SectionSix from "./Section-six";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -68,7 +69,7 @@ const Home = () => {
                     <SectionThree />
                 </div>
 
-                {/* section4 */}
+                {/* section4 -muliple images*/}
 
                 <div className="section-four">
                     <Container className="section_four">
@@ -104,14 +105,14 @@ const Home = () => {
                 </div>
 
 
-                {/* section-five */}
+                {/* section-five -three chair */}
                 <div className="section-five mt-5">
                     <Container>
                         <Row className="justify-content-center mt-4">
                             {data.sectionfive.map((five) => (
-                                <Col key={five.id} lg={4} md={4} sm={12} className="mb-4">
+                                <Col key={five.id} lg={4} md={12} sm={12} className="mb-4">
                                     <Row>
-                                        <Col lg={5}>
+                                        <Col lg={5} md={5} sm={5}>
                                             <Card id="five">
                                                 <Card.Img
                                                     variant="top"
@@ -119,7 +120,7 @@ const Home = () => {
                                                     id="five1" />
                                             </Card>
                                         </Col>
-                                        <Col lg={7}>
+                                        <Col lg={7} md={7}sm={7}>
                                             <Card.Body>
                                                 <Card.Title id="five2">{five.name}</Card.Title>
                                                 <p>{five.description}</p>
@@ -131,6 +132,11 @@ const Home = () => {
                             ))}
                         </Row>
                     </Container>
+                </div>
+
+                {/* /section-six - testimonial/ */}
+                <div className="section-six mt-5">
+                    <SectionSix />
                 </div>
 
             </div>
