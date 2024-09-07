@@ -57,7 +57,7 @@
     }
   
     .craft, .excellent {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     
     #procard {
@@ -111,7 +111,7 @@
     }
   
     .craft, .excellent {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
   
     .hover-icon {
@@ -121,6 +121,7 @@
     #procard {
       height: auto;
     }
+   
   }
   
   .nordic {
@@ -161,6 +162,7 @@
     opacity: 1;
     transform: translate(-10%, 10%);
   }
+  
   @media (max-width:430px) {
     #procard{
         margin: 10px;

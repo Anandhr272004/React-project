@@ -135,7 +135,7 @@ const Home = () => {
                 </div>
             </Col>
             <Col lg={5} className="text-section">
-                <p className="wehelp">We Help You Make Modern Interior Design</p>
+                <h1 className="wehelp">We Help You Make Modern Interior Design</h1>
                 <p className="donec">
                     Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
                     Nulla ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.

@@ -30,7 +30,7 @@ const SectionThree = () => {
                     </Row>
                 </Col>
                 <Col lg={6} className="image-container">
-                    <img src={data.whyChooseUs.images.mainImage} alt="Sofa" className="sofa-image" />
+                    <img src={data.whyChooseUs.images.mainImage} alt="Sofa" className="half-sofa-image" />
                     <img src={data.whyChooseUs.images.dotsImage} alt="Yellow Dots" className="dots-image" />
                 </Col>
             </Row>

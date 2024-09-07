@@ -52,11 +52,11 @@
     text-align: right;
   }
   
-  .sofa-image {
+  .half-sofa-image {
     width: 100%;
     max-width: 500px;
     position: absolute;
-    left: 18%;
+    left: 18%;  
     z-index: 1;
     border-radius: 5%;
   }
@@ -73,9 +73,15 @@
     .dots-image {
       display: none;
     }
+    .half-sofa-image{
+      left:3%;
+    }
+    .why-choose-us-section{
+      margin-top: 100px;
+    }
   }
   @media (max-width: 775px) {
-      .sofa-image {
+      .half-sofa-image {
       position: relative;
       left: 0;
       margin: 0 auto;
