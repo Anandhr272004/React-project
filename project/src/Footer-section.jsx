@@ -88,6 +88,11 @@ const FooterSection = () => {
             </ul>
           </Col>
         </Row>
+        <Row className="mt-5">
+            <Col lg={6} className="copy">Copyright ©2024. All Rights Reserved.- Designed By Anandh</Col>
+            <Col lg={3} className="terms">Terms & Conditions</Col>
+            <Col lg={3} className="privacy"> Privacy Policy</Col>
+            </Row>
       </Container>
     </footer>
   );
