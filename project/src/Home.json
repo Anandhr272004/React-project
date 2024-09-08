@@ -161,6 +161,38 @@
       "date": "Feb 12, 2024",
       "imageUrl": "./Images/post-3.jpg"
     }
-  ]
+  ],
+  "Footer":{
+    "brandName": "Furni.",
+    "newsletterTitle": "Subscribe to Newsletter",
+    "footerDescription": "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.",
+    "socialLinks": [
+      { "icon": "FaFacebookF", "url": "https://facebook.com" },
+      { "icon": "FaTwitter", "url": "https://twitter.com" },
+      { "icon": "FaInstagram", "url": "https://instagram.com" },
+      { "icon": "FaLinkedinIn", "url": "https://linkedin.com" }
+    ],
+    "footerLinks": [
+      {
+        "title": "Company",
+        "links": ["About us", "Services", "Blog", "Contact us"]
+      },
+      {
+        "title": "Support",
+        "links": ["Support", "Knowledge base", "Live chat"]
+      },
+      {
+        "title": "Company Info",
+        "links": ["Jobs", "Our team", "Leadership", "Privacy Policy"]
+      },
+      {
+        "title": "Products",
+        "links": ["Nordic Chair", "Kruzo Aero", "Ergonomic Chair"]
+      }
+    ],
+    "copyright": "©2024. All Rights Reserved.- Designed By Anandh",
+    "Terms":"Terms & Conditions",
+    "privacy":"Privacy Policy"
+  }
 
 }
