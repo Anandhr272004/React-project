@@ -7,6 +7,8 @@ import { FaRegCircle } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import Navebar from "./Navebar";
 import SectionSix from "./Section-six";
+import Sectionseven from "./Section-seven";
+import FooterSection from "./Footer-section";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -139,7 +141,17 @@ const Home = () => {
                     <SectionSix />
                 </div>
 
+                {/* /section-seven - Recent Blogs/ */}
+                <div className="section-seven">
+                    <Sectionseven />
+                </div>
+                <div className="bg"></div>
+                {/* //app.css */}
             </div>
+
+            {/* /Footer-section / */}
+          
+            <FooterSection />
 
         </div>
     );

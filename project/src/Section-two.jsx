@@ -22,12 +22,7 @@ const Section_two= () => {
           {data.products.map((product) => (
             <Col lg={3} md={4} sm={6} xs={12} className="productcol" key={product.id}>
               <Card id="procard">
-                <Card.Img
-                  variant="top"
-                  className="img-fluid"
-                  src={product.image}
-                  alt={product.title}
-                />
+                <Card.Img  variant="top" className="img-fluid" src={product.image} alt={product.title} />
                 <Card.Body>
                   <Card.Title className="nordic">{product.title}</Card.Title>
                   <Card.Text className="nordic1">{product.price}</Card.Text>

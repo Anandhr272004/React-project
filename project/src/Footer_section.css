@@ -1,0 +1,231 @@
+   .footer-section {
+    background-color: white;
+    padding: 60px 0;
+    position: relative;
+  }
+  @media (max-width:430px){
+    .footer-section{
+      margin-top: -220px;
+    }
+    
+  }
+
+  .relativeimg {
+    position: absolute;
+    right: 5%;
+    top: -130px;
+    z-index: 1;
+  }
+  
+  .minisofa {
+    width: 300px; /* Adjust the size as per your needs */
+  }
+
+  .subscribe-section {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .mail{
+    font-size: 2rem;
+    color: gray;
+  }
+  .sub{
+    font-size: 1.25rem;
+    color:gray;
+    float: left;
+    transform: translate(18%,-90%);
+  }
+  #emailbox,
+  #namebox{
+    width:65%;
+    height: 45px;
+    border-radius: 8px;
+    margin-top: -20px;
+    /* border:1px solid red; */
+     margin-right: 10px;
+
+  }
+  /* .subscribe-form input {
+    border-radius: 5px;
+  } */
+  
+  #subscribebtn {
+   background-color: #3c5845;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    color: #fff;
+    margin-top: -20px;
+    height: 45px;
+    font-size: 1.7rem;
+  }
+  #subbtn{
+    font-size: 1.7rem;
+    color: white;
+    background-color: black;
+    /* margin-top: -30px; */
+    border: 1px solid red;
+  }
+  .sofa-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .footer-brand {
+    font-size: 2.5rem;
+    color: #3c5845;
+    font-weight: 700;
+  }
+  
+  .footer-description {
+    font-size: 1rem;
+    color: #6a6a6a;
+    margin-top: 10px;
+  }
+  
+  .social-icons {
+    list-style: none;
+    display: flex;
+    gap: 13px;
+    float: left;
+    margin-top: 5px;
+    color: #3c5845; ;
+  }
+  
+  .social-icons li {
+    font-size: 1.35rem;
+    color: #3c5845;
+    padding-left: 0%;
+    /* border: 1px solid red; */
+    margin-left: -30px;
+    padding-right: 25px;
+  }
+ 
+  .social-icons :hover{
+    color: black;
+  }
+  .footer-links {
+    margin-top: 50px;
+  }
+  
+  .footer-links h5 {
+    font-size: 1.25rem;
+    color: #2f2f2f;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    font-size: 1rem;
+    /* color: #6a6a6a; */
+    color: black;
+    margin-bottom: 5px;
+  }
+  
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .footer-brand {
+      font-size: 2rem;
+    }
+  
+    .footer-description {
+      font-size: 0.9rem;
+    }
+  
+    .relativeimg {
+      right: 5%;
+    }
+  }
+  
+  @media (max-width: 768px)and(min-width:450px){
+    .footer-section {
+      padding: 40px 0;
+    }
+  }
+    @media (max-width: 768px) {
+    .footer-links {
+      text-align: center;
+    }
+  
+    .subscribe-form {
+      flex-direction: column;
+    }
+  
+    .subscribe-form input {
+      margin-bottom: 25px;
+  /* // */
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  
+    .relativeimg {
+      right: 0;
+    }
+   #namebox,#emailbox{
+    width: 80%;
+   }
+   #subscribebtn{
+    width: 80%;
+    font-size: 2rem;
+    padding: 12px; /* Increase padding for a more tappable area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+  }
+  
+  @media (max-width: 576px) {
+      /* .subscribe-section {
+        text-align: left;
+      } */
+  
+    .footer-brand {
+      font-size: 1.75rem;
+    }
+  
+    .footer-links {
+      text-align: center;
+    }
+  
+    .relativeimg {
+      position: static;
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    .minisofa {
+      margin: 0 auto;
+    }
+  
+  }
+  /* @media (max-width:430px) {
+    #subscribebtn{
+      width: 15%;
+      font-size: 2rem;
+     }
+    
+  } */
+  @media (max-width: 430px) {
+    #subscribebtn {
+      width: 80%; /* Ensure the button takes full width */
+      font-size: 2rem; /* Adjust the font size for small screens */
+      padding: 12px; /* Increase padding for a more tappable area */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #subscribebtn svg {
+      font-size: 1.5rem; /* Resize the icon inside the button */
+      margin-left: 8px; /* Add some space between text and icon */
+    }
+  }
+  

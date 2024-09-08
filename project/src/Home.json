@@ -138,5 +138,29 @@
       "name": "Jimmy",
       "designation": "CTS, TCS Corp."
     }
+  ],
+  "blogPosts":[
+    {
+      "id": 1,
+      "title": "First Time Home Owner Ideas",
+      "author": "Kristin Watson",
+      "date": "Dec 19, 2024",
+      "imageUrl": "./Images/post-1.jpg"
+    },
+    {
+      "id":2,
+      "title": "How To Keep Your Furniture Clean",
+      "author": "Robert Fox",
+      "date": "Nov 15, 2024",
+      "imageUrl": "./Images/post-2.jpg"
+    },
+    {
+      "id":3,
+      "title": "Small Space Furniture Apartment Ideas",
+      "author": "Kristin Watson",
+      "date": "Feb 12, 2024",
+      "imageUrl": "./Images/post-3.jpg"
+    }
   ]
+
 }
