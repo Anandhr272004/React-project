@@ -1,5 +1,4 @@
-
-   /* Base Styles */
+/* Base Styles */
 .section2 {
   padding-top: 130px;
 }
@@ -94,35 +93,43 @@
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .section2 {
-      padding-top: 100px;
+    padding-top: 100px;
   }
 
-  .craft, .excellent {
-      font-size: 32px;
+  .craft,
+  .excellent {
+    font-size: 32px;
+  }
+
+  #procard {
+    height: 100%;
+    /* border: 1px solid red; */
   }
 }
 
 @media (max-width: 768px) {
   .section2one {
-      text-align: center;
-      margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .productcol {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
-  .craft, .excellent {
-      font-size: 2rem;
+  .craft,
+  .excellent {
+    font-size: 2rem;
   }
 
   #procard {
-      height: 108%;
+    height: 108%;
   }
 
   .hover-icon {
-      font-size: 22px;
+    font-size: 22px;
   }
+
   #procard:hover .hover-icon {
     opacity: 1;
     transform: translate(-10%, 15%);
@@ -131,55 +138,85 @@
 
 @media (max-width: 575px) {
   .section2 {
-      padding-top: 80px;
+    padding-top: 80px;
   }
 
-  .craft, .excellent {
-      font-size: 28px;
+  .craft,
+  .excellent {
+    font-size: 28px;
   }
 
   #procard {
-      height: auto;
+    height: auto;
   }
 
   .hover-icon {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .productcol {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 
   .card-img-overlay {
-      top: auto;
-      bottom: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    top: auto;
+    bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
- 
+
 }
 
 @media (max-width: 430px) {
   .section2 {
-      padding-top: 60px;
+    padding-top: 60px;
   }
 
-  .craft, .excellent {
-      font-size: 1.8rem;
+  .craft,
+  .excellent {
+    font-size: 1.8rem;
   }
 
   .hover-icon {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   #procard {
-      height: 100%;
-      margin: 15px;
+    height: 100%;
+    margin: 15px;
   }
+
   #procard:hover .hover-icon {
-    transform: translate(-20%, 560%);
+    transform: translate(-10%, 560%);
     opacity: 1;
+  }
+
+  #procard:hover {
+    transform: translateY(0px);
+    border-radius: 8%;
+  }
 }
+
+@media (max-width:380px) {
+  #procard {
+    height: 98%;
+    /* border: 1px solid fuchsia; */
+  }
+
+  #procard:hover .hover-icon {
+    transform: translate(-10%, 500%);
+  }
+}
+
+@media (max-width:320px) {
+  #procard:hover .hover-icon {
+    transform: translate(-10%, 425%);
+  }
+}
+@media (max-width:290px) {
+  #procard:hover .hover-icon {
+    transform: translate(-10%, 330%);
+  }
 }
