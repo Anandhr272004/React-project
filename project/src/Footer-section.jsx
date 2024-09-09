@@ -62,7 +62,7 @@ const FooterSection = () => {
           </Col>
 
            {data.Footer.footerLinks.map((section, index) => (
-            <Col key={index} md={3} sm={6} lg={2} className="footer-links">
+            <Col key={index} md={3} sm={12} lg={2} className="footer-links">
               <ul>
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>{link}</li>

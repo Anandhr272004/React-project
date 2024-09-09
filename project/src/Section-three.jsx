@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { FaShippingFast, FaShoppingBag, FaHeadset, FaExchangeAlt } from "react-icons/fa";
 import data from './Home.json';
+import {Link, useLocation , useNavigate } from "react-router-dom";
 import './Section_three.css'
 
 const iconMapping = {
@@ -10,7 +11,9 @@ const iconMapping = {
     FaExchangeAlt: <FaExchangeAlt size={35} className="mb-3" />
 };
 
+
 const SectionThree = () => {
+    const location = useLocation();
     return (
         <Container className="why-choose-us-section">
             <Row>

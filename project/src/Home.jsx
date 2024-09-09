@@ -4,14 +4,12 @@ import data from "./Home.json";
 import SectionThree from "./Section-three";
 import Section_two from "./Section-two";
 import { FaRegCircle } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
 import Navebar from "./Navebar";
 import SectionSix from "./Section-six";
 import Sectionseven from "./Section-seven";
 import FooterSection from "./Footer-section";
 
 const Home = () => {
-    const navigate = useNavigate();
     return (
         <div className="Home">
             <div className="section">
