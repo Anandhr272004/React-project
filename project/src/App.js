@@ -10,9 +10,9 @@ function App() {
   return (
     <>
      
-<Home />
+{/* <Home /> */}
 
-{/* <Shop /> */}
+<Shop />
 
 
 {/* <Navebar/> */}

@@ -35,8 +35,8 @@
 }
 
 .nordic {
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 18px;
   color: #000000;
   text-align: center;
 }
@@ -44,7 +44,7 @@
 .nordic1 {
   font-weight: 600;
   font-size: 15px;
-  color: #000000;
+  color: #777;
   text-align: center;
 }
 
@@ -69,20 +69,21 @@
 }
 
 #procard {
-  background-color: #eef4f7;
+  /* background-color: #eef4f7; */
+  background-color:rgb(245,247,246,255);
   border-radius: 5%;
   height: 108%;
   position: relative;
-  /* border: none; */
+  border: none;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #procard:hover {
   transform: translateY(-25px);
-  border-radius: 10%;
-  background-color: rgba(220, 229, 228, 255);
-  border: 1px solid gray;
+  /* border-radius: 10%; */
+  /* background-color: rgba(220, 229, 228, 25 5); */
+  /* border: 1px solid gray;  */
 }
 
 #procard:hover .hover-icon {
@@ -189,12 +190,14 @@
   }
 
   #procard:hover .hover-icon {
-    transform: translate(-10%, 560%);
+    transform: translate(-10%, 540%);
+  
     opacity: 1;
   }
 
   #procard:hover {
-    transform: translateY(0px);
+    transform: translateY(-25px);
+    border: 1px double gray;
     border-radius: 8%;
   }
 }
@@ -206,17 +209,21 @@
   }
 
   #procard:hover .hover-icon {
-    transform: translate(-10%, 500%);
+    transform: translate(-10%, 480%);
   }
 }
 
 @media (max-width:320px) {
   #procard:hover .hover-icon {
-    transform: translate(-10%, 425%);
+    transform: translate(-10%, 415%);
   }
 }
 @media (max-width:290px) {
   #procard:hover .hover-icon {
-    transform: translate(-10%, 330%);
+    transform: translate(-10%, 150%);
+    
+  }
+  #procard:hover{
+    background-color:	#D0D0D0;
   }
 }
