@@ -7,15 +7,18 @@ import Navebar from './Navebar.jsx';
 import Shop from './Shop.jsx';
 import Aboutus from './Aboutus.jsx';
 import Headersection from './Header-section.jsx';
+import How from './How.jsx';
+import Section_two from './Section-two.jsx';
 
 function App() {
   return (
     <>
      
 <Home />
-
+{/* <How /> */}
+{/* <Section_two /> */}
 {/* <Shop /> */}
-<Aboutus />
+{/* <Aboutus /> */}
 
 {/* <Headersection /> */}
 
