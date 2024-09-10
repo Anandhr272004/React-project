@@ -1,9 +1,11 @@
 import React from "react";
 import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 import data from "./Home.json";
+import { useNavigate } from "react-router-dom";
 import './App.css'
 
 const Headersection = () => {
+    const navigate = useNavigate();
     return (
         <div className="section">
 
@@ -31,6 +33,11 @@ const Headersection = () => {
                                 ))}
                             </p>
                             {data.header.buttons.map((button, index) => (
+                                <Button key={index} id={button.id} onClick={()=>navigate('/shop')}>
+                                    {button.label}
+                                </Button>
+                            ))}
+                            {data.header.buttons1.map((button, index) => (
                                 <Button key={index} id={button.id}>
                                     {button.label}
                                 </Button>
