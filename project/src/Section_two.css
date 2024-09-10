@@ -66,11 +66,12 @@
 
 .productcol {
   margin-bottom: 20px; /* Add some space between cards */
+  
 }
 .procard{
   position: relative;
   display: block;
-  width: 200px;
+  width: 380px !important;
   height: 300px;
   background: #B0E0E6 !important;
   padding: 20px;

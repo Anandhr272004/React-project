@@ -10,7 +10,7 @@ const Section_two = () => {
     <div className="section-two">
       <Container className="section2">
         <Row>
-          <Col xl={4}lg={3} md={12} sm={12} className="section2one">
+          <Col lg={3} md={12} sm={12} className="section2one">
             <h2 className="craft">Crafted with</h2>
             <h2 className="excellent">excellent material.</h2>
             <p className="donec">
@@ -39,7 +39,7 @@ const Section_two = () => {
 
 {/* <div className='product-section'> */}
 {data.products.map((product) => (
- <Col xl={2} lg={3} md={4} sm={12} xs={12} className="productcol  d-flex justify-content-center"
+ <Col lg={3} md={4} sm={12} xs={12} className="productcol  d-flex justify-content-center"
   key={product.id}>
 
           <Card className="procard" style={{ maxWidth: '18rem' }} >
