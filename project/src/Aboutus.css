@@ -1,0 +1,17 @@
+*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+}
+.aboutus-bg{
+    background-color: #3c5845;
+    height: 180px;
+}
+.headersection{
+    background-color: #3c5845;
+}
+.aboutus-one{
+    /* border: 1px solid red; */
+    margin-top: 450px;
+}

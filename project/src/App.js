@@ -5,15 +5,19 @@ import Home from './Home.jsx';
 import Login from './Login.jsx';
 import Navebar from './Navebar.jsx';
 import Shop from './Shop.jsx';
+import Aboutus from './Aboutus.jsx';
+import Headersection from './Header-section.jsx';
 
 function App() {
   return (
     <>
      
-{/* <Home /> */}
+<Home />
 
-<Shop />
+{/* <Shop /> */}
+<Aboutus />
 
+{/* <Headersection /> */}
 
 {/* <Navebar/> */}
       {/* <p>tailwind css</p>

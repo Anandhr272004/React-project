@@ -8,6 +8,7 @@ import Navebar from "./Navebar";
 import SectionSix from "./Section-six";
 import Sectionseven from "./Section-seven";
 import FooterSection from "./Footer-section";
+import Headersection from "./Header-section";
 
 const Home = () => {
     return (
@@ -16,7 +17,7 @@ const Home = () => {
 
                 <Navebar />
 
-                <header className="header-section">
+                {/* <header className="header-section">
                     <Container>
                         <Row className="align-items-center">
                             <Col xs={12} md={6}>
@@ -54,7 +55,8 @@ const Home = () => {
                             </Col>
                         </Row>
                     </Container>
-                </header>
+                </header> */}
+                <Headersection  />
             </div>
 
             {/* //section2 */}
