@@ -2,29 +2,10 @@ import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Section_seven.css";
 import data from"./Home.json";
+import { useNavigate } from "react-router-dom";
 
 const Sectionseven = () => {
-  const blogPosts = [
-    {
-      title: "First Time Home Owner Ideas",
-      author: "Kristin Watson",
-      date: "Dec 19, 2021",
-      imageUrl: "./Images/post-1.jpg", // Replace with real image URL
-    },
-    {
-      title: "How To Keep Your Furniture Clean",
-      author: "Robert Fox",
-      date: "Dec 15, 2021",
-      imageUrl: "./Images/post-2.jpg", // Replace with real image URL
-    },
-    {
-      title: "Small Space Furniture Apartment Ideas",
-      author: "Kristin Watson",
-      date: "Dec 12, 2021",
-      imageUrl: "./Images/post-3.jpg", // Replace with real image URL
-    },
-  ];
-
+  const navigate = useNavigate();
   return (
     <section className="blog-section py-5">
       <Container>
@@ -33,7 +14,7 @@ const Sectionseven = () => {
             <h2 className="recent-blog-title">Recent Blog</h2>
           </Col>
           <Col className="text-end" md={6}>
-            <a href="#view-all" className="view-all">
+            <a href="#view-all" className="view-all" onClick={()=>navigate("/blog")}>
               View All Posts
             </a>
           </Col>

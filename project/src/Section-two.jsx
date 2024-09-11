@@ -3,9 +3,11 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaPlusCircle } from 'react-icons/fa';
 import data from './Home.json';
 import { SlPlus } from "react-icons/sl";
+import { useNavigate } from 'react-router-dom';
 import './Section_two.css'
 
 const Section_two = () => {
+  const navigate = useNavigate();
   return (
     <div className="section-two">
       <Container className="section2">
@@ -17,7 +19,7 @@ const Section_two = () => {
               Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
               vulputate velit imperdiet dolor tempor tristique.
             </p>
-            <Button id="exploreone">Explore</Button>
+            <Button id="exploreone" onClick={()=>navigate("/explore")}>Explore</Button>
           </Col>
 
           {/* {data.products.map((product) => (

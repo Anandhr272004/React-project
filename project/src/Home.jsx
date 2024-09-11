@@ -9,8 +9,10 @@ import SectionSix from "./Section-six";
 import Sectionseven from "./Section-seven";
 import FooterSection from "./Footer-section";
 import Headersection from "./Header-section";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
     return (
         <div className="Home">
             <div className="section">
@@ -97,7 +99,7 @@ const Home = () => {
                                 </Row>
                                 <div className="explore-btn-container">
                                     {data.sectionFour.buttonsfour.map((buttonfour) => (
-                                        <Button id="exploreone4" key={buttonfour.id}>{buttonfour.label}</Button>
+                                        <Button id="exploreone4" key={buttonfour.id} onClick={()=>navigate("/explore")}>{buttonfour.label}</Button>
                                     ))}
 
                                 </div>
