@@ -6,6 +6,7 @@ import Headersection from './Header-section';
 import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 import data from "./Home.json";
 import SectionThree from './Section-three';
+import FooterSection from './Footer-section';
 
 const Aboutus = () => {
 
@@ -58,6 +59,7 @@ const Aboutus = () => {
             <div className='aboutus-one'>
             <SectionThree />
             </div>
+            <FooterSection />
 
 
         </div>
