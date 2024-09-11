@@ -128,7 +128,7 @@ const Aboutus = () => {
                     <Container>
                         <Row className="align-items-center">
                             <Col xs={12} md={6}>
-                                <h1 className="header-title">
+                                <h1 className="headertitle">
                                     About us <br />
                                 </h1>
                                 <p className="header-subtitle">

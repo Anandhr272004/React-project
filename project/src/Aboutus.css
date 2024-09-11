@@ -164,34 +164,19 @@
         height: 364px !important;
     }
 } */
-/* @media (max-width: 768px) {
-    .aboutus-bg {
-        height: 364px !important;
 
-    }
-}
-@media (max-width:430px) {
-    .aboutus-bg {
-        height: 643px !important; 
-      
-    }
-}
-@media (max-width:410px) {
-    .aboutus-bg {
-        height: 543px !important; 
-      
-    }
-} */
 /* Header Section */
 
 .headersection {
     background-color: #3c5845;
 }
 
-.header-title {
+.headertitle {
     font-size: 36px;
     color: white;
     margin-bottom: 20px;
+    text-align: left;
+    /* float: left; */
 }
 
 .header-subtitle {
@@ -291,11 +276,11 @@ h5 {
 
 #dotsimage {
     position: absolute;
-    top: -20%;
-    right: 0;
+    top: -10%;
+    right: -10%;
     width: 250px;
     height: auto;
-    display: none;
+    /* display: none; */
 }
 
 /* Responsive Design */
