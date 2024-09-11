@@ -16,7 +16,7 @@ function App() {
      
 <Home />
 {/* <How /> */}
-{/* <Section_two /> */}
+<Section_two />
 {/* <Shop /> */}
 {/* <Aboutus /> */}
 

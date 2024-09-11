@@ -22,22 +22,7 @@ const Section_two = () => {
             <Button id="exploreone" onClick={()=>navigate("/explore")}>Explore</Button>
           </Col>
 
-          {/* {data.products.map((product) => (
-            <Col lg={3} md={4} sm={6} xs={12} className="productcol" key={product.id}>
-              <Card id="procard">
-                <Card.Img variant="top" className="img-fluid" src={product.image} alt={product.title} />
-                <Card.Body>
-                  <Card.Title className="nordic">{product.title}</Card.Title>
-                  <Card.Text className="nordic1">{product.price}</Card.Text>
-                </Card.Body>
-                <div className="card-img-overlay">
-                  <span className="hover-icon">
-                    <FaPlusCircle />
-                  </span>
-                </div>
-              </Card>
-            </Col>
-          ))} */}
+
 
 {/* <div className='product-section'> */}
 {data.products.map((product) => (
@@ -53,7 +38,8 @@ const Section_two = () => {
               </Card.Text>
               <div className="card-img-overlay">
                 <span className="hover-icon">
-                  <SlPlus />
+                  {/* <SlPlus /> */}
+                  <FaPlusCircle />
                 </span>
               </div>
             </Card.Body>
