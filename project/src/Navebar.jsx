@@ -177,7 +177,7 @@ const Navebar = () => {
 
           <NavLink
             className="nav-link-custom"
-            onClick={() => navigate("/Signup")}
+            onClick={() => navigate("/signup")}
             id="all"
           >
             Sign up
