@@ -38,7 +38,7 @@ const Headersection = () => {
                                 </Button>
                             ))}
                             {data.header.buttons1.map((button, index) => (
-                                <Button key={index} id={button.id}>
+                                <Button key={index} id={button.id} onClick={()=>navigate('/explore')}>
                                     {button.label}
                                 </Button>
                             ))}
