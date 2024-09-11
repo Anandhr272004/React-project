@@ -129,31 +129,7 @@
 .productcard:hover::before {
   height: 50%;
 }
-/*  */
-
-  /* .image-container {
-    position: relative;
-  }
-  
-  .image-container img {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .image-container:hover img {
-    transform: scale(1.05);
-  } */
-  
   .icon-overlay{
-    /* font-size: 2rem;
-    color: #ffffff;
-    top: 50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; */
-    
   transition: opacity 0.3s ease-in-out;
   top: 50px;
   left: 0;
@@ -163,17 +139,7 @@
   justify-content: center;
 
   }
-  
-  /* .image-container:hover .icon-overlay {
-    opacity: 1;
-  } */
-  
   .hover-icon-overlay {
-    /* color: #000;
-    font-size: 24px; 
-    padding: 8px;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease; */
     color: #000; 
     font-size: 26px; 
     padding: 8px;
@@ -199,21 +165,6 @@
   
 /* // */
 
-/* .productcard{
-  background-color:rgb(245,247,246,255);
-  border-radius: 5%;
-  height: 108%;
-  position: relative;
-  border: none;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-} */
-/* .productcard:hover {
-    transform: translateY(-25px);
-    border-radius: 10%;
-    background-color: rgba(220, 229, 228, 25 5);
-    border: 1px solid gray; 
-  } */
   .productcard:hover .hover-icon-overlay {
     opacity: 1;
     transform: translate(-1%, -50%);

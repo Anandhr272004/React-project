@@ -1,4 +1,4 @@
-*{
+/* *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -11,7 +11,372 @@
 .headersection{
     background-color: #3c5845;
 }
-.aboutus-one{
-    /* border: 1px solid red; */
-    margin-top: 450px;
+.aboutus-one {
+    padding-top:520px;
+}
+
+.why-choose-us-section {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+
+
+  .why-choose-us-section {
+    padding-top: 100px;
+    margin-top: 190px;
+  }
+
+  
+  .why-choose-us-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .why-choose-us-section p {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  
+  .features {
+    margin-top: 20px;
+  }
+  
+  .feature-item {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .icon-container {
+    background-color: #f0f0f0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .icon-container i {
+    font-size: 24px;
+  }
+  
+  h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .image-container {
+    position: relative;
+    text-align: right;
+  }
+  
+  #halfsofaimage {
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    left: 18%;  
+    z-index: 1;
+    border-radius: 5%;
+  }
+  
+  #dotsimage {
+    position: relative;
+    top: -20%;
+    right: 1%;
+    width: 300px;
+    height: auto;
+    border-radius: 0%;
+  }
+  @media(max-width:1030px) {
+    #dotsimage {
+      display: none;
+    }
+    #halfsofaimage{
+      left:3%;
+    }
+    .why-choose-us-section{
+      margin-top: 50px;
+    }
+  }
+  @media (max-width: 775px) {
+      #halfsofaimage {
+      position: relative;
+      left: 0;
+      margin: 0 auto;
+    }
+  
+    .why-choose-us-section {
+      padding-top: 40px;
+      margin-top: 30px;
+    }
+  
+    .why-choose-us-section h2 {
+      font-size: 28px;
+    }
+  
+    .why-choose-us-section p {
+      font-size: 14px;
+    }
+  
+    .features {
+      margin-top: 10px;
+    }
+  
+    .feature-item {
+      margin-bottom: 20px;
+    }
+  
+    h5 {
+      font-size: 16px;
+    }
+  
+    .icon-container {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .icon-container i {
+      font-size: 20px;
+    }
+  }
+   */
+
+
+
+   /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+
+.aboutus-bg {
+    background-color: #3c5845;
+}
+/* @media (max-width:768px) {
+    .aboutus-bg{
+        height: 364px !important;
+    }
+} */
+/* @media (max-width: 768px) {
+    .aboutus-bg {
+        height: 364px !important;
+
+    }
+}
+@media (max-width:430px) {
+    .aboutus-bg {
+        height: 643px !important; 
+      
+    }
+}
+@media (max-width:410px) {
+    .aboutus-bg {
+        height: 543px !important; 
+      
+    }
+} */
+/* Header Section */
+
+.headersection {
+    background-color: #3c5845;
+}
+
+.header-title {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.header-subtitle {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* Why Choose Us Section */
+/* .aboutus-one {
+    padding: 40px 20px;
+} */
+
+/* .why-choose-us-section {
+    padding-top: 0;
+    margin-top: 0;
+} */
+/* Why Choose Us Section */
+.why-choose-us-section {
+    padding-top: 40px; /* Set a consistent padding */
+    margin-top: 0; /* Prevents the section from moving up */
+}
+
+/* Adjustments for smaller screens */
+@media(max-width: 775px) {
+    .why-choose-us-section {
+        margin-top: 30px; /* Make sure margin-top is defined */
+        padding-top: 20px; /* Reduced padding for smaller screens */
+    }
+}
+
+/* Add padding and height consistency */
+.aboutus-one {
+    padding: 40px 20px; /* Add consistent padding */
+    min-height: 400px; /* Ensures that the section maintains a stable height */
+}
+
+@media (max-width: 430px) {
+    .aboutus-one {
+        padding: 30px 15px; /* Adjust padding for mobile screens */
+        min-height: 500px; /* Ensure enough height on smaller screens */
+    }
+}
+
+
+.why-choose-us-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.why-choose-us-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Feature Items */
+.features {
+    margin-top: 20px;
+}
+
+.feature-item {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.icon-container {
+    background-color: #f0f0f0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+}
+
+#halfsofaimage {
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    left: 15%;
+    z-index: 1;
+    border-radius: 5%;
+}
+
+#dotsimage {
+    position: absolute;
+    top: -20%;
+    right: 0;
+    width: 250px;
+    height: auto;
+    display: none;
+}
+
+/* Responsive Design */
+@media(max-width: 1030px) {
+    #dotsimage {
+        display: none;
+    }
+    #halfsofaimage {
+        left: 5%;
+    }
+}
+
+@media(max-width: 775px) {
+    #halfsofaimage {
+        position: relative;
+        left: 0;
+        margin: 0 auto;
+    }
+
+    .why-choose-us-section {
+        margin-top: 30px;
+    }
+
+    .why-choose-us-section h2 {
+        font-size: 28px;
+    }
+
+    .why-choose-us-section p {
+        font-size: 14px;
+    }
+
+    .features {
+        margin-top: 10px;
+    }
+
+    .feature-item {
+        margin-bottom: 20px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    .icon-container {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon-container i {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 576px) {
+    .header-title {
+        font-size: 28px;
+    }
+
+    .header-subtitle {
+        font-size: 16px;
+    }
+}
+
+  
+
+
+.about-two{
+    padding-top: 120px;
+}
+@media (max-width:1440px) {
+    .about-two{
+        padding-top:100px ;
+    }
+}
+@media (max-width:430px) {
+    .about-two{
+        padding-top:130px !important;
+    }
+
+/* .minisofa{
+    display: none;
+
+} */
 }
