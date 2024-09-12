@@ -19,7 +19,7 @@ root.render(
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<Aboutus />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/Signin" element={<Signin />} />
+          <Route path="/signin" element={<Signin />} />
         </Routes>
       </Router>
   </React.StrictMode>

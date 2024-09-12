@@ -141,11 +141,13 @@
     text-decoration: underline gold 3px;
     opacity: 1;
     color: white;
+   /* text-underline-offset: 10px; */
   }
   .active-link{
     text-decoration: underline gold 3px;
     opacity: 1;
     color: white;
+    /* text-underline-offset: 10px; */
   }
 
   /* Shopping cart icon */
@@ -160,6 +162,8 @@
   
   #cart:hover {
     opacity: 1;
+    text-decoration: underline gold 3px;
+    /* text-underline-offset: 10px; */
   }
   
   @media screen and (max-width:430px) {
@@ -169,7 +173,23 @@
     }
   
   }
-  
+  #navelink{
+    color: white;
+    font-family: "Inter ", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    opacity: 0.5;
+    padding-right: 15px;
+    padding-top: 6px;
+    text-decoration: none;
+
+  }
+  #navelink:hover{
+    text-decoration: underline gold 3px;
+    opacity: 1;
+    color: white;
+    /* text-underline-offset: 10px; */
+  }
   /* Navbar hover styles */
   .navbar-custom .nav-link-custom:hover {
     text-decoration: underline gold 3px;
@@ -229,6 +249,7 @@
     text-decoration: underline gold 3px;
     opacity: 1;
     color: white;
+    /* text-underline-offset: 10px; */
   }
   
   .navbar-custom .nav-link-custom,
