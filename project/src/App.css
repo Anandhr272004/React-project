@@ -9,7 +9,13 @@
   font-weight: 700;
   margin-bottom: 20px;
 }
-
+@media (max-width:992px) and (min-width:770px) {
+  .header-title{
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+}
 .header-subtitle {
   font-size: 18px;
   color: grey;
@@ -75,6 +81,22 @@
 /* ///////////////////////////////////// */
 /*  */
 /* Base Styles */
+
+/* .section-four{
+  border:1px solid greenyellow;
+} */
+@media (max-width:991px) and (min-width:770px) {
+  .section-four{
+    margin-top: 580px;
+    padding: 0;
+    /* background-color: goldenrod; */
+  }
+  .section_four{
+    padding: 0px;
+    margin-top: 0%;
+  }
+  
+}
 .section_four {
   padding: 50px;
   margin-top: 10%;

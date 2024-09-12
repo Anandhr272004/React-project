@@ -12,7 +12,7 @@ const Headersection = () => {
             <header className="header-section">
                 <Container>
                     <Row className="align-items-center">
-                        <Col xs={12} md={6}>
+                        <Col xs={12} md={6} lg={6}>
                             <h1 className="header-title">
                                 {data.header.title.split("\n").map((line, index) => (
                                     <React.Fragment key={index}>
@@ -43,7 +43,7 @@ const Headersection = () => {
                                 </Button>
                             ))}
                         </Col>
-                        <Col xs={12} md={6} className="text-center">
+                        <Col xs={12} md={6}lg={6} className="text-center">
                             <img
                                 src={data.header.image}
                                 alt={data.header.imageAlt}
