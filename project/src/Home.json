@@ -3,6 +3,7 @@
     { "label": "Home", "link": "/" },
     { "label": "Shop", "link": "/shop" },
     { "label": "About us", "link": "/about" },
+    { "label": "Services", "link": "/services" },
     { "label": "Blog", "link": "/blog" },
     { "label": "Contact us", "link": "/contact" }
   ],

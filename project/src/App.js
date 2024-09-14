@@ -9,20 +9,18 @@ import Aboutus from './Aboutus.jsx';
 import Headersection from './Header-section.jsx';
 import How from './How.jsx';
 import Section_two from './Section-two.jsx';
+import SignIn from './Admin-pannel/Sigin.jsx';
+import Services from './Services.jsx';
 
 function App() {
   return (
     <>
      
 <Home />
-{/* <How /> */}
-{/* <Section_two /> */}
-{/* <Shop /> */}
-{/* <Aboutus /> */}
+{/* <SignIn/> */}
 
-{/* <Headersection /> */}
+{/* <Services /> */}
 
-{/* <Navebar/> */}
       {/* <p>tailwind css</p>
    <Example/> */}
     </>

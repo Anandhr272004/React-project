@@ -168,7 +168,11 @@
 .headersection {
     background-color: #3c5845;
 }
-
+@media (max-width:995px) and (min-width:767px) {
+    .headersection{
+        height: 300px;
+    }
+}
 .headertitle {
     font-size: 36px;
     color: white;

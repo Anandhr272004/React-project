@@ -10,6 +10,7 @@ import minSofa from './Images/mini-sofa.png';
 import { IoMailOutline } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const iconMapping = {
     FaShippingFast: <FaShippingFast size={35} className="mb-3" />,
@@ -19,12 +20,14 @@ const iconMapping = {
 };
 
 const Aboutus = () => {
+  const navigate=useNavigate();
     const socialIcons = {
         FaFacebookF: <FaFacebookF />,
         FaTwitter: <FaTwitter />,
         FaInstagram: <FaInstagram />,
         FaLinkedinIn: <FaLinkedinIn />
       };
+      
     return (
         <div className='Aboutus'>
             <div className='aboutus-bg'>
@@ -44,7 +47,12 @@ const Aboutus = () => {
                                     ))}
                                 </p>
                                 {data.header.buttons.map((button, index) => (
-                                    <Button key={index} id={button.id}>
+                                    <Button key={index} id={button.id} onClick={()=>navigate("/shop")}>
+                                        {button.label}
+                                    </Button>
+                                ))}
+                                {data.header.buttons1.map((button, index) => (
+                                    <Button key={index} id={button.id} onClick={()=>navigate("/")}>
                                         {button.label}
                                     </Button>
                                 ))}
