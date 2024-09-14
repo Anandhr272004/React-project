@@ -17,7 +17,11 @@ function App() {
   return (
     <>
      
-<Home />
+{/* <Home /> */}
+{/* <SignIn/> */}
+
+{/* <Services /> */}
+<FooterSection />
 
       {/* <p>tailwind css</p>
    <Example/> */}

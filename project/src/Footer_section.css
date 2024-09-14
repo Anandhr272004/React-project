@@ -46,12 +46,28 @@
     font-size: 2rem;
     color: gray;
   }
-  .sub{
+  /* .sub{
     font-size: 1.25rem;
     color:gray;
     float: left;
     transform: translate(18%,-90%);
+  } */
+  .sub {
+    font-size: 1.25rem; /* Default font size for larger screens */
+    color: gray;
+    float: left;
+    transform: translate(18%, -90%);
   }
+  
+  /* Media Query for Medium Screens (Tablets) */
+  @media (max-width: 770px) {
+    .sub {
+      transform: translate(19%, -100%); /* Adjust position */
+    }
+  }
+  
+
+  
   #emailbox,
   #namebox{
     width:65%;
