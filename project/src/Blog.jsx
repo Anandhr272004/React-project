@@ -2,13 +2,12 @@ import React from "react";
 import Navebar from "./Navebar";
 import './Blog.css'
 import data from "./Home.json";
-import { Row, Col, Container, Button, Form, Image,Card } from "react-bootstrap";
+import { Row, Col, Container, Button, Form,Card } from "react-bootstrap";
 import minSofa from './Images/mini-sofa.png';
 import { IoMailOutline } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Sectionseven from "./Section-seven";
 
 const Blog = () => {
 

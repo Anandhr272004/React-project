@@ -5,21 +5,56 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaPlusCircle } from 'react-icons/fa';
 import FooterSection from "./Footer-section";
 import data from './Home.json';
+import { useNavigate } from "react-router-dom";
 const Shop = () => {
-
-
+const navigate =useNavigate();
     return (
         <div className="Shop-component">
-            <div className="bgcolor">
+            <div className="aboutus-bg">
                 <Navebar />
-                <Container className="shop-container">
+                {/* <Container className="shop-container">
                     <Row>
                         <Col md={5}>
                             <div className="shop" >
                                 Shop
                             </div></Col>
                     </Row>
-                </Container>
+                </Container> */}
+                   <header className="header-section">
+                    <Container>
+                        <Row className="align-items-center">
+                            <Col xs={12} md={6}>
+                                <h1 className="headertitle">
+                                    Shop<br />
+                                </h1>
+                                <p className="header-subtitle">
+                                    {data.header.subtitle.split("\n").map((line, index) => (
+                                        <React.Fragment key={index}>
+                                            {line} <br />
+                                        </React.Fragment>
+                                    ))}
+                                </p>
+                                {data.header.buttons.map((button, index) => (
+                                    <Button key={index} id={button.id} onClick={()=>navigate("/shop")}>
+                                        {button.label}
+                                    </Button>
+                                ))}
+                                {data.header.buttons1.map((button, index) => (
+                                    <Button key={index} id={button.id} onClick={()=>navigate("/")}>
+                                        {button.label}
+                                    </Button>
+                                ))}
+                            </Col>
+                            <Col xs={12} md={6} className="text-center">
+                                <img
+                                    src={data.header.image}
+                                    alt={data.header.imageAlt}
+                                    className="img-fluid"
+                                />
+                            </Col>
+                        </Row>
+                    </Container>
+                </header>
             </div>
             <div className="bg-color">
 

@@ -6,7 +6,6 @@ import { FaRegCircle } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import './Services.css'
 import SectionSix from "./Section-six";
-import FooterSection from "./Footer-section";
 import minSofa from './Images/mini-sofa.png';
 import { IoMailOutline } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";

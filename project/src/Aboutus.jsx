@@ -1,23 +1,15 @@
 import React from 'react';
 import Navebar from './Navebar';
 import './Aboutus.css';
-import { Row, Col, Container, Button,  Form,Image } from "react-bootstrap";
-import { FaShippingFast, FaShoppingBag, FaHeadset, FaExchangeAlt } from "react-icons/fa";
+import { Row, Col, Container, Button,  Form} from "react-bootstrap";
 import data from "./Home.json";
 import SectionThree from './Section-three';
-import FooterSection from './Footer-section';
 import minSofa from './Images/mini-sofa.png';
 import { IoMailOutline } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
-const iconMapping = {
-    FaShippingFast: <FaShippingFast size={35} className="mb-3" />,
-    FaShoppingBag: <FaShoppingBag size={35} className="mb-3" />,
-    FaHeadset: <FaHeadset size={35} className="mb-3" />,
-    FaExchangeAlt: <FaExchangeAlt size={35} className="mb-3" />
-};
 
 const Aboutus = () => {
   const navigate=useNavigate();

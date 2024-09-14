@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Sectionseven = () => {
   const navigate = useNavigate();
   return (
-    <section className="blog-section py-5">
+    <section className="blog-section pt-5">
       <Container>
         <Row className="justify-content-between align-items-center mb-4">
           <Col md={6}>

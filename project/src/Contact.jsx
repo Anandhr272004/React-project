@@ -2,7 +2,7 @@ import React from "react";
 import Navebar from "./Navebar";
 import './Contact.css'
 import data from "./Home.json";
-import { Row, Col, Container, Button, Form, Image, Card } from "react-bootstrap";
+import { Row, Col, Container, Button, Form} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import minSofa from './Images/mini-sofa.png';
 import { IoMailOutline } from "react-icons/io5";

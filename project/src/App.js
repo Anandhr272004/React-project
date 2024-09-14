@@ -11,15 +11,13 @@ import How from './How.jsx';
 import Section_two from './Section-two.jsx';
 import SignIn from './Admin-pannel/Sigin.jsx';
 import Services from './Services.jsx';
+import FooterSection from './Footer-section.jsx';
 
 function App() {
   return (
     <>
      
 <Home />
-{/* <SignIn/> */}
-
-{/* <Services /> */}
 
       {/* <p>tailwind css</p>
    <Example/> */}

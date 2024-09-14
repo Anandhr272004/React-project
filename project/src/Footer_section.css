@@ -4,13 +4,28 @@
     padding-top: 40px;
     position: relative;
   }
-  @media (max-width:430px){
+  /* @media (max-width:430px){
     .footer-section{
       margin-top: -220px;
     }
     
-  }
+  } */
 
+  @media (max-width:571px) {
+    .footer-section{
+        padding-top: 0px;
+        /* background-color:yellow; */
+    }
+    .minisofa{
+      padding-top: 0%;
+    }
+}
+@media (max-width:430px){
+    .footer-section{
+        margin-top: 1px;
+        /* background-color: greenyellow; */
+    }
+}
   .relativeimg {
     position: absolute;
     right: 5%;
