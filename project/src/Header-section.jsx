@@ -13,18 +13,19 @@ const Headersection = () => {
                 <Container>
                     <Row className="align-items-center">
                         <Col xs={12} md={6} lg={6}>
-                            <h1 className="header-title">
+                            <p className="header-title">
                                 {data.header.title.split("\n").map((line, index) => (
                                     <React.Fragment key={index}>
-                                        {line} <br />
+                                        {line} 
+                                        <br />
                                     </React.Fragment>
                                 ))}
                                 {data.header.titleone.split("\n").map((line, index) => (
-                                    <React.Fragment key={index}>
+                                    <React.Fragment key={index} classNam="tt">
                                         {line} <br />
                                     </React.Fragment>
                                 ))}
-                            </h1>
+                            </p>
                             <p className="header-subtitle">
                                 {data.header.subtitle.split("\n").map((line, index) => (
                                     <React.Fragment key={index}>

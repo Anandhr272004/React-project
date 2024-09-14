@@ -12,16 +12,18 @@ import Section_two from './Section-two.jsx';
 import SignIn from './Admin-pannel/Sigin.jsx';
 import Services from './Services.jsx';
 import FooterSection from './Footer-section.jsx';
+import Signup from './Sigup.jsx';
 
 function App() {
   return (
     <>
      
-{/* <Home /> */}
+<Home />
 {/* <SignIn/> */}
-
+{/* <Signup /> */}
+{/* <Headersection /> */}
 {/* <Services /> */}
-<FooterSection />
+{/* <FooterSection /> */}
 
       {/* <p>tailwind css</p>
    <Example/> */}
