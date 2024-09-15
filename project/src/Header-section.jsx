@@ -21,7 +21,7 @@ const Headersection = () => {
                                     </React.Fragment>
                                 ))}
                                 {data.header.titleone.split("\n").map((line, index) => (
-                                    <React.Fragment key={index} classNam="tt">
+                                    <React.Fragment key={index} >
                                         {line} <br />
                                     </React.Fragment>
                                 ))}
