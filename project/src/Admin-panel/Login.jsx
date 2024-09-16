@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaHome } from "react-icons/fa";
 import './Login.css';
 // import './Admin/Login.css'
 
@@ -18,23 +20,24 @@ const Login = () => {
     }
   };
 
+  const Navigate=useNavigate()
   return (
     <div className="page-container">
-      <header className="header1">
-        <h1>Administration</h1>
-      </header>
+      {/* <header className="header1">
+        Administration
+      </header> */}
       <div className="login-container">
         
         <div className="login-box">
             
-          <h2>🔒 Please enter your login details.</h2>
+          <h1>🔒 Please enter your Login details.</h1>
           <form onSubmit={handleLogin}>
             <div className="input-group">
               <label>Username</label>
               <div className="input-wrapper">
                 <span className="icon">👤</span>
                 <input 
-                  type="text" 
+                  type="text"
                   placeholder="Username" 
                   value={username} 
                   onChange={(e) => setUsername(e.target.value)} 
@@ -48,7 +51,7 @@ const Login = () => {
                 <span className="icon">🔒</span>
                 <input 
                   type="password" 
-                  placeholder="Password" 
+                  placeholder="Password"
                   value={password} 
                   onChange={(e) => setPassword(e.target.value)} 
                   required 
@@ -62,6 +65,10 @@ const Login = () => {
             <button type="submit" className="login-button"
             //  onClick={()=>Navigate("/Admin-pannel")}
              >🔍 Login</button>
+            <button type="submit" className="loginbutton"
+             onClick={()=>Navigate("/")} >
+              {/* <FaHome className='icone' /> */}
+             Back to Home</button>
           </form>
         </div>
       </div>

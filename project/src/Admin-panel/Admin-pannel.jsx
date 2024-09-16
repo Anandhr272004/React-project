@@ -18,7 +18,7 @@ const Dashboard = () => {
           <Card className="text-center" style={{ backgroundColor: '#00a86b', color: 'white' }}>
             <Card.Body>
               <Card.Title>Total Categories </Card.Title>
-              <Card.Text style={{ fontSize: '2rem' }}>1,255</Card.Text>
+              <Card.Text style={{ fontSize: '2rem', color: 'white'  }}>1,255</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -26,7 +26,7 @@ const Dashboard = () => {
           <Card className="text-center" style={{ backgroundColor: '#00bfff', color: 'white' }}>
             <Card.Body>
               <Card.Title> Total Products </Card.Title>
-              <Card.Text style={{ fontSize: '2rem' }}>250</Card.Text>
+              <Card.Text style={{ fontSize: '2rem', color: 'white'  }}>250</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -34,25 +34,18 @@ const Dashboard = () => {
           <Card className="text-center" style={{ backgroundColor: '#ff6347', color: 'white' }}>
             <Card.Body>
               <Card.Title>Total Products sold</Card.Title>
-              <Card.Text style={{ fontSize: '2rem' }}>860</Card.Text>
+              <Card.Text style={{ fontSize: '2rem', color: 'white'  }}>960</Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        {/* <Col md={3}>
-          <Card className="text-center" style={{ backgroundColor: '#ffa500', color: 'white' }}>
-            <Card.Body>
-              <Card.Title>Active Instructors</Card.Title>
-              <Card.Text style={{ fontSize: '2rem' }}>15</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col> */}
       </Row>
       <Row className="mt-4">
         <Col md={6}>
           <Card>
             <Card.Body>
               <Card.Title>Categories</Card.Title>
-              <Card.Text>Here you can add a progress chart showing student performance and completion rates.</Card.Text>
+              <Card.Text>Here you can add a progress chart displaying product categories.
+              Track the performance and trends for each category over time.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -60,7 +53,8 @@ const Dashboard = () => {
           <Card>
             <Card.Body>
               <Card.Title>Products</Card.Title>
-              <Card.Text>Here you can add details about products, including graphs or stats.</Card.Text>
+              <Card.Text>Here you can view detailed information about each product, including graphical representations and key statistics.
+                 Explore the insights to better understand product performance and trends.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -83,7 +77,7 @@ const Adminpannel = () => {
   return (
     <Container fluid className="p-0" style={{ backgroundColor: 'lavender' }}>
       <Navbar id="navebar" expand="lg" className="px-5">
-        <Navbar.Brand style={{ color: 'white' }}>
+        <Navbar.Brand style={{ color: 'white',fontSize: '1.6rem'}}>
           {/* <FaBars />  */}
           Admin Panel
         </Navbar.Brand>
@@ -95,7 +89,7 @@ const Adminpannel = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Row>
+      <Row >
         <Col md={2} className="sidebar">
           <Nav className="flex-column">
             <div className="sidebar-section">
@@ -115,12 +109,12 @@ const Adminpannel = () => {
             </div>
             <div className="sidebar-section">
               <TbReportSearch className="icon" />
-              <Nav.Link as={Link} to="/admin/reports" className="text-white">Overall-Reports</Nav.Link>
+              <Nav.Link as={Link} to="/admin/reports" className="text-white">Reports</Nav.Link>
               <FaChevronRight className="arrow-icon" />
             </div>
           </Nav>
         </Col>
-        <Col md={10} className='mdcol'>
+        <Col md={10}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/product" element={<Product />} />
