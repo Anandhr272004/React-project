@@ -5,13 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from './Sigup.jsx';
-import Signin from './Admin-pannel/Sigin.jsx';
+// import Signin from './Admin-pannel/Sigin.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Shop from './Shop.jsx';
 import Aboutus from './Aboutus.jsx';
 import Services from './Services.jsx';
 import Blog from './Blog.jsx';
 import { Contact } from './Contact.jsx';
+import Login from './Admin-panel/Login.jsx';
+import Adminpannel from './Admin-panel/Admin-pannel.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,10 +25,15 @@ root.render(
           <Route path="/about" element={<Aboutus />} />
           <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/explore" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
 
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin/*" element={<Adminpannel />} />
+
           <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
+          {/* <Route path="/signin" element={<Signin />} /> */}
         </Routes>
       </Router>
   </React.StrictMode>
