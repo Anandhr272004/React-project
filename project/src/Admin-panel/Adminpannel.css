@@ -166,7 +166,7 @@
 
     .addnew {
       font-size: 35px;
-      margin-bottom: 16px;
+      padding-top: 35px;
       color:#007bff;
       font-weight: bold;
       text-align: center;
@@ -175,11 +175,43 @@
       background-color:#007bff;
       color: #fff;
       font-size: 16px;
-      padding: 10px;
+      /* padding: 10px; */
+      /* padding-left:35px !important;
+      padding-right:35px; */
+      margin-left: 35px;
       border-radius: 5px;
       border: none;
-      width: 100%;
+      width: 73% !important;
       height: 50px;
       transition: background-color 0.3s ease;
     }
  
+    .signrow{
+      width:70%;
+      height: 690px;
+      /* border: 1px solid gray; */
+      background-color: rgb(224, 225, 194);
+      /* box-shadow: 3px 3px 3px 3px gray; */
+    }
+
+   .signclass{
+    margin-top: 50px;
+    margin-left: 50px;
+   }
+   .name{
+    padding-left:35px;
+    padding-right:35px;
+    /* text-align: center; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+   }
+   .nametext{
+    width:80%;
+    height: 50px;
+    
+   }
+   /* .addnewuser{
+    display: flex;
+    justify-content: center;
+   } */

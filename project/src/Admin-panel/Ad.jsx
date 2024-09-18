@@ -157,159 +157,10 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
-       {/* </Card> */}
-
-        {/* two card */}
-       {/* <Row className='mt-5'>
-         <Col md={6} >
-           <Card className='pro1'>
-             <Card.Img variant="top" src="holder.js/100px180" />
-             <Card.Body>
-               <Card.Title>Card Title</Card.Title>
-               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                 bulk of the card's content.
-               </Card.Text>
-             </Card.Body>
-           </Card>
-        </Col>
-         <Col md={6}>
-           <Card className='pro1'>
-             <Card.Img variant="top" src="holder.js/100px180" />            <Card.Body>
-             <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                 Some quick example text to build on the card title and make up the
-               bulk of the card's content.
-               </Card.Text>
-             </Card.Body>
-           </Card>
-
-         </Col>
-       </Row> */}
-
-
 
     </Container>
   );
 };
-
-
-// // Add New User Component
-
-// const AddNewUser = ({ users, setUsers }) => {
-//     const [user, setUser] = useState({ name: '', email: '', password: '' });
-//     const navigate = useNavigate();
-  
-//     const handleSubmit = (e) => {
-//       e.preventDefault();
-//       const newUser = { ...user, id: users.length + 1 };
-//       setUsers([newUser, ...users]);
-//       window.alert("New User Add Succesfully")
-//       navigate('/admin/users/manageuser');
-//     };
-  
-//     return (
-//       <Container className='signclass'>
-//         <Row className='signrow'>
-//           <Col>
-//             <h6 className="addnew">Add New User</h6>
-//             <div className='addnewuser'>
-//             <Form onSubmit={handleSubmit} className="mt-5">
-//               <Form.Group controlId="name" className="name">
-//                 <Form.Label>Name</Form.Label>
-//                 <Form.Control 
-//                   type="text" 
-//                   placeholder="Enter Name" 
-//                   value={user.name}
-//                   onChange={(e) => setUser({ ...user, name: e.target.value })}
-//                   required  className='nametext'
-//                 />
-//               </Form.Group>
-  
-//               <Form.Group controlId="email" className="mt-3 name">
-//                 <Form.Label>Email Address</Form.Label>
-//                 <Form.Control 
-//                   type="email" 
-//                   placeholder="Enter Email Address" 
-//                   value={user.email}
-//                   onChange={(e) => setUser({ ...user, email: e.target.value })}
-//                   required  className='nametext'
-//                 />
-//               </Form.Group>
-//           <Form.Group className="mt-3 name">
-//              <Form.Label>Phone Number</Form.Label>
-//             <Form.Control
-//               type="tel"
-//               value={user.phone}
-//               onChange={(e) => setUser({ ...user, phone: e.target.value })}
-//               placeholder='Enter Phone number'
-//               required className='nametext'
-//             />
-//           </Form.Group>
-  
-//               <Form.Group controlId="password" className="mt-3 name">
-//                 <Form.Label>Password</Form.Label>
-//                 <Form.Control 
-//                   type="password" 
-//                   placeholder="Enter Password" 
-//                   value={user.password}
-//                   onChange={(e) => setUser({ ...user, password: e.target.value })}
-//                   required  className='nametext'
-//                 />
-//               </Form.Group>
-//               <Form.Group className="mt-3 name">
-//              <Form.Label>Confirm Password</Form.Label>
-//              <Form.Control
-//               type="password"
-//               placeholder="Enter Confirm Password" 
-//               value={user.confirmPassword}
-//               onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
-//               required className='nametext'
-//             />
-//           </Form.Group>
-  
-//               <Button
-//                 type="submit"
-//                 className="mt-3 addbutton"
-//               >
-//                 Add User
-//               </Button>
-//             </Form>
-//             </div>
-//           </Col>
-//         </Row>
-//       </Container>
-//     );
-//   };
-
-
-////post link
-
-//convert it into one component
-
-// const AddNewUser = ({ users, setUsers }) => {
-//   const [user, setUser] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       // Send POST request to the backend to add user
-//       await axios.post('http://localhost:5000/adduser', user);
-
-
-//       // Fetch updated user list and update state
-//       const response = await axios.get('http://localhost:5000/users');
-//       setUsers(response.data);
-
-//       // Navigate to manage users page after adding the new user
-//       window.alert("New User Added Successfully!");
-//       navigate('/admin/users/manageuser');
-//     } catch (err) {
-//       console.error('Error adding user:', err);
-//     }
-//   };
 
 const AddNewUser = ({ users, setUsers }) => {
   const [user, setUser] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
@@ -320,8 +171,6 @@ const AddNewUser = ({ users, setUsers }) => {
 
     try {
       // Send POST request to the backend to add user
-      // await axios.post('http://localhost:5000/adduser', user);
-
       const response = await axios.post('http://localhost:5000/adduser', user);
       setUsers(prevUsers => [response.data, ...prevUsers]);
       // Navigate to manage users page after adding the new user
@@ -331,6 +180,11 @@ const AddNewUser = ({ users, setUsers }) => {
       console.error('Error adding user:', err);
     }
   };
+
+
+
+
+//updated
 
 
   return (
@@ -495,184 +349,6 @@ const EditUser = ({ users, setUsers }) => {
   </Container>
     );
   };
-//convert it into one component
-
-
-///convert it into one
-
-// const EditUser = ({ users, setUsers}) => {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-//   const [user, setUser] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
-
-//   useEffect(() => {
-//     if (id) {
-//       const existingUser = users.find((u) => u.id === parseInt(id));
-//       if (existingUser){
-//          setUser(existingUser);
-//       }
-//     }
-//   }, [id,users]);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       if (id) {
-//         // Update user logic
-//         await axios.put(`http://localhost:5000/edituser/${id}`, user);
-//         const updatedUsers = users.map((u) => (u.id === parseInt(id) ? user : u));
-//         setUsers(updatedUsers);
-//         window.alert("User updated successfully!");
-//       } else {
-//         // Add new user logic
-//         const response = await axios.post('http://localhost:5000/adduser', user);
-//         setUsers(prevUsers => [response.data, ...prevUsers]);
-//         window.alert("New User Added Successfully!");
-//       }
-//       navigate('/admin/users/manageuser');
-//     } catch (err) {
-//       console.error('Error saving user:', err);
-//     }
-//   };
-
-//   return (
-//     <Container className='signclass'>
-//       <Row className='signrow'>
-//         <Col>
-//           <h6 className="addnew">{id ? 'Edit User' : 'Add New User'}</h6>
-//           <Form onSubmit={handleSubmit} className="mt-5">
-//             <Form.Group controlId="name" className="name">
-//               <Form.Label>Name</Form.Label>
-//               <Form.Control 
-//                 type="text" 
-//                 placeholder="Enter Name" 
-//                 value={user.name}
-//                 onChange={(e) => setUser({ ...user, name: e.target.value })}
-//                 required className='nametext'
-//               />
-//             </Form.Group>
-
-//             <Form.Group controlId="email" className="mt-3 name">
-//               <Form.Label>Email Address</Form.Label>
-//               <Form.Control 
-//                 type="email" 
-//                 placeholder="Enter Email Address" 
-//                 value={user.email}
-//                 onChange={(e) => setUser({ ...user, email: e.target.value })}
-//                 required className='nametext'
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mt-3 name">
-//               <Form.Label>Phone Number</Form.Label>
-//               <Form.Control
-//                 type="tel"
-//                 value={user.phone}
-//                 onChange={(e) => setUser({ ...user, phone: e.target.value })}
-//                 placeholder='Enter Phone number'
-//                 required className='nametext'
-//               />
-//             </Form.Group>
-
-//             <Form.Group controlId="password" className="mt-3 name">
-//               <Form.Label>Password</Form.Label>
-//               <Form.Control 
-//                 type="password" 
-//                 placeholder="Enter Password" 
-//                 value={user.password}
-//                 onChange={(e) => setUser({ ...user, password: e.target.value })}
-//                 required className='nametext'
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mt-3 name">
-//               <Form.Label>Confirm Password</Form.Label>
-//               <Form.Control
-//                 type="password"
-//                 placeholder="Enter Confirm Password" 
-//                 value={user.confirmPassword}
-//                 onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
-//                 required className='nametext'
-//               />
-//             </Form.Group>
-
-//             <Button
-//               type="submit"
-//               className="w-100 mt-4 addbutton"
-//               variant="primary"
-//             >
-//               {id? 'Save Changes' : 'Add User'}
-//             </Button>
-//           </Form>
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
-
-// const AllUsers = ({ users, setUsers }) => {
-//     const handleDelete = (id) => {
-//       const updatedUsers = users.filter(user => user.id !== id);
-//       setUsers(updatedUsers);
-//     };
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//       };
-  
-//     return (
-//       <Container className="manage-products-container p-5">
-//         <Row>
-//           <Col md={12}>
-//             <h2 className="text-left mb-4 pl-5">Manage Users</h2>
-//             <div className="table-wrapper">
-//             <form onSubmit={handleSubmit}>
-//               <Table striped bordered hover>
-//                 <thead>
-//                   <tr>
-//                     <th>Name</th>
-//                     <th>Email</th>
-//                     <th>Phone Number</th>
-//                     <th>Password</th>
-//                     <th>Confirm Password</th>
-//                     <th>Actions</th>
-//                   </tr>
-//                 </thead>
-//                 <tbody>
-//                   {users.map(user => (
-//                     <tr key={user.id}>
-//                       <td>{user.name}</td>
-//                       <td>{user.email}</td>
-//                       <td>{user.phone}</td>
-//                       <td>{user.password}</td>
-//                       <td>{user.confirmPassword}</td>
-//                       <td>
-//                         <Button 
-//                           variant="primary" 
-//                           className="mx-1"
-//                           as={Link} 
-//                           to={`/admin/users/edituser/${user.id}`}
-//                         >
-//                           Edit
-//                         </Button>
-//                         <Button 
-//                           variant="danger" 
-//                           className="mx-1"
-//                           onClick={() => handleDelete(user.id)}
-//                         >
-//                           Delete
-//                         </Button>
-//                       </td>
-//                     </tr>
-//                   ))}
-//                 </tbody>
-//               </Table>
-//               </form>
-//             </div>
-//           </Col>
-//         </Row>
-//       </Container>
-//     );
-//   };
 
 
 
@@ -811,7 +487,7 @@ const AdminPanel = () => {
         <Col md={10}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/users/addnew" element={<AddNewUser   users={users} setUsers={setUsers} />} />
+            <Route path="/users/addnew" element={<AddNewUser users={users} setUsers={setUsers} />} />
             <Route path="/users/edituser/:id" element={<EditUser users={users} setUsers={setUsers} />} />
 
             <Route path="/users/manageuser" element={<AllUsers users={users} setUsers={setUsers} />} />
