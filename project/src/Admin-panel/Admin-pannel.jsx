@@ -383,7 +383,7 @@ const AllUsers = ({ users, setUsers }) => {
                         Delete
                       </Button>
                       <Button
-                        variant="info"
+                        variant="secondary"
                         className="mx-1"
                         as={Link}
                         to={`/admin/users/viewuser/${user._id}?mode=view`}
