@@ -510,10 +510,12 @@ const EditUser = ({ users, setUsers}) => {
 
   useEffect(() => {
     if (id) {
-      const existingUser = users.find((u) => u.id === parseInt(id));
+      // await axios.put(`http://localhost:5000/edituser/${id}`, user);
+      const existingUser = users.find((u) => u._id === id);
       if (existingUser){
          setUser(existingUser);
       }
+      // window.alert("User updated successfully!");
     }
   }, [id,users]);
 
@@ -523,13 +525,15 @@ const EditUser = ({ users, setUsers}) => {
       if (id) {
         // Update user logic
         await axios.put(`http://localhost:5000/edituser/${id}`, user);
-        const updatedUsers = users.map((u) => (u.id === parseInt(id) ? user : u));
+        const updatedUsers = users.map((u) => (u.id === id ? user : u));
         setUsers(updatedUsers);
         window.alert("User updated successfully!");
       } else {
         // Add new user logic
         const response = await axios.post('http://localhost:5000/adduser', user);
-        setUsers(prevUsers => [response.data, ...prevUsers]);
+        // setUsers(prevUsers => [response.data, ...prevUsers]);
+        setUsers([response.data, ...users]); 
+
         window.alert("New User Added Successfully!");
       }
       navigate('/admin/users/manageuser');
@@ -688,6 +692,8 @@ const AllUsers = ({ users, setUsers }) => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:5000/users');
+        
+        // setUsers([response.data, ...users]); 
         setUsers(response.data);
       } catch (err) {
         console.error('Error fetching users:', err);
@@ -749,6 +755,8 @@ const AllUsers = ({ users, setUsers }) => {
                     </td>
                   </tr>
                 ))}
+
+
               </tbody>
             </Table>
           </div>
