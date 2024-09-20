@@ -164,6 +164,7 @@
  /* ///manage table */
  .manageuser{
   padding-left: 15px;
+
  }
  
     /* ///add product */
@@ -287,10 +288,7 @@
     /* //option2 */
 
 .signclass {
-  background-color:
-   /* #f8f9fa */
-   #F2F7F2
-  ; /* Light grey background to match the table */
+  background-color:#F2F7F2; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -298,25 +296,25 @@
   margin: 30px auto; 
 }
 
-/* Form title */
+
 .addnew {
-  color: #007bff; /* Blue color to match the table header */
+  color: #007bff; 
   font-size: 24px;
-  font-weight: 700; /* Slightly bolder font weight */
+  font-weight: 700; 
   margin-bottom: 20px;
-  text-align: center; /* Center the title */
-  border-bottom: 2px solid #007bff; /* Adding bottom border similar to table header */
+  text-align: center;
+  border-bottom: 2px solid #007bff; 
   padding-bottom: 10px;
 }
 
-/* Form group styles */
+
 .name {
   margin-bottom: 15px;
 }
 
-/* Form control styles */
+
 .nametext {
-  border: 1px solid #ced4da; /* Light border color */
+  border: 1px solid #ced4da; 
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
@@ -324,13 +322,13 @@
 }
 
 .nametext:focus {
-  border-color: #007bff; /* Match focus color with the blue theme */
+  border-color: #007bff; 
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
 
-/* Button styles */
+
 .addbutton {
-  background-color: #007bff; /* Blue button to match the table's edit button */
+  background-color: #007bff; 
   border: none;
   padding: 12px;
   font-size: 16px;
@@ -338,16 +336,16 @@
   border-radius: 5px;
   transition: background-color 0.3s, box-shadow 0.3s;
   color: #fff;
-  margin-right: 10px; /* Space between buttons */
+  margin-right: 10px; 
 }
 
 .addbutton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .addbutton-secondary {
-  background-color: #6c757d; /* Grey button for secondary actions */
+  background-color: #6c757d; 
   border: none;
   padding: 12px;
   font-size: 16px;
@@ -358,11 +356,24 @@
 }
 
 .addbutton-secondary:hover {
-  background-color: #5a6268; /* Darker grey on hover */
+  background-color: #5a6268;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .form-buttons {
   display: flex;
-  justify-content: flex-end; /* Align buttons to the right */
+  justify-content: flex-end; 
+}
+
+
+.bulkdelete{
+  float: right;
+  margin-right: 15px;
+}
+
+.searchbar{
+  width: 33%;
+  height: 35px;
+  margin-left: 13px;
+  margin-top: 5px;
 }
