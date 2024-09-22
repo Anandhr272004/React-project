@@ -8,6 +8,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { Line, Bar } from 'react-chartjs-2';
 import axios from 'axios';
+import moment from 'moment'; // For date formatting
 
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement } from 'chart.js';
 import './Adminpannel.css';
@@ -194,39 +195,63 @@ const Dashboard = () => {
 };
 
 
-
-const EditUser = ({ users, setUsers, mode = 'edit' }) => {
+const EditUser = ({ users, setUsers }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [user, setUser] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmPassword: '',
+    date: new Date().toISOString().split('T')[0], // Default to today’s date
+  });
 
   useEffect(() => {
     if (id) {
       const existingUser = users.find((u) => u._id === id);
       if (existingUser) {
-        setUser(existingUser);
+        // Ensure that the date is properly formatted in 'YYYY-MM-DD' format for the input field
+        setUser({
+          ...existingUser,
+          date: moment(existingUser.date).format('YYYY-MM-DD'), // Moment to format the date correctly for the input field
+        });
       } else {
-        // If the user is not found in the state, navigate back or show a message
         navigate('/admin/users/manageuser');
       }
     }
   }, [id, users, navigate]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (mode === 'view') return; // Prevent form submission in view mode
-
     try {
+      // const formattedUser = {
+      //   ...user,
+      //   date: moment(user.date, 'YYYY-MM-DD').toISOString(), // Convert date back to ISO format for backend
+      // };
+      const formattedUser = {
+        ...user,
+        date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
+      };
+
       if (id) {
-        await axios.put(`http://localhost:5000/edituser/${id}`, user);
-        const updatedUsers = users.map((u) => (u._id === id ? user : u));
-        setUsers(updatedUsers.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+        // Update existing user
+        await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
+        const updatedUsers = users.map((u) =>
+          u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
+        );
+        setUsers(updatedUsers);
         window.alert('User updated successfully!');
       } else {
-        const response = await axios.post('http://localhost:5000/adduser', user);
-        setUsers([response.data, ...users].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
-        window.alert('New User Added Successfully!');
+        // Add new user
+        const response = await axios.post('http://localhost:5000/adduser', formattedUser);
+        // Prepend the new user to the existing list
+        setUsers((prevUsers) => [response.data, ...prevUsers]);
+        window.alert('User Added Successfully!');
       }
+
+      // Navigate back to user management page
       navigate('/admin/users/manageuser');
     } catch (err) {
       console.error('Error saving user:', err);
@@ -237,7 +262,7 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
     <Container className="signclass">
       <Row className="signrow">
         <Col>
-          <h6 className="addnew mt-2">{id ? (mode === 'view' ? 'View User' : 'Edit User') : 'Add New User'}</h6>
+          <h6 className="addnew mt-2">{id ? 'Edit User' : 'Add New User'}</h6>
           <Form onSubmit={handleSubmit} className="mt-3">
             <Form.Group controlId="name" className="name mt-4">
               <Form.Label>Name</Form.Label>
@@ -248,7 +273,6 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
                 onChange={(e) => setUser({ ...user, name: e.target.value })}
                 required
                 className="nametext"
-                disabled={mode === 'view'}
               />
             </Form.Group>
 
@@ -261,7 +285,6 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
                 onChange={(e) => setUser({ ...user, email: e.target.value })}
                 required
                 className="nametext"
-                disabled={mode === 'view'}
               />
             </Form.Group>
 
@@ -274,7 +297,6 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
                 placeholder="Enter Phone number"
                 required
                 className="nametext"
-                disabled={mode === 'view'}
               />
             </Form.Group>
 
@@ -287,7 +309,6 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
                 required
                 className="nametext"
-                disabled={mode === 'view'}
               />
             </Form.Group>
 
@@ -300,20 +321,24 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
                 onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
                 required
                 className="nametext"
-                disabled={mode === 'view'}
               />
             </Form.Group>
-            <div className="form-buttons">
-            {mode !== 'view' ? (
-              <Button type="submit" className="w-100 mt-3 addbutton">
-                {id ? 'Save Changes' : 'Add User'}
-              </Button>
-            ) : (
-              <Button type="button" className="w-100 mt-4 addbutton-secondary"  onClick={() => navigate('/admin/users/manageuser')}>
-                Back
-              </Button>
-            )}
-            </div>
+
+            {/* Date Field */}
+            <Form.Group className="mt-3 name">
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                value={user.date}
+                onChange={(e) => setUser({ ...user, date: e.target.value })}
+                required
+                className="nametext"
+              />
+            </Form.Group>
+
+            <Button type="submit" className="w-100 mt-3 addbutton">
+              {id ? 'Save Changes' : 'Add User'}
+            </Button>
           </Form>
         </Col>
       </Row>
@@ -322,446 +347,20 @@ const EditUser = ({ users, setUsers, mode = 'edit' }) => {
 };
 
 
-
-// const AllUsers = ({ users, setUsers }) => {
-//   const [selectedUsers, setSelectedUsers] = useState([]);
-
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:5000/users');
-//         setUsers(response.data.sort((a, b) => b._id.localeCompare(a._id)));
-//       } catch (err) {
-//         console.error('Error fetching users:', err);
-//       }
-//     };
-//     fetchUsers();
-//   }, [setUsers]);
-
-//   const handleDelete = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:5000/users/${id}`);
-//       setUsers(users.filter((user) => user._id !== id));
-//     } catch (err) {
-//       console.error('Error deleting user:', err);
-//     }
-//   };
-
-//   const handleBulkDelete = async () => {
-//     try {
-//       await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
-//       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
-//       setSelectedUsers([]); // Clear selected users after deletion
-//     } catch (err) {
-//       console.error('Error deleting users:', err);
-//     }
-//   };
-
-//   const handleSelectUser = (id) => {
-//     setSelectedUsers((prevSelected) =>
-//       prevSelected.includes(id) ? prevSelected.filter((userId) => userId !== id) : [...prevSelected, id]
-//     );
-//   };
-
-//   const handleSelectAll = (e) => {
-//     if (e.target.checked) {
-//       setSelectedUsers(users.map((user) => user._id)); // Select all users
-//     } else {
-//       setSelectedUsers([]); // Deselect all users
-//     }
-//   };
-
-//   return (
-//     <Container className="manage-products-container p-5">
-//       <Row>
-//         <Col md={12}>
-//           <h2 className="text-left manageuser">Manage Users</h2>
-//           {selectedUsers.length > 0 && (
-//             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
-//               {/* Delete Selected */}
-//               <MdDelete />
-//             </Button>
-//           )}
-//           <div className="table-wrapper">
-//             <Table striped bordered hover>
-//               <thead>
-//                 <tr>
-//                   <th>
-//                     <input
-//                       type="checkbox"
-//                       onChange={handleSelectAll}
-//                       checked={selectedUsers.length === users.length && users.length > 0}
-//                     />
-//                   </th>
-//                   <th>Name</th>
-//                   <th>Email</th>
-//                   <th>Phone Number</th>
-//                   <th>Password</th>
-//                   <th>Confirm Password</th>
-//                   <th>Actions</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 {users.map((user) => (
-//                   <tr key={user._id}>
-//                     <td>
-//                       <input
-//                         type="checkbox"
-//                         checked={selectedUsers.includes(user._id)}
-//                         onChange={() => handleSelectUser(user._id)}
-//                       />
-//                     </td>
-//                     <td>{user.name}</td>
-//                     <td>{user.email}</td>
-//                     <td>{user.phone}</td>
-//                     <td>{user.password}</td>
-//                     <td>{user.confirmPassword}</td>
-//                     <td>
-//                       <Button
-//                         variant="primary"
-//                         className="mx-1"
-//                         as={Link}
-//                         to={`/admin/users/edituser/${user._id}`}
-//                       >
-//                         Edit
-//                       </Button>
-//                       <Button
-//                         variant="danger"
-//                         className="mx-1"
-//                         onClick={() => handleDelete(user._id)}
-//                       >
-//                         Delete
-//                       </Button>
-//                       <Button
-//                         variant="secondary"
-//                         className="mx-1"
-//                         as={Link}
-//                         to={`/admin/users/viewuser/${user._id}?mode=view`}
-//                       >
-//                         {/* <FaEye /> */}
-//                         View
-//                       </Button>
-//                     </td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </Table>
-//           </div>
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
-
-
-// without adding search button
-
-// const AllUsers = ({ users, setUsers }) => {
-//   const [selectedUsers, setSelectedUsers] = useState([]);
-
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:5000/users');
-//         setUsers(response.data.sort((a, b) => b._id.localeCompare(a._id)));
-//       } catch (err) {
-//         console.error('Error fetching users:', err);
-//       }
-//     };
-//     fetchUsers();
-//   }, [setUsers]);
-
-//   const handleDelete = async (id) => {
-//     const confirmed = window.confirm('Are you sure you want to delete this user?');
-//     if (!confirmed) return; // If user clicks 'No', return early
-
-//     try {
-//       await axios.delete(`http://localhost:5000/users/${id}`);
-//       setUsers(users.filter((user) => user._id !== id));
-//     } catch (err) {
-//       console.error('Error deleting user:', err);
-//     }
-//   };
-
-//   const handleBulkDelete = async () => {
-//     const confirmed = window.confirm('Are you sure you want to delete the selected users?');
-//     if (!confirmed) return; // If user clicks 'No', return early
-
-//     try {
-//       await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
-//       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
-//       setSelectedUsers([]); // Clear selected users after deletion
-//     } catch (err) {
-//       console.error('Error deleting users:', err);
-//     }
-//   };
-
-//   const handleSelectUser = (id) => {
-//     setSelectedUsers((prevSelected) =>
-//       prevSelected.includes(id) ? prevSelected.filter((userId) => userId !== id) : [...prevSelected, id]
-//     );
-//   };
-
-//   const handleSelectAll = (e) => {
-//     if (e.target.checked) {
-//       setSelectedUsers(users.map((user) => user._id)); // Select all users
-//     } else {
-//       setSelectedUsers([]); // Deselect all users
-//     }
-//   };
-
-//   return (
-//     <Container className="manage-products-container p-5">
-//       <Row>
-//         <Col md={12}>
-//           <h2 className="text-left manageuser">Manage Users</h2>
-//           {selectedUsers.length > 0 && (
-//             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
-//               {/* Delete Selected */}
-//               <MdDelete />
-//             </Button>
-//           )}
-//           <div className="table-wrapper">
-//             <Table striped bordered hover>
-//               <thead>
-//                 <tr>
-//                   <th>
-//                     <input
-//                       type="checkbox"
-//                       onChange={handleSelectAll}
-//                       checked={selectedUsers.length === users.length && users.length > 0}
-//                     />
-//                   </th>
-//                   <th>Name</th>
-//                   <th>Email</th>
-//                   <th>Phone Number</th>
-//                   <th>Password</th>
-//                   <th>Confirm Password</th>
-//                   <th>Actions</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 {users.map((user) => (
-//                   <tr key={user._id}>
-//                     <td>
-//                       <input
-//                         type="checkbox"
-//                         checked={selectedUsers.includes(user._id)}
-//                         onChange={() => handleSelectUser(user._id)}
-//                       />
-//                     </td>
-//                     <td>{user.name}</td>
-//                     <td>{user.email}</td>
-//                     <td>{user.phone}</td>
-//                     <td>{user.password}</td>
-//                     <td>{user.confirmPassword}</td>
-//                     <td>
-//                       <Button
-//                         variant="primary"
-//                         className="mx-1"
-//                         as={Link}
-//                         to={`/admin/users/edituser/${user._id}`}
-//                       >
-//                         Edit
-//                       </Button>
-//                       <Button
-//                         variant="danger"
-//                         className="mx-1"
-//                         onClick={() => handleDelete(user._id)}
-//                       >
-//                         Delete
-//                       </Button>
-//                       <Button
-//                         variant="secondary"
-//                         className="mx-1"
-//                         as={Link}
-//                         to={`/admin/users/viewuser/${user._id}?mode=view`}
-//                       >
-//                         {/* <FaEye /> */}
-//                         View
-//                       </Button>
-//                     </td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </Table>
-//           </div>
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
-
-
-///adding search bar
-
-
-// const AllUsers = ({ users, setUsers }) => {
-//   const [selectedUsers, setSelectedUsers] = useState([]);
-//   const [searchQuery, setSearchQuery] = useState(''); // State for search input
-
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:5000/users');
-//         setUsers(response.data.sort((a, b) => b._id.localeCompare(a._id)));
-//       } catch (err) {
-//         console.error('Error fetching users:', err);
-//       }
-//     };
-//     fetchUsers();
-//   }, [setUsers]);
-
-//   const handleDelete = async (id) => {
-//     const confirmed = window.confirm('Are you sure you want to delete this user?');
-//     if (!confirmed) return;
-
-//     try {
-//       await axios.delete(`http://localhost:5000/users/${id}`);
-//       setUsers(users.filter((user) => user._id !== id));
-//     } catch (err) {
-//       console.error('Error deleting user:', err);
-//     }
-//   };
-
-//   const handleBulkDelete = async () => {
-//     const confirmed = window.confirm('Are you sure you want to delete the selected users?');
-//     if (!confirmed) return;
-
-//     try {
-//       await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
-//       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
-//       setSelectedUsers([]);
-//     } catch (err) {
-//       console.error('Error deleting users:', err);
-//     }
-//   };
-
-//   const handleSelectUser = (id) => {
-//     setSelectedUsers((prevSelected) =>
-//       prevSelected.includes(id) ? prevSelected.filter((userId) => userId !== id) : [...prevSelected, id]
-//     );
-//   };
-
-//   const handleSelectAll = (e) => {
-//     if (e.target.checked) {
-//       setSelectedUsers(users.map((user) => user._id));
-//     } else {
-//       setSelectedUsers([]);
-//     }
-//   };
-
-//   // Filter users based on search query (case-insensitive for name, email, and phone number)
-//   const filteredUsers = users.filter((user) =>
-//     user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//     user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//     user.phone.includes(searchQuery)
-//   );
-
-//   return (
-//     <Container className="manage-products-container p-5">
-//       <Row>
-//         <Col md={12}>
-//           <h2 className="text-left manageuser">Manage Users</h2>
-
-//           {/* Search Bar */}
-//           <input
-//             type="text"
-//             placeholder="Search by name, email, or phone number"
-//             value={searchQuery}
-//             onChange={(e) => setSearchQuery(e.target.value)}
-//             className="searchbar"
-//           />
-
-//           {selectedUsers.length > 0 && (
-//             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
-//               <MdDelete />
-//             </Button>
-//           )}
-
-//           <div className="table-wrapper">
-//             <Table striped bordered hover>
-//               <thead>
-//                 <tr>
-//                   <th>
-//                     <input
-//                       type="checkbox"
-//                       onChange={handleSelectAll}
-//                       checked={selectedUsers.length === users.length && users.length > 0}
-//                     />
-//                   </th>
-//                   <th>Name</th>
-//                   <th>Email</th>
-//                   <th>Phone Number</th>
-//                   <th>Password</th>
-//                   <th>Confirm Password</th>
-//                   <th>Actions</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 {filteredUsers.map((user) => (
-//                   <tr key={user._id}>
-//                     <td>
-//                       <input
-//                         type="checkbox"
-//                         checked={selectedUsers.includes(user._id)}
-//                         onChange={() => handleSelectUser(user._id)}
-//                       />
-//                     </td>
-//                     <td>{user.name}</td>
-//                     <td>{user.email}</td>
-//                     <td>{user.phone}</td>
-//                     <td>{user.password}</td>
-//                     <td>{user.confirmPassword}</td>
-//                     <td>
-//                     <Button
-//                         variant="secondary"
-//                         className="mx-1"
-//                         as={Link}
-//                         to={`/admin/users/viewuser/${user._id}?mode=view`}
-//                       >
-//                         View
-//                       </Button>
-//                       <Button
-//                         variant="primary"
-//                         className="mx-1"
-//                         as={Link}
-//                         to={`/admin/users/edituser/${user._id}`}
-//                       >
-//                         Edit
-//                       </Button>
-//                       <Button
-//                         variant="danger"
-//                         className="mx-1"
-//                         onClick={() => handleDelete(user._id)}
-//                       >
-//                         Delete
-//                       </Button>
-                     
-//                     </td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </Table>
-//           </div>
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
-
-
-///changing the view to alert box
-
 const AllUsers = ({ users, setUsers }) => {
   const [selectedUsers, setSelectedUsers] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(''); // State for search input
+  const [searchQuery, setSearchQuery] = useState('');
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
+
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:5000/users');
-        setUsers(response.data.sort((a, b) => b._id.localeCompare(a._id)));
+
+        // Simply set users to the fetched data to display the newest user at the top
+        setUsers(response.data.reverse()); // Reverse the array to have the newest at the top
       } catch (err) {
         console.error('Error fetching users:', err);
       }
@@ -807,115 +406,134 @@ const AllUsers = ({ users, setUsers }) => {
       setSelectedUsers([]);
     }
   };
-
-  // Filter users based on search query (case-insensitive for name, email, and phone number)
-  const filteredUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.phone.includes(searchQuery)
-  );
-
-  // Handle view button click to display user details in an alert box
+  //   // Handle view button click to display user details in an alert box
   const handleViewUser = (user) => {
     const userDetails = `
       Name: ${user.name}
       Email: ${user.email}
       Phone: ${user.phone}
+      Date: ${user.date}
       Password: ${user.password}
       Confirm Password: ${user.confirmPassword}
     `;
     window.alert(userDetails);
   };
 
+  const filteredUsers = users.filter((user) => {
+    const userDate = new Date(user.date);
+    const from = fromDate ? new Date(fromDate) : null;
+    const to = toDate ? new Date(toDate) : null;
+
+    return (
+      (!from || userDate >= from) &&
+      (!to || userDate <= to) &&
+      ((user.name && user.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (user.email && user.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (user.phone && user.phone.includes(searchQuery)))
+    );
+  });
+
   return (
     <Container className="manage-products-container p-5">
       <Row>
         <Col md={12}>
-          <h2 className="text-left manageuser">Manage Users</h2>
-
-          {/* Search Bar */}
-          <input
-            type="text"
-            placeholder="Search by name, email, or phone number"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="searchbar"
-          />
-
-          {selectedUsers.length > 0 && (
+        {selectedUsers.length > 0 && (
             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
-              <MdDelete />
+              Delete Selected
+              {/* <MdDelete /> */}
+               ({selectedUsers.length})
             </Button>
           )}
+          <h2 className="text-left manageuser">Manage Users</h2>
 
-          <div className="table-wrapper">
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>
+          <div className="filter-container">
+            <input
+              type="text"
+              placeholder="Search by name, email, or phone number"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="searchbar"
+            />
+
+            {/* Date Range Filter */}
+            <div className="date-filter">
+              From Date<Form.Control
+                type="date"
+                value={fromDate}
+                onChange={(e) => setFromDate(e.target.value)}
+                placeholder="From Date"
+                className="date searchbar"
+              />
+              To Date<Form.Control
+                type="date"
+                value={toDate}
+                onChange={(e) => setToDate(e.target.value)}
+                placeholder="To Date"
+                className="date searchbar"
+              />
+            </div>
+          </div>
+
+          
+
+          <Table striped bordered hover className="product-table mt-3">
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" onChange={handleSelectAll} checked={selectedUsers.length === users.length} />
+                </th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Password</th>
+                <th>Confirm Password</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredUsers.map((user) => (
+                <tr key={user._id}>
+                  <td>
                     <input
                       type="checkbox"
-                      onChange={handleSelectAll}
-                      checked={selectedUsers.length === users.length && users.length > 0}
+                      checked={selectedUsers.includes(user._id)}
+                      onChange={() => handleSelectUser(user._id)}
                     />
-                  </th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>Password</th>
-                  <th>Confirm Password</th>
-                  <th>Actions</th>
+                  </td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phone}</td>
+                  {/* <td>{moment(user.date).format('DD/MM/YYYY')}</td> */}
+                  <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
+
+                  <td>{user.password}</td>
+                  <td>{user.confirmPassword}</td>
+                  <td>
+                    <Button
+                      variant="secondary"
+                      className="mx-1"
+                      onClick={() => handleViewUser(user)}
+                    >
+                      View
+                    </Button>
+                    <Button as={Link} to={`/admin/users/edituser/${user._id}`} variant="primary" className="mr-2">
+                      Edit
+                    </Button>
+                    <Button variant="danger" onClick={() => handleDelete(user._id)} className="mx-1">
+                      Delete
+                    </Button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {filteredUsers.map((user) => (
-                  <tr key={user._id}>
-                    <td>
-                      <input
-                        type="checkbox"
-                        checked={selectedUsers.includes(user._id)}
-                        onChange={() => handleSelectUser(user._id)}
-                      />
-                    </td>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.phone}</td>
-                    <td>{user.password}</td>
-                    <td>{user.confirmPassword}</td>
-                    <td>
-                      <Button
-                        variant="secondary"
-                        className="mx-1"
-                        onClick={() => handleViewUser(user)} // Call the handleViewUser function
-                      >
-                        View
-                      </Button>
-                      <Button
-                        variant="primary"
-                        className="mx-1"
-                        as={Link}
-                        to={`/admin/users/edituser/${user._id}`}
-                      >
-                        Edit
-                      </Button>
-                      <Button
-                        variant="danger"
-                        className="mx-1"
-                        onClick={() => handleDelete(user._id)}
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
+              ))}
+            </tbody>
+          </Table>
         </Col>
       </Row>
     </Container>
   );
 };
+
 
 // Reports Component
 const Reports = () => <h2 className="p-5">Overall-Reports Section</h2>;
@@ -974,7 +592,6 @@ const AdminPanel = () => {
             <Route path="/users/addnew" element={<EditUser users={users} setUsers={setUsers} />} />
             <Route path="/users/edituser/:id" element={<EditUser users={users} setUsers={setUsers} />} />
             <Route path="/users/manageuser" element={<AllUsers users={users} setUsers={setUsers} />} />
-            <Route path="/users/viewuser/:id" element={<EditUser users={users} setUsers={setUsers} />} />
             <Route path="/reports" element={<Reports />} />
           </Routes>
 

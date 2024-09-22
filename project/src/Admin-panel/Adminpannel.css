@@ -162,10 +162,10 @@
     }
     
  /* ///manage table */
- .manageuser{
-  padding-left: 15px;
+ /* .manageuser{
+  padding-left: 10px;
 
- }
+ } */
  
     /* ///add product */
 /* 
@@ -372,8 +372,26 @@
 }
 
 .searchbar{
-  width: 33%;
+  width: 25%;
   height: 35px;
-  margin-left: 13px;
+  /* margin-left: 13px; */
   margin-top: 5px;
+  display: inline-block;
 }
+.date{
+  width: 30%;
+  margin-left: 4px;
+  margin-right: 4px;
+  display: inline;
+  border: 0.5px solid black;
+}
+.filter-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 0.5rem;
+}
+
+/* .date-filter {
+  display: flex;
+  gap: 3rem; 
+} */
