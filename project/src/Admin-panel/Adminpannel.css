@@ -395,3 +395,7 @@
   display: flex;
   gap: 3rem; 
 } */
+
+.pagination{
+  justify-content: center;
+}

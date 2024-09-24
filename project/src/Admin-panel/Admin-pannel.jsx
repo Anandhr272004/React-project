@@ -9,9 +9,12 @@ import { FaEye } from "react-icons/fa";
 import { Line, Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import moment from 'moment'; // For date formatting
-
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement } from 'chart.js';
-import './Adminpannel.css';
+import './Adminpannel.css'
+
+
+
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -160,39 +163,162 @@ const Dashboard = () => {
           </Col>
         </Row>
       </Container>
-      {/* </Card> */}
-
-      {/* two card */}
-      {/* <Row className='mt-5'>
-         <Col md={6} >
-           <Card className='pro1'>
-             <Card.Img variant="top" src="holder.js/100px180" />
-             <Card.Body>
-               <Card.Title>Card Title</Card.Title>
-               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                 bulk of the card's content.
-               </Card.Text>
-             </Card.Body>
-           </Card>
-        </Col>
-         <Col md={6}>
-           <Card className='pro1'>
-             <Card.Img variant="top" src="holder.js/100px180" />            <Card.Body>
-             <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                 Some quick example text to build on the card title and make up the
-               bulk of the card's content.
-               </Card.Text>
-             </Card.Body>
-           </Card>
-
-         </Col>
-       </Row> */}
-
     </Container>
   );
 };
+
+
+// const EditUser = ({ users, setUsers }) => {
+//   const { id } = useParams();
+//   const navigate = useNavigate();
+//   const [user, setUser] = useState({
+//     name: '',
+//     email: '',
+//     phone: '',
+//     password: '',
+//     confirmPassword: '',
+//     date: new Date().toISOString().split('T')[0], // Default to today’s date
+//   });
+
+//   useEffect(() => {
+//     if (id) {
+//       const existingUser = users.find((u) => u._id === id);
+//       if (existingUser) {
+//         // Ensure that the date is properly formatted in 'YYYY-MM-DD' format for the input field
+//         setUser({
+//           ...existingUser,
+//           date: moment(existingUser.date).format('YYYY-MM-DD'), // Moment to format the date correctly for the input field
+//         });
+//       } else {
+//         navigate('/admin/users/manageuser');
+//       }
+//     }
+//   }, [id, users, navigate]);
+
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       // const formattedUser = {
+//       //   ...user,
+//       //   date: moment(user.date, 'YYYY-MM-DD').toISOString(), // Convert date back to ISO format for backend
+//       // };
+//       const formattedUser = {
+//         ...user,
+//         date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
+//       };
+
+//       if (id) {
+//         // Update existing user
+//         await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
+//         const updatedUsers = users.map((u) =>
+//           u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
+//         );
+//         setUsers(updatedUsers);
+//         window.alert('User updated successfully!');
+//       } else {
+//         // Add new user
+//         const response = await axios.post('http://localhost:5000/adduser', formattedUser);
+//         // Prepend the new user to the existing list
+//         setUsers((prevUsers) => [response.data, ...prevUsers]);
+//         window.alert('User Added Successfully!');
+//       }
+
+//       // Navigate back to user management page
+//       navigate('/admin/users/manageuser');
+//     } catch (err) {
+//       console.error('Error saving user:', err);
+//     }
+//   };
+
+//   return (
+//     <Container className="signclass">
+//       <Row className="signrow">
+//         <Col>
+//           <h6 className="addnew mt-2">{id ? 'Edit User' : 'Add New User'}</h6>          
+//           <Form onSubmit={handleSubmit} className="mt-3">
+//             <Form.Group controlId="name" className="name mt-4">
+//               <Form.Label>Name</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="Enter Name"
+//                 value={user.name}
+//                 onChange={(e) => setUser({ ...user, name: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group controlId="email" className="mt-3 name">
+//               <Form.Label>Email Address</Form.Label>
+//               <Form.Control
+//                 type="email"
+//                 placeholder="Enter Email Address"
+//                 value={user.email}
+//                 onChange={(e) => setUser({ ...user, email: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group className="mt-3 name">
+//               <Form.Label>Phone Number</Form.Label>
+//               <Form.Control
+//                 type="tel"
+//                 value={user.phone}
+//                 onChange={(e) => setUser({ ...user, phone: e.target.value })}
+//                 placeholder="Enter Phone number"
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group controlId="password" className="mt-3 name">
+//               <Form.Label>Password</Form.Label>
+//               <Form.Control
+//                 type="password"
+//                 placeholder="Enter Password"
+//                 value={user.password}
+//                 onChange={(e) => setUser({ ...user, password: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group className="mt-3 name">
+//               <Form.Label>Confirm Password</Form.Label>
+//               <Form.Control
+//                 type="password"
+//                 placeholder="Confirm Password"
+//                 value={user.confirmPassword}
+//                 onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             {/* Date Field */}
+//             <Form.Group className="mt-3 name">
+//               <Form.Label>Date</Form.Label>
+//               <Form.Control
+//                 type="date"
+//                 value={user.date}
+//                 onChange={(e) => setUser({ ...user, date: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Button type="submit" className="w-100 mt-3 addbutton">
+//               {id ? 'Save Changes' : 'Add User'}
+//             </Button>
+//           </Form>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
+
 
 
 const EditUser = ({ users, setUsers }) => {
@@ -205,16 +331,16 @@ const EditUser = ({ users, setUsers }) => {
     password: '',
     confirmPassword: '',
     date: new Date().toISOString().split('T')[0], // Default to today’s date
+    image: '', // New field for storing base64 image
   });
 
   useEffect(() => {
     if (id) {
       const existingUser = users.find((u) => u._id === id);
       if (existingUser) {
-        // Ensure that the date is properly formatted in 'YYYY-MM-DD' format for the input field
         setUser({
           ...existingUser,
-          date: moment(existingUser.date).format('YYYY-MM-DD'), // Moment to format the date correctly for the input field
+          date: moment(existingUser.date).format('YYYY-MM-DD'),
         });
       } else {
         navigate('/admin/users/manageuser');
@@ -222,14 +348,107 @@ const EditUser = ({ users, setUsers }) => {
     }
   }, [id, users, navigate]);
 
+  // Handle image upload
+  // const handleImageUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setUser({ ...user, image: reader.result }); // Save base64 image
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
+  // Updated handleImageUpload function with size limit
+  // const handleImageUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   const maxSizeInMB = 2; // Set the limit to 2MB or adjust to any other size
+  //   const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+
+  //   if (file) {
+  //     if (file.size > maxSizeInBytes) {
+  //       alert(`File size should not exceed ${maxSizeInMB}MB.`);
+  //       return;
+  //     }
+
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setUser({ ...user, image: reader.result }); // Save base64 image
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    const maxSizeInMB = 2; // Set the limit to 2MB or adjust to any other size
+    const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+
+    // Allowed MIME types for JPEG and PNG
+    const allowedTypes = ['image/jpeg', 'image/png'];
+
+    if (file) {
+      // Check file type
+      if (!allowedTypes.includes(file.type)) {
+        alert('Only JPEG and PNG images are allowed.');
+        return;
+      }
+
+      // Check file size
+      if (file.size > maxSizeInBytes) {
+        alert(`File size should not exceed ${maxSizeInMB}MB.`);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUser({ ...user, image: reader.result }); // Save base64 image
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const formattedUser = {
+  //       ...user,
+  //       date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
+  //     };
+
+  //     if (id) {
+  //       // Update existing user
+  //       await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
+  //       const updatedUsers = users.map((u) =>
+  //         u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
+  //       );
+  //       setUsers(updatedUsers);
+  //       window.alert('User updated successfully!');
+  //     } else {
+  //       // Add new user
+  //       const response = await axios.post('http://localhost:5000/adduser', formattedUser);
+  //       setUsers((prevUsers) => [response.data, ...prevUsers]);
+  //       window.alert('User Added Successfully!');
+  //     }
+  //     navigate('/admin/users/manageuser');
+  //   } catch (err) {
+  //     console.error('Error saving user:', err);
+  //   }
+  // };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Ensure the password and confirmPassword fields match
+    // if (user.password !== user.confirmPassword) {
+    //   window.alert('Passwords do not match');
+    //   return;
+    // }
+
     try {
-      // const formattedUser = {
-      //   ...user,
-      //   date: moment(user.date, 'YYYY-MM-DD').toISOString(), // Convert date back to ISO format for backend
-      // };
       const formattedUser = {
         ...user,
         date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
@@ -246,12 +465,11 @@ const EditUser = ({ users, setUsers }) => {
       } else {
         // Add new user
         const response = await axios.post('http://localhost:5000/adduser', formattedUser);
-        // Prepend the new user to the existing list
         setUsers((prevUsers) => [response.data, ...prevUsers]);
         window.alert('User Added Successfully!');
       }
 
-      // Navigate back to user management page
+      // Redirect after submission
       navigate('/admin/users/manageuser');
     } catch (err) {
       console.error('Error saving user:', err);
@@ -264,7 +482,37 @@ const EditUser = ({ users, setUsers }) => {
         <Col>
           <h6 className="addnew mt-2">{id ? 'Edit User' : 'Add New User'}</h6>
           <Form onSubmit={handleSubmit} className="mt-3">
-            <Form.Group controlId="name" className="name mt-4">
+            {/* <Form.Group className="name">
+            <Form.Label>Upload Image</Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="nametext"
+              />
+            {user.image && (
+              <div className="mt-3">
+                <img src={user.image} alt="Uploaded" style={{ width: '100px', height: '100px' }} />
+              </div>
+            )}
+            </Form.Group> */}
+
+            <Form.Group className="name">
+              <Form.Label>Upload Image</Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="nametext"
+              />
+              {user.image && (
+                <div className="mt-3">
+                  <img src={user.image} alt="Uploaded" style={{ width: '100px', height: '100px' }} />
+                </div>
+              )}
+            </Form.Group>
+
+            <Form.Group controlId="name" className="mt-3 name">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -336,6 +584,7 @@ const EditUser = ({ users, setUsers }) => {
               />
             </Form.Group>
 
+
             <Button type="submit" className="w-100 mt-3 addbutton">
               {id ? 'Save Changes' : 'Add User'}
             </Button>
@@ -347,19 +596,241 @@ const EditUser = ({ users, setUsers }) => {
 };
 
 
+
+
+
+
+
+// const AllUsers = ({ users, setUsers }) => {
+//   const [selectedUsers, setSelectedUsers] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [fromDate, setFromDate] = useState('');
+//   const [toDate, setToDate] = useState('');
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [usersPerPage, setUsersPerPage] = useState(5); // Default 5 users per page
+
+//   useEffect(() => {
+//     const fetchUsers = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:5000/users');
+//         setUsers(response.data.reverse()); // Reverse the array to have the newest at the top
+//       } catch (err) {
+//         console.error('Error fetching users:', err);
+//       }
+//     };
+//     fetchUsers();
+//   }, [setUsers]);
+
+//   const handleDelete = async (id) => {
+//     const confirmed = window.confirm('Are you sure you want to delete this user?');
+//     if (!confirmed) return;
+
+//     try {
+//       await axios.delete(`http://localhost:5000/users/${id}`);
+//       setUsers(users.filter((user) => user._id !== id));
+//     } catch (err) {
+//       console.error('Error deleting user:', err);
+//     }
+//   };
+
+//   const handleBulkDelete = async () => {
+//     const confirmed = window.confirm('Are you sure you want to delete the selected users?');
+//     if (!confirmed) return;
+
+//     try {
+//       await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
+//       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
+//       setSelectedUsers([]);
+//     } catch (err) {
+//       console.error('Error deleting users:', err);
+//     }
+//   };
+
+//   const handleSelectUser = (id) => {
+//     setSelectedUsers((prevSelected) =>
+//       prevSelected.includes(id) ? prevSelected.filter((userId) => userId !== id) : [...prevSelected, id]
+//     );
+//   };
+
+//   const handleSelectAll = (e) => {
+//     if (e.target.checked) {
+//       setSelectedUsers(users.map((user) => user._id));
+//     } else {
+//       setSelectedUsers([]);
+//     }
+//   };
+
+//   const handleViewUser = (user) => {
+//     const userDetails = `
+//       Name: ${user.name}
+//       Email: ${user.email}
+//       Phone: ${user.phone}
+//       Date: ${user.date}
+//       Password: ${user.password}
+//       Confirm Password: ${user.confirmPassword}
+//     `;
+//     window.alert(userDetails);
+//   };
+
+//   const filteredUsers = users.filter((user) => {
+//     const userDate = new Date(user.date);
+//     const from = fromDate ? new Date(fromDate) : null;
+//     const to = toDate ? new Date(toDate) : null;
+
+//     return (
+//       (!from || userDate >= from) &&
+//       (!to || userDate <= to) &&
+//       ((user.name && user.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
+//         (user.email && user.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
+//         (user.phone && user.phone.includes(searchQuery)))
+//     );
+//   });
+
+//   // Pagination logic
+//   const indexOfLastUser = currentPage * usersPerPage;
+//   const indexOfFirstUser = indexOfLastUser - usersPerPage;
+//   const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+//   const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+
+//   const handlePageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//   };
+
+//   const handleUsersPerPageChange = (e) => {
+//     setUsersPerPage(parseInt(e.target.value, 10));
+//     setCurrentPage(1); // Reset to page 1 when changing number of users per page
+//   };
+
+//   return (
+//     <Container className="manage-products-container p-5">
+//       <Row>
+//         <Col md={12}>
+//           {selectedUsers.length > 0 && (
+//             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
+//               Delete Selected ({selectedUsers.length})
+//             </Button>
+//           )}
+//           <h2 className="text-left manageuser">Manage Users</h2>
+
+//           <div className="filter-container">
+//             <input
+//               type="text"
+//               placeholder="Search by name, email, or phone number"
+//               value={searchQuery}
+//               onChange={(e) => setSearchQuery(e.target.value)}
+//               className="searchbar"
+//             />
+
+//             {/* Date Range Filter */}
+//             <div className="date-filter">
+//               From Date
+//               <Form.Control
+//                 type="date"
+//                 value={fromDate}
+//                 onChange={(e) => setFromDate(e.target.value)}
+//                 placeholder="From Date"
+//                 className="date searchbar"
+//               />
+//               To Date
+//               <Form.Control
+//                 type="date"
+//                 value={toDate}
+//                 onChange={(e) => setToDate(e.target.value)}
+//                 placeholder="To Date"
+//                 className="date searchbar"
+//               />
+//             </div>
+
+//             {/* Users Per Page Dropdown */}
+//             <div>
+//               <label htmlFor="usersPerPage">Users per page: </label>
+//               <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
+//                 <option value={5}>5</option>
+//                 <option value={10}>10</option>
+//                 <option value={15}>15</option>
+//               </select>
+//             </div>
+//           </div>
+
+//           <Table striped bordered hover className="product-table mt-3">
+//             <thead>
+//               <tr>
+//                 <th>
+//                   <input type="checkbox" onChange={handleSelectAll} checked={selectedUsers.length === users.length} />
+//                 </th>
+//                 <th>Name</th>
+//                 <th>Email</th>
+//                 <th>Phone</th>
+//                 <th>Date</th>
+//                 <th>Password</th>
+//                 <th>Actions</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {currentUsers.map((user) => (
+//                 <tr key={user._id}>
+//                   <td>
+//                     <input
+//                       type="checkbox"
+//                       checked={selectedUsers.includes(user._id)}
+//                       onChange={() => handleSelectUser(user._id)}
+//                     />
+//                   </td>
+//                   <td>{user.name}</td>
+//                   <td>{user.email}</td>
+//                   <td>{user.phone}</td>
+//                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
+//                   <td>{user.password}</td>
+//                   <td>
+//                     <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
+//                       View
+//                     </Button>
+//                     <Button as={Link} to={`/admin/users/edituser/${user._id}`} variant="primary" className="mr-2">
+//                       Edit
+//                     </Button>
+//                     <Button variant="danger" onClick={() => handleDelete(user._id)} className="mx-1">
+//                       Delete
+//                     </Button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </Table>
+
+//           {/* Pagination Controls */}
+//           <div className="pagination">
+//             {Array.from({ length: totalPages }, (_, index) => (
+//               <Button
+//                 key={index + 1}
+//                 onClick={() => handlePageChange(index + 1)}
+//                 variant={index + 1 === currentPage ? 'primary' : 'secondary'}
+//                 className="mx-1"
+//               >
+//                 {index + 1}
+//               </Button>
+//             ))}
+//           </div>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
+
+
+
 const AllUsers = ({ users, setUsers }) => {
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage, setUsersPerPage] = useState(5); // Default 5 users per page
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:5000/users');
-
-        // Simply set users to the fetched data to display the newest user at the top
         setUsers(response.data.reverse()); // Reverse the array to have the newest at the top
       } catch (err) {
         console.error('Error fetching users:', err);
@@ -406,7 +877,7 @@ const AllUsers = ({ users, setUsers }) => {
       setSelectedUsers([]);
     }
   };
-  //   // Handle view button click to display user details in an alert box
+
   const handleViewUser = (user) => {
     const userDetails = `
       Name: ${user.name}
@@ -433,15 +904,29 @@ const AllUsers = ({ users, setUsers }) => {
     );
   });
 
+  // Pagination logic
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+  const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handleUsersPerPageChange = (e) => {
+    setUsersPerPage(parseInt(e.target.value, 10));
+    setCurrentPage(1); // Reset to page 1 when changing number of users per page
+  };
+
   return (
     <Container className="manage-products-container p-5">
       <Row>
         <Col md={12}>
-        {selectedUsers.length > 0 && (
+          {selectedUsers.length > 0 && (
             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
-              Delete Selected
-              {/* <MdDelete /> */}
-               ({selectedUsers.length})
+              Delete Selected ({selectedUsers.length})
             </Button>
           )}
           <h2 className="text-left manageuser">Manage Users</h2>
@@ -457,14 +942,16 @@ const AllUsers = ({ users, setUsers }) => {
 
             {/* Date Range Filter */}
             <div className="date-filter">
-              From Date<Form.Control
+              From Date
+              <Form.Control
                 type="date"
                 value={fromDate}
                 onChange={(e) => setFromDate(e.target.value)}
                 placeholder="From Date"
                 className="date searchbar"
               />
-              To Date<Form.Control
+              To Date
+              <Form.Control
                 type="date"
                 value={toDate}
                 onChange={(e) => setToDate(e.target.value)}
@@ -472,9 +959,17 @@ const AllUsers = ({ users, setUsers }) => {
                 className="date searchbar"
               />
             </div>
-          </div>
 
-          
+            {/* Users Per Page Dropdown */}
+            <div>
+              <label htmlFor="usersPerPage">Users per page: </label>
+              <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={15}>15</option>
+              </select>
+            </div>
+          </div>
 
           <Table striped bordered hover className="product-table mt-3">
             <thead>
@@ -482,17 +977,17 @@ const AllUsers = ({ users, setUsers }) => {
                 <th>
                   <input type="checkbox" onChange={handleSelectAll} checked={selectedUsers.length === users.length} />
                 </th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Date</th>
                 <th>Password</th>
-                <th>Confirm Password</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {filteredUsers.map((user) => (
+              {currentUsers.map((user) => (
                 <tr key={user._id}>
                   <td>
                     <input
@@ -501,20 +996,19 @@ const AllUsers = ({ users, setUsers }) => {
                       onChange={() => handleSelectUser(user._id)}
                     />
                   </td>
+                  <td>
+                    {user.image ? <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} /> : 'No Image'}
+                  </td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
-                  {/* <td>{moment(user.date).format('DD/MM/YYYY')}</td> */}
                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
-
                   <td>{user.password}</td>
-                  <td>{user.confirmPassword}</td>
+                  {/* Other table data */}
+                 
                   <td>
-                    <Button
-                      variant="secondary"
-                      className="mx-1"
-                      onClick={() => handleViewUser(user)}
-                    >
+                    {/* Actions */}
+                    <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
                       View
                     </Button>
                     <Button as={Link} to={`/admin/users/edituser/${user._id}`} variant="primary" className="mr-2">
@@ -528,6 +1022,23 @@ const AllUsers = ({ users, setUsers }) => {
               ))}
             </tbody>
           </Table>
+
+
+
+
+          {/* Pagination Controls */}
+          <div className="pagination">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <Button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                variant={index + 1 === currentPage ? 'primary' : 'secondary'}
+                className="mx-1"
+              >
+                {index + 1}
+              </Button>
+            ))}
+          </div>
         </Col>
       </Row>
     </Container>
@@ -535,7 +1046,6 @@ const AllUsers = ({ users, setUsers }) => {
 };
 
 
-// Reports Component
 const Reports = () => <h2 className="p-5">Overall-Reports Section</h2>;
 
 
