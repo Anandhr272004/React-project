@@ -374,7 +374,6 @@
 .searchbar{
   width: 25%;
   height: 35px;
-  /* margin-left: 13px; */
   margin-top: 5px;
   display: inline-block;
 }
@@ -398,4 +397,23 @@
 
 .pagination{
   justify-content: center;
+}
+.icons{
+  font-size: 50px;
+  display: inline-flex;
+}
+.pdf-icon {
+  color: #FF0000; /* Red for PDF */
+  padding-left: 10px;
+}
+
+.excel-icon {
+  color: #217346; /* Green for Excel */
+  padding-left: 10px;
+  font-size:58px;
+}
+
+.csv-icon {
+  color: #007BFF; /* Blue for CSV */
+  padding-left: 10px;
 }

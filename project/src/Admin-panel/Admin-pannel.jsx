@@ -9,10 +9,14 @@ import { FaEye } from "react-icons/fa";
 import { Line, Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import moment from 'moment'; // For date formatting
+import { FaFilePdf } from "react-icons/fa";
+import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
+import { FaFileCsv } from "react-icons/fa6";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement } from 'chart.js';
 import './Adminpannel.css'
-
-
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import * as XLSX from 'xlsx';
 
 
 ChartJS.register(
@@ -348,37 +352,6 @@ const EditUser = ({ users, setUsers }) => {
     }
   }, [id, users, navigate]);
 
-  // Handle image upload
-  // const handleImageUpload = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setUser({ ...user, image: reader.result }); // Save base64 image
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
-  // Updated handleImageUpload function with size limit
-  // const handleImageUpload = (e) => {
-  //   const file = e.target.files[0];
-  //   const maxSizeInMB = 2; // Set the limit to 2MB or adjust to any other size
-  //   const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
-
-  //   if (file) {
-  //     if (file.size > maxSizeInBytes) {
-  //       alert(`File size should not exceed ${maxSizeInMB}MB.`);
-  //       return;
-  //     }
-
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setUser({ ...user, image: reader.result }); // Save base64 image
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -408,36 +381,6 @@ const EditUser = ({ users, setUsers }) => {
       reader.readAsDataURL(file);
     }
   };
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const formattedUser = {
-  //       ...user,
-  //       date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
-  //     };
-
-  //     if (id) {
-  //       // Update existing user
-  //       await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
-  //       const updatedUsers = users.map((u) =>
-  //         u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
-  //       );
-  //       setUsers(updatedUsers);
-  //       window.alert('User updated successfully!');
-  //     } else {
-  //       // Add new user
-  //       const response = await axios.post('http://localhost:5000/adduser', formattedUser);
-  //       setUsers((prevUsers) => [response.data, ...prevUsers]);
-  //       window.alert('User Added Successfully!');
-  //     }
-  //     navigate('/admin/users/manageuser');
-  //   } catch (err) {
-  //     console.error('Error saving user:', err);
-  //   }
-  // };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -476,27 +419,15 @@ const EditUser = ({ users, setUsers }) => {
     }
   };
 
+
+
+
   return (
     <Container className="signclass">
       <Row className="signrow">
         <Col>
           <h6 className="addnew mt-2">{id ? 'Edit User' : 'Add New User'}</h6>
           <Form onSubmit={handleSubmit} className="mt-3">
-            {/* <Form.Group className="name">
-            <Form.Label>Upload Image</Form.Label>
-              <Form.Control
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                className="nametext"
-              />
-            {user.image && (
-              <div className="mt-3">
-                <img src={user.image} alt="Uploaded" style={{ width: '100px', height: '100px' }} />
-              </div>
-            )}
-            </Form.Group> */}
-
             <Form.Group className="name">
               <Form.Label>Upload Image</Form.Label>
               <Form.Control
@@ -511,6 +442,8 @@ const EditUser = ({ users, setUsers }) => {
                 </div>
               )}
             </Form.Group>
+
+
 
             <Form.Group controlId="name" className="mt-3 name">
               <Form.Label>Name</Form.Label>
@@ -583,8 +516,6 @@ const EditUser = ({ users, setUsers }) => {
                 className="nametext"
               />
             </Form.Group>
-
-
             <Button type="submit" className="w-100 mt-3 addbutton">
               {id ? 'Save Changes' : 'Add User'}
             </Button>
@@ -594,11 +525,6 @@ const EditUser = ({ users, setUsers }) => {
     </Container>
   );
 };
-
-
-
-
-
 
 
 // const AllUsers = ({ users, setUsers }) => {
@@ -818,6 +744,308 @@ const EditUser = ({ users, setUsers }) => {
 // };
 
 
+// const AllUsers = ({ users, setUsers }) => {
+//   const [selectedUsers, setSelectedUsers] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [fromDate, setFromDate] = useState('');
+//   const [toDate, setToDate] = useState('');
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [usersPerPage, setUsersPerPage] = useState(5); // Default 5 users per page
+
+//   useEffect(() => {
+//     const fetchUsers = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:5000/users');
+//         setUsers(response.data.reverse()); // Reverse the array to have the newest at the top
+//       } catch (err) {
+//         console.error('Error fetching users:', err);
+//       }
+//     };
+//     fetchUsers();
+//   }, [setUsers]);
+
+//   const handleDelete = async (id) => {
+//     const confirmed = window.confirm('Are you sure you want to delete this user?');
+//     if (!confirmed) return;
+
+//     try {
+//       await axios.delete(`http://localhost:5000/users/${id}`);
+//       setUsers(users.filter((user) => user._id !== id));
+//     } catch (err) {
+//       console.error('Error deleting user:', err);
+//     }
+//   };
+
+//   const handleBulkDelete = async () => {
+//     const confirmed = window.confirm('Are you sure you want to delete the selected users?');
+//     if (!confirmed) return;
+
+//     try {
+//       await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
+//       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
+//       setSelectedUsers([]);
+//     } catch (err) {
+//       console.error('Error deleting users:', err);
+//     }
+//   };
+
+//   const handleSelectUser = (id) => {
+//     setSelectedUsers((prevSelected) =>
+//       prevSelected.includes(id) ? prevSelected.filter((userId) => userId !== id) : [...prevSelected, id]
+//     );
+//   };
+
+//   const handleSelectAll = (e) => {
+//     if (e.target.checked) {
+//       setSelectedUsers(users.map((user) => user._id));
+//     } else {
+//       setSelectedUsers([]);
+//     }
+//   };
+
+//   const handleViewUser = (user) => {
+//     const userDetails = `
+//       Name: ${user.name}
+//       Email: ${user.email}
+//       Phone: ${user.phone}
+//       Date: ${user.date}
+//       Password: ${user.password}
+//       Confirm Password: ${user.confirmPassword}
+//     `;
+//     window.alert(userDetails);
+//   };
+
+//   const filteredUsers = users.filter((user) => {
+//     const userDate = new Date(user.date);
+//     const from = fromDate ? new Date(fromDate) : null;
+//     const to = toDate ? new Date(toDate) : null;
+
+//     return (
+//       (!from || userDate >= from) &&
+//       (!to || userDate <= to) &&
+//       ((user.name && user.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
+//         (user.email && user.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
+//         (user.phone && user.phone.includes(searchQuery)))
+//     );
+//   });
+
+//   // Pagination logic
+//   const indexOfLastUser = currentPage * usersPerPage;
+//   const indexOfFirstUser = indexOfLastUser - usersPerPage;
+//   const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+//   const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+
+//   const handlePageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//   };
+
+//   const handleUsersPerPageChange = (e) => {
+//     setUsersPerPage(parseInt(e.target.value, 10));
+//     setCurrentPage(1); // Reset to page 1 when changing number of users per page
+//   };
+
+//   return (
+//     <Container className="manage-products-container p-5">
+//       <Row>
+//         <Col md={12}>
+//           {selectedUsers.length > 0 && (
+//             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
+//               Delete Selected ({selectedUsers.length})
+//             </Button>
+//           )}
+//           <h2 className="text-left manageuser">Manage Users</h2>
+//           <div className='down mt-4'>
+//             <div className="filter-container">
+//               <input
+//                 type="text"
+//                 placeholder="Search by name, email, or phone number"
+//                 value={searchQuery}
+//                 onChange={(e) => setSearchQuery(e.target.value)}
+//                 className="searchbar"
+//               />
+
+//               {/* Date Range Filter */}
+//               <div className="date-filter ">
+//                 From Date
+//                 <Form.Control
+//                   type="date"
+//                   value={fromDate}
+//                   onChange={(e) => setFromDate(e.target.value)}
+//                   placeholder="From Date"
+//                   className="date searchbar"
+//                 />
+//                 To Date
+//                 <Form.Control
+//                   type="date"
+//                   value={toDate}
+//                   onChange={(e) => setToDate(e.target.value)}
+//                   placeholder="To Date"
+//                   className="date searchbar"
+//                 />
+//               </div>
+
+//               {/* Users Per Page Dropdown */}
+//               <div>
+//                 <label htmlFor="usersPerPage">Users per page: </label>
+//                 <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
+//                   <option value={5}>5</option>
+//                   <option value={10}>10</option>
+//                   <option value={15}>15</option>
+//                 </select>
+//               </div>
+//               <div className="icons">
+//   <FaFilePdf className="pdf-icon" />
+//   <PiMicrosoftExcelLogoFill className="excel-icon" />
+//   <FaFileCsv className="csv-icon" />
+// </div>
+
+//             </div>
+            
+//           </div>
+
+
+//           {/* <Table striped bordered hover className="product-table mt-3">
+//             <thead>
+//               <tr>
+//                 <th>
+//                   <input type="checkbox" onChange={handleSelectAll} checked={selectedUsers.length === users.length} />
+//                 </th>
+//                 <th>Image</th>
+//                 <th>Name</th>
+//                 <th>Email</th>
+//                 <th>Phone</th>
+//                 <th>Date</th>
+//                 <th>Password</th>
+//                 <th>Actions</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {currentUsers.map((user) => (
+//                 <tr key={user._id}>
+//                   <td>
+//                     <input
+//                       type="checkbox"
+//                       checked={selectedUsers.includes(user._id)}
+//                       onChange={() => handleSelectUser(user._id)}
+//                     />
+//                   </td>
+//                   <td>
+//                     {user.image ? <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} /> : 'No Image'}
+//                   </td>
+//                   <td>{user.name}</td>
+//                   <td>{user.email}</td>
+//                   <td>{user.phone}</td>
+//                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
+//                   <td>{user.password}</td>
+                 
+//                   <td>
+//                     <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
+//                       View
+//                     </Button>
+//                     <Button as={Link} to={`/admin/users/edituser/${user._id}`} variant="primary" className="mr-2">
+//                       Edit
+//                     </Button>
+//                     <Button variant="danger" onClick={() => handleDelete(user._id)} className="mx-1">
+//                       Delete
+//                     </Button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </Table> */}
+
+//           <Table striped bordered hover className="product-table mt-3">
+//             <thead>
+//               <tr>
+//                 <th>
+//                   <input
+//                     type="checkbox"
+//                     onChange={handleSelectAll}
+//                     checked={selectedUsers.length === users.length}
+//                   />
+//                 </th>
+//                 <th>S.No</th> {/* New Serial Number Column */}
+//                 <th>Image</th>
+//                 <th>Name</th>
+//                 <th>Email</th>
+//                 <th>Phone</th>
+//                 <th>Date</th>
+//                 <th>Password</th>
+//                 <th>Actions</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {currentUsers.map((user, index) => (
+//                 <tr key={user._id}>
+//                   <td>
+//                     <input
+//                       type="checkbox"
+//                       checked={selectedUsers.includes(user._id)}
+//                       onChange={() => handleSelectUser(user._id)}
+//                     />
+//                   </td>
+//                   <td>{indexOfFirstUser + index + 1}</td> {/* Serial number logic */}
+//                   <td>
+//                     {user.image ? (
+//                       <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} />
+//                     ) : (
+//                       'No Image'
+//                     )}
+//                   </td>
+//                   <td>{user.name}</td>
+//                   <td>{user.email}</td>
+//                   <td>{user.phone}</td>
+//                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
+//                   <td>{user.password}</td>
+//                   <td>
+//                     <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
+//                       View
+//                     </Button>
+//                     <Button as={Link} to={`/admin/users/edituser/${user._id}`} variant="primary" className="mr-2">
+//                       Edit
+//                     </Button>
+//                     <Button variant="danger" onClick={() => handleDelete(user._id)} className="mx-1">
+//                       Delete
+//                     </Button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </Table>
+
+
+
+
+//           {/* Pagination Controls */}
+//           <div className="pagination">
+//             {Array.from({ length: totalPages }, (_, index) => (
+//               <Button
+//                 key={index + 1}
+//                 onClick={() => handlePageChange(index + 1)}
+//                 variant={index + 1 === currentPage ? 'primary' : 'secondary'}
+//                 className="mx-1"
+//               >
+//                 {index + 1}
+//               </Button>
+//             ))}
+//           </div>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
+
+// import { useState, useEffect } from 'react';
+// import { Container, Row, Col, Button, Table, Form } from 'react-bootstrap';
+// import { FaFilePdf, FaFileCsv } from 'react-icons/fa';
+// import { PiMicrosoftExcelLogoFill } from 'react-icons/pi';
+// import jsPDF from 'jspdf';
+// import 'jspdf-autotable';
+// import * as XLSX from 'xlsx';
+// import axios from 'axios';
+// import moment from 'moment';
+// import { Link } from 'react-router-dom';
 
 const AllUsers = ({ users, setUsers }) => {
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -920,6 +1148,146 @@ const AllUsers = ({ users, setUsers }) => {
     setCurrentPage(1); // Reset to page 1 when changing number of users per page
   };
 
+  // PDF Export
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    const tableData = currentUsers.map((user, index) => [
+
+      index + 1,
+      user.name,
+      user.email,
+      user.phone,
+      moment.utc(user.date).local().format('DD/MM/YYYY'),
+      user.password,
+    ]);
+
+    doc.autoTable({
+      head: [['S.No', 'Name', 'Email', 'Phone', 'Date', 'Password']],
+      body: tableData,
+    });
+    doc.save('users_data.pdf');
+  };
+
+  // const downloadPDF = () => {
+  //   const doc = new jsPDF();
+  
+  //   const tableData = currentUsers.map((user, index) => {
+  //     const imgData = user.image ? user.image : ''; // If no image, leave blank
+  
+  //     return [
+  //       index + 1,
+  //       imgData, // Add the image data to the table
+  //       user.name,
+  //       user.email,
+  //       user.phone,
+  //       moment.utc(user.date).local().format('DD/MM/YYYY'),
+  //       user.password
+       
+  //     ];
+  //   });
+  
+  //   doc.autoTable({
+  //     head: [['S.No', 'Image','Name', 'Email', 'Phone', 'Date', 'Password']],
+  //     body: tableData,
+  //     didDrawCell: (data) => {
+  //       if (data.column.index === 6 && data.cell.raw) { // Column index 6 for images
+  //         doc.addImage(data.cell.raw, 'JPEG', data.cell.x + 2, data.cell.y + 2, 15, 15); // Adjust image size and position
+  //       }
+  //     }
+  //   });
+  
+  //   doc.save('users_data.pdf');
+  // };
+  
+
+
+
+  // Excel Export
+ 
+ 
+  const downloadExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(
+      currentUsers.map((user, index) => ({
+        S_No: index + 1,
+        Name: user.name,
+        Email: user.email,
+        Phone: user.phone,
+        Date: moment.utc(user.date).local().format('DD/MM/YYYY'),
+        Password: user.password,
+      }))
+    );
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Users');
+    XLSX.writeFile(workbook, 'users_data.xlsx');
+  };
+  // const downloadExcel = () => {
+  //   const worksheet = XLSX.utils.json_to_sheet(
+  //     currentUsers.map((user, index) => ({
+  //       S_No: index + 1,
+  //       Image_URL: user.image || 'No Image', // Add the image URL
+  //       Name: user.name,
+  //       Email: user.email,
+  //       Phone: user.phone,
+  //       Date: moment.utc(user.date).local().format('DD/MM/YYYY'),
+  //       Password: user.password
+       
+  //     }))
+  //   );
+  
+  //   const workbook = XLSX.utils.book_new();
+  //   XLSX.utils.book_append_sheet(workbook, worksheet, 'Users');
+  //   XLSX.writeFile(workbook, 'users_data.xlsx');
+  // };
+  
+
+  // CSV Export
+  const downloadCSV = () => {
+    const worksheet = XLSX.utils.json_to_sheet(
+      currentUsers.map((user, index) => ({
+        S_No: index + 1,
+        Name: user.name,
+        Email: user.email,
+        Phone: user.phone,
+        Date: moment.utc(user.date).local().format('DD/MM/YYYY'),
+        Password: user.password,
+      }))
+    );
+    const csv = XLSX.utils.sheet_to_csv(worksheet);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'users_data.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // const downloadCSV = () => {
+  //   const worksheet = XLSX.utils.json_to_sheet(
+  //     currentUsers.map((user, index) => ({
+  //       S_No: index + 1,
+  //       Image_URL: user.image || 'No Image', // Add the image URL
+  //       Name: user.name,
+  //       Email: user.email,
+  //       Phone: user.phone,
+  //       Date: moment.utc(user.date).local().format('DD/MM/YYYY'),
+  //       Password: user.password
+  //     }))
+  //   );
+  
+  //   const csv = XLSX.utils.sheet_to_csv(worksheet);
+  //   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  //   const url = URL.createObjectURL(blob);
+  //   const link = document.createElement('a');
+  //   link.setAttribute('href', url);
+  //   link.setAttribute('download', 'users_data.csv');
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+  
+
   return (
     <Container className="manage-products-container p-5">
       <Row>
@@ -930,53 +1298,68 @@ const AllUsers = ({ users, setUsers }) => {
             </Button>
           )}
           <h2 className="text-left manageuser">Manage Users</h2>
-
-          <div className="filter-container">
-            <input
-              type="text"
-              placeholder="Search by name, email, or phone number"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="searchbar"
-            />
-
-            {/* Date Range Filter */}
-            <div className="date-filter">
-              From Date
-              <Form.Control
-                type="date"
-                value={fromDate}
-                onChange={(e) => setFromDate(e.target.value)}
-                placeholder="From Date"
-                className="date searchbar"
+          <div className='down mt-4'>
+            <div className="filter-container">
+              <input
+                type="text"
+                placeholder="Search by name, email, or phone number"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="searchbar"
               />
-              To Date
-              <Form.Control
-                type="date"
-                value={toDate}
-                onChange={(e) => setToDate(e.target.value)}
-                placeholder="To Date"
-                className="date searchbar"
-              />
-            </div>
 
-            {/* Users Per Page Dropdown */}
-            <div>
-              <label htmlFor="usersPerPage">Users per page: </label>
-              <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
-                <option value={5}>5</option>
-                <option value={10}>10</option>
-                <option value={15}>15</option>
-              </select>
+              {/* Date Range Filter */}
+              <div className="date-filter ">
+                From Date
+                <Form.Control
+                  type="date"
+                  value={fromDate}
+                  onChange={(e) => setFromDate(e.target.value)}
+                  placeholder="From Date"
+                  className="date searchbar"
+                />
+                To Date
+                <Form.Control
+                  type="date"
+                  value={toDate}
+                  onChange={(e) => setToDate(e.target.value)}
+                  placeholder="To Date"
+                  className="date searchbar"
+                />
+              </div>
+
+              {/* Users Per Page Dropdown */}
+              <div>
+                <label htmlFor="usersPerPage">Users per page: </label>
+                <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
+                  <option value={5}>5</option>
+                  <option value={10}>10</option>
+                  <option value={15}>15</option>
+                  <option value={30}>30</option>
+                </select>
+              </div>
+
+              {/* Icons for PDF, Excel, CSV */}
+              <div className="icons">
+                <FaFilePdf className="pdf-icon" onClick={downloadPDF} />
+                <PiMicrosoftExcelLogoFill className="excel-icon" onClick={downloadExcel} />
+                <FaFileCsv className="csv-icon" onClick={downloadCSV} />
+              </div>
             </div>
           </div>
 
+          {/* User Table */}
           <Table striped bordered hover className="product-table mt-3">
             <thead>
               <tr>
                 <th>
-                  <input type="checkbox" onChange={handleSelectAll} checked={selectedUsers.length === users.length} />
+                  <input
+                    type="checkbox"
+                    onChange={handleSelectAll}
+                    checked={selectedUsers.length === users.length}
+                  />
                 </th>
+                <th>S.No</th>
                 <th>Image</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -987,7 +1370,7 @@ const AllUsers = ({ users, setUsers }) => {
               </tr>
             </thead>
             <tbody>
-              {currentUsers.map((user) => (
+              {currentUsers.map((user, index) => (
                 <tr key={user._id}>
                   <td>
                     <input
@@ -996,18 +1379,20 @@ const AllUsers = ({ users, setUsers }) => {
                       onChange={() => handleSelectUser(user._id)}
                     />
                   </td>
+                  <td>{indexOfFirstUser + index + 1}</td>
                   <td>
-                    {user.image ? <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} /> : 'No Image'}
+                    {user.image ? (
+                      <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} />
+                    ) : (
+                      'No Image'
+                    )}
                   </td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
                   <td>{user.password}</td>
-                  {/* Other table data */}
-                 
                   <td>
-                    {/* Actions */}
                     <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
                       View
                     </Button>
@@ -1022,9 +1407,6 @@ const AllUsers = ({ users, setUsers }) => {
               ))}
             </tbody>
           </Table>
-
-
-
 
           {/* Pagination Controls */}
           <div className="pagination">
@@ -1045,6 +1427,7 @@ const AllUsers = ({ users, setUsers }) => {
   );
 };
 
+// export default AllUsers;
 
 const Reports = () => <h2 className="p-5">Overall-Reports Section</h2>;
 
