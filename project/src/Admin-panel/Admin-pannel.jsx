@@ -253,7 +253,6 @@ const EditUser = ({ users, setUsers }) => {
         window.alert('User Added Successfully!');
       }
 
-      // Redirect after submission
       navigate('/admin/users/manageuser');
     } catch (err) {
       console.error('Error saving user:', err);
