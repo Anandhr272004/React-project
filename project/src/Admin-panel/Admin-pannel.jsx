@@ -640,7 +640,7 @@ const AllUsers = ({ users, setUsers }) => {
                     ) : (
                       'No Image'
                     )}
-                  </td>
+                   </td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
