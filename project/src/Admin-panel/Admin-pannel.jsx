@@ -634,13 +634,26 @@ const AllUsers = ({ users, setUsers }) => {
                     />
                   </td>
                   <td>{indexOfFirstUser + index + 1}</td>
-                  <td>
+                  {/* <td>
                     {user.image ? (
                       <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} />
                     ) : (
                       'No Image'
                     )}
-                   </td>
+                   </td> */}
+
+                                       <td>
+                      {user.photo ? (
+                        <img
+                          src={`http://localhost:5000/uploads/${user.photo}`}
+                          alt={user.name}
+                          style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                        />
+                      ) : (
+                        'No photo'
+                      )}
+                    </td>
+
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
@@ -687,7 +700,7 @@ const AllUsers = ({ users, setUsers }) => {
 const Reports = () => <h2 className="p-5">Overall-Reports Section</h2>;
 
 
-// Admin Panel Component
+
 const AdminPanel = () => {
   const [users, setUsers] = useState([
     { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', password: 'password123', confirmPassword: 'password123' },
