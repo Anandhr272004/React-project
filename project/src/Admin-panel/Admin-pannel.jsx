@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Navbar, Nav, Button, Row, Col, Card, Form, Table, Dropdown, Image } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
+import { useForm, Controller } from 'react-hook-form';
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
 import { TbReportSearch } from "react-icons/tb";
@@ -172,17 +173,229 @@ const Dashboard = () => {
 };
 
 
+// const EditUser = ({ users, setUsers }) => {
+//   const { id } = useParams();
+//   const navigate = useNavigate();
+//   const [user, setUser] = useState({
+//     name: '',
+//     email: '',
+//     phone: '',
+//     password: '',
+//     confirmPassword: '',
+//     date: new Date().toISOString().split('T')[0], // Default to today’s date
+//     image: '', // New field for storing base64 image
+//   });
+
+//   useEffect(() => {
+//     if (id) {
+//       const existingUser = users.find((u) => u._id === id);
+//       if (existingUser) {
+//         setUser({
+//           ...existingUser,
+//           date: moment(existingUser.date).format('YYYY-MM-DD'),
+//         });
+//       } else {
+//         navigate('/admin/users/manageuser');
+//       }
+//     }
+//   }, [id, users, navigate]);
+
+
+//   const handleImageUpload = (e) => {
+//     const file = e.target.files[0];
+//     const maxSizeInMB = 2; // Set the limit to 2MB or adjust to any other size
+//     const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+
+//     // Allowed MIME types for JPEG and PNG
+//     const allowedTypes = ['image/jpeg', 'image/png'];
+
+//     if (file) {
+//       // Check file type
+//       if (!allowedTypes.includes(file.type)) {
+//         alert('Only JPEG and PNG images are allowed.');
+//         return;
+//       }
+
+//       // Check file size
+//       if (file.size > maxSizeInBytes) {
+//         alert(`File size should not exceed ${maxSizeInMB}MB.`);
+//         return;
+//       }
+
+//       const reader = new FileReader();
+//       reader.onloadend = () => {
+//         setUser({ ...user, image: reader.result }); // Save base64 image
+//       };
+//       reader.readAsDataURL(file);
+//     }
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       const formattedUser = {
+//         ...user,
+//         date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
+//       };
+
+//       if (id) {
+//         // Update existing user
+//         await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
+//         const updatedUsers = users.map((u) =>
+//           u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
+//         );
+//         setUsers(updatedUsers);
+//         window.alert('User updated successfully!');
+//       } else {
+//         // Add new user
+//         const response = await axios.post('http://localhost:5000/adduser', formattedUser);
+//         setUsers((prevUsers) => [response.data, ...prevUsers]);
+//         window.alert('User Added Successfully!');
+//       }
+
+//       navigate('/admin/users/manageuser');
+//     } catch (err) {
+//       console.error('Error saving user:', err);
+//     }
+//   };
+
+//   return (
+//     <Container className="signclass">
+//       <Row className="signrow">
+//         <Col>
+//           <h6 className="addnew mt-2">{id ? 'Edit User' : 'Add New User'}</h6>
+//           <Form onSubmit={handleSubmit} className="mt-3">
+//             <Form.Group className="name">
+//               <Form.Label>Upload Image</Form.Label>
+//               <Form.Control
+//                 type="file"
+//                 accept="image/*"
+//                 onChange={handleImageUpload}
+//                 className="nametext"
+//               />
+//               {user.image && (
+//                 <div className="mt-3">
+//                   <img src={user.image} alt="Uploaded" style={{ width: '100px', height: '100px' }} />
+//                 </div>
+//               )}
+//             </Form.Group>
+
+
+
+//             <Form.Group controlId="name" className="mt-3 name">
+//               <Form.Label>Name</Form.Label>
+//               <Form.Control
+//                 type="text"
+//                 placeholder="Enter Name"
+//                 value={user.name}
+//                 onChange={(e) => setUser({ ...user, name: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group controlId="email" className="mt-3 name">
+//               <Form.Label>Email Address</Form.Label>
+//               <Form.Control
+//                 type="email"
+//                 placeholder="Enter Email Address"
+//                 value={user.email}
+//                 onChange={(e) => setUser({ ...user, email: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group className="mt-3 name">
+//               <Form.Label>Phone Number</Form.Label>
+//               <Form.Control
+//                 type="tel"
+//                 value={user.phone}
+//                 onChange={(e) => setUser({ ...user, phone: e.target.value })}
+//                 placeholder="Enter Phone number"
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group controlId="password" className="mt-3 name">
+//               <Form.Label>Password</Form.Label>
+//               <Form.Control
+//                 type="password"
+//                 placeholder="Enter Password"
+//                 value={user.password}
+//                 onChange={(e) => setUser({ ...user, password: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             <Form.Group className="mt-3 name">
+//               <Form.Label>Confirm Password</Form.Label>
+//               <Form.Control
+//                 type="password"
+//                 placeholder="Confirm Password"
+//                 value={user.confirmPassword}
+//                 onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+
+//             {/* Date Field */}
+//             <Form.Group className="mt-3 name">
+//               <Form.Label>Date</Form.Label>
+//               <Form.Control
+//                 type="date"
+//                 value={user.date}
+//                 onChange={(e) => setUser({ ...user, date: e.target.value })}
+//                 required
+//                 className="nametext"
+//               />
+//             </Form.Group>
+//             <Button type="submit" className="w-100 mt-3 addbutton">
+//               {id ? 'Save Changes' : 'Add User'}
+//             </Button>
+//           </Form>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
+
+
+
+
 const EditUser = ({ users, setUsers }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+    watch,
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      password: '',
+      confirmPassword: '',
+      date: new Date().toISOString().split('T')[0],
+      image: '',
+    },
+  });
+
   const [user, setUser] = useState({
     name: '',
     email: '',
     phone: '',
     password: '',
     confirmPassword: '',
-    date: new Date().toISOString().split('T')[0], // Default to today’s date
-    image: '', // New field for storing base64 image
+    date: new Date().toISOString().split('T')[0], 
+    image: '',
   });
 
   useEffect(() => {
@@ -193,29 +406,29 @@ const EditUser = ({ users, setUsers }) => {
           ...existingUser,
           date: moment(existingUser.date).format('YYYY-MM-DD'),
         });
+        setValue("name", existingUser.name);
+        setValue("email", existingUser.email);
+        setValue("phone", existingUser.phone);
+        setValue("date", moment(existingUser.date).format('YYYY-MM-DD'));
+        setValue("image", existingUser.image || ""); // Set image if already exists
       } else {
         navigate('/admin/users/manageuser');
       }
     }
-  }, [id, users, navigate]);
-
+  }, [id, users, navigate, setValue]);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    const maxSizeInMB = 2; // Set the limit to 2MB or adjust to any other size
+    const maxSizeInMB = 2; 
     const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
-
-    // Allowed MIME types for JPEG and PNG
     const allowedTypes = ['image/jpeg', 'image/png'];
 
     if (file) {
-      // Check file type
       if (!allowedTypes.includes(file.type)) {
         alert('Only JPEG and PNG images are allowed.');
         return;
       }
 
-      // Check file size
       if (file.size > maxSizeInBytes) {
         alert(`File size should not exceed ${maxSizeInMB}MB.`);
         return;
@@ -223,23 +436,21 @@ const EditUser = ({ users, setUsers }) => {
 
       const reader = new FileReader();
       reader.onloadend = () => {
-        setUser({ ...user, image: reader.result }); // Save base64 image
+        setUser({ ...user, image: reader.result });
+        setValue("image", reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const onSubmit = async (data) => {
     try {
       const formattedUser = {
-        ...user,
-        date: moment.utc(user.date, 'YYYY-MM-DD').toISOString(),
+        ...data,
+        date: moment.utc(data.date, 'YYYY-MM-DD').toISOString(),
       };
 
       if (id) {
-        // Update existing user
         await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
         const updatedUsers = users.map((u) =>
           u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
@@ -247,7 +458,6 @@ const EditUser = ({ users, setUsers }) => {
         setUsers(updatedUsers);
         window.alert('User updated successfully!');
       } else {
-        // Add new user
         const response = await axios.post('http://localhost:5000/adduser', formattedUser);
         setUsers((prevUsers) => [response.data, ...prevUsers]);
         window.alert('User Added Successfully!');
@@ -264,7 +474,8 @@ const EditUser = ({ users, setUsers }) => {
       <Row className="signrow">
         <Col>
           <h6 className="addnew mt-2">{id ? 'Edit User' : 'Add New User'}</h6>
-          <Form onSubmit={handleSubmit} className="mt-3">
+          <Form onSubmit={handleSubmit(onSubmit)} className="mt-3">
+            {/* Image Upload */}
             <Form.Group className="name">
               <Form.Label>Upload Image</Form.Label>
               <Form.Control
@@ -272,87 +483,144 @@ const EditUser = ({ users, setUsers }) => {
                 accept="image/*"
                 onChange={handleImageUpload}
                 className="nametext"
+                required // Make the image upload required
               />
               {user.image && (
                 <div className="mt-3">
                   <img src={user.image} alt="Uploaded" style={{ width: '100px', height: '100px' }} />
                 </div>
               )}
+              {errors.image && <Form.Text className="text-danger">Image is required</Form.Text>}
             </Form.Group>
 
-
-
-            <Form.Group controlId="name" className="mt-3 name">
+            {/* Name Field */}
+            <Form.Group className="mt-3 name">
               <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Name"
-                value={user.name}
-                onChange={(e) => setUser({ ...user, name: e.target.value })}
-                required
-                className="nametext"
+              <Controller
+                control={control}
+                name="name"
+                render={({ field }) => (
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Name"
+                    {...field}
+                    isInvalid={!!errors.name}
+                  />
+                )}
+                rules={{ required: 'Name is required' }}
               />
+              {errors.name && <Form.Text className="text-danger">{errors.name.message}</Form.Text>}
             </Form.Group>
 
-            <Form.Group controlId="email" className="mt-3 name">
+            {/* Email Field */}
+            <Form.Group className="mt-3 name">
               <Form.Label>Email Address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter Email Address"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-                required
-                className="nametext"
+              <Controller
+                control={control}
+                name="email"
+                render={({ field }) => (
+                  <Form.Control
+                    type="email"
+                    placeholder="Enter Email Address"
+                    {...field}
+                    isInvalid={!!errors.email}
+                  />
+                )}
+                rules={{
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: 'Invalid email format',
+                  },
+                }}
               />
+              {errors.email && <Form.Text className="text-danger">{errors.email.message}</Form.Text>}
             </Form.Group>
 
+            {/* Phone Field */}
             <Form.Group className="mt-3 name">
               <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="tel"
-                value={user.phone}
-                onChange={(e) => setUser({ ...user, phone: e.target.value })}
-                placeholder="Enter Phone number"
-                required
-                className="nametext"
+              <Controller
+                control={control}
+                name="phone"
+                render={({ field }) => (
+                  <Form.Control
+                    type="tel"
+                    placeholder="Enter Phone number"
+                    {...field}
+                    isInvalid={!!errors.phone}
+                  />
+                )}
+                rules={{ required: 'Phone number is required' }}
               />
+              {errors.phone && <Form.Text className="text-danger">{errors.phone.message}</Form.Text>}
             </Form.Group>
 
-            <Form.Group controlId="password" className="mt-3 name">
+            {/* Password Field */}
+            <Form.Group className="mt-3 name">
               <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter Password"
-                value={user.password}
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
-                required
-                className="nametext"
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <Form.Control
+                    type="password"
+                    placeholder="Enter Password"
+                    {...field}
+                    isInvalid={!!errors.password}
+                  />
+                )}
+                rules={{
+                  required: 'Password is required',
+                  pattern: {
+                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    message: 'Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters',
+                  },
+                }}
               />
+              {errors.password && <Form.Text className="text-danger">{errors.password.message}</Form.Text>}
             </Form.Group>
 
+            {/* Confirm Password Field */}
             <Form.Group className="mt-3 name">
               <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                value={user.confirmPassword}
-                onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
-                required
-                className="nametext"
+              <Controller
+                control={control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <Form.Control
+                    type="password"
+                    placeholder="Confirm Password"
+                    {...field}
+                    isInvalid={!!errors.confirmPassword}
+                  />
+                )}
+                rules={{
+                  required: 'Please confirm your password',
+                  validate: (value) => value === watch('password') || 'Passwords must match',
+                }}
               />
+              {errors.confirmPassword && <Form.Text className="text-danger">{errors.confirmPassword.message}</Form.Text>}
             </Form.Group>
 
             {/* Date Field */}
             <Form.Group className="mt-3 name">
               <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                value={user.date}
-                onChange={(e) => setUser({ ...user, date: e.target.value })}
-                required
-                className="nametext"
+              <Controller
+                control={control}
+                name="date"
+                render={({ field }) => (
+                  <Form.Control
+                    type="date"
+                    {...field}
+                    isInvalid={!!errors.date}
+                  />
+                )}
+                rules={{ required: 'Date is required' }}
               />
+              {errors.date && <Form.Text className="text-danger">{errors.date.message}</Form.Text>}
             </Form.Group>
+
             <Button type="submit" className="w-100 mt-3 addbutton">
               {id ? 'Save Changes' : 'Add User'}
             </Button>
@@ -441,8 +709,8 @@ const AllUsers = ({ users, setUsers }) => {
     window.alert(userDetails);
   };
 
-   // Filtering users based on search query and date range
-   const filteredUsers = users.filter((user) => {
+  // Filtering users based on search query and date range
+  const filteredUsers = users.filter((user) => {
     const userDate = new Date(user.date);
     const from = fromDate ? new Date(fromDate) : null;
     const to = toDate ? new Date(toDate) : null;
@@ -467,13 +735,6 @@ const AllUsers = ({ users, setUsers }) => {
     setUsersPerPage(parseInt(e.target.value, 10));
     setCurrentPage(1); // Reset to page 1 when changing number of users per page
   };
-
- 
-  
-
-// Pagination logic
-// const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
-
 
   // Pagination logic
   const indexOfLastUser = currentPage * usersPerPage;
@@ -554,7 +815,7 @@ const AllUsers = ({ users, setUsers }) => {
           <h2 className="text-left manageuser">Manage Users</h2>
           <div className='down mt-4'>
             <div className="filter-container">
-              <input
+              {/* <input
                 type="text"
                 placeholder="Search by name, email, or phone number"
                 value={searchQuery}
@@ -562,7 +823,6 @@ const AllUsers = ({ users, setUsers }) => {
                 className="searchbar"
               />
 
-              {/* Date Range Filter */}
               <div className="date-filter ">
                 From Date
                 <Form.Control
@@ -580,24 +840,51 @@ const AllUsers = ({ users, setUsers }) => {
                   placeholder="To Date"
                   className="date searchbar"
                 />
+              </div> */}
+
+              <div className="filter"  >
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Name / E-mail / Phone Number"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="searchbar"
+                />|
+
+                {/* Date Range Filter */}
+                <div className="date-filter" style={{ display: 'flex', gap: '10px' }}>
+                  <Form.Control
+                    type="date"
+                    value={fromDate}
+                    onChange={(e) => setFromDate(e.target.value)}
+                    className="date searchbar"
+                  />
+                  <Form.Control
+                    type="date"
+                    value={toDate}
+                    onChange={(e) => setToDate(e.target.value)}
+                    className="date searchbar"
+                  />
+                </div>
               </div>
 
               {/* Users Per Page Dropdown */}
-              <div>
-                <label htmlFor="usersPerPage">Users per page: </label>
+              <div className='drop'>
+                <label htmlFor="usersPerPage" className='user' >Users per page: </label>
                 <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
                   <option value={5}>5</option>
                   <option value={10}>10</option>
                   <option value={15}>15</option>
                   <option value={30}>30</option>
                 </select>
-              </div>
+
 
               {/* Icons for PDF, Excel, CSV */}
               <div className="icons">
                 <FaFilePdf className="pdf-icon" onClick={downloadPDF} />
                 <PiMicrosoftExcelLogoFill className="excel-icon" onClick={downloadExcel} />
                 <FaFileCsv className="csv-icon" onClick={downloadCSV} />
+              </div>
               </div>
             </div>
           </div>
@@ -634,25 +921,13 @@ const AllUsers = ({ users, setUsers }) => {
                     />
                   </td>
                   <td>{indexOfFirstUser + index + 1}</td>
-                  {/* <td>
+                  <td>
                     {user.image ? (
                       <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} />
                     ) : (
                       'No Image'
                     )}
-                   </td> */}
-
-                                       <td>
-                      {user.photo ? (
-                        <img
-                          src={`http://localhost:5000/uploads/${user.photo}`}
-                          alt={user.name}
-                          style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                        />
-                      ) : (
-                        'No photo'
-                      )}
-                    </td>
+                  </td>
 
                   <td>{user.name}</td>
                   <td>{user.email}</td>
@@ -694,8 +969,302 @@ const AllUsers = ({ users, setUsers }) => {
   );
 };
 
-// export default AllUsers;
 
+
+// const AllUsers = ({ users, setUsers }) => {
+//   const [selectedUsers, setSelectedUsers] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [fromDate, setFromDate] = useState('');
+//   const [toDate, setToDate] = useState('');
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [usersPerPage, setUsersPerPage] = useState(5);
+
+//   useEffect(() => {
+//     const fetchUsers = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:5000/users');
+//         setUsers(response.data.reverse());
+//       } catch (err) {
+//         console.error('Error fetching users:', err);
+//       }
+//     };
+//     fetchUsers();
+//   }, [setUsers]);
+
+//   const filteredUsers = users.filter((user) => {
+//     const userDate = new Date(user.date);
+//     const from = fromDate ? new Date(fromDate) : null;
+//     const to = toDate ? new Date(toDate) : null;
+
+//     return (
+//       (!from || userDate >= from) &&
+//       (!to || userDate <= to) &&
+//       ((user.name && user.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
+//         (user.email && user.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
+//         (user.phone && user.phone.includes(searchQuery)))
+//     );
+//   });
+
+//   const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+//   const indexOfLastUser = currentPage * usersPerPage;
+//   const indexOfFirstUser = indexOfLastUser - usersPerPage;
+//   const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+//   const handlePageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//   };
+
+//   const handleUsersPerPageChange = (e) => {
+//     setUsersPerPage(parseInt(e.target.value, 10));
+//     setCurrentPage(1);
+//   };
+
+//   const handleSelectUser = (id) => {
+//     setSelectedUsers((prevSelected) =>
+//       prevSelected.includes(id) ? prevSelected.filter((userId) => userId !== id) : [...prevSelected, id]
+//     );
+//   };
+
+//   const handleSelectAll = (e) => {
+//     if (e.target.checked) {
+//       setSelectedUsers(users.map((user) => user._id));
+//     } else {
+//       setSelectedUsers([]);
+//     }
+//   };
+// //   // Handle viewing user details
+//   const handleViewUser = (user) => {
+//     const userDetails = `
+//       Name: ${user.name}
+//       Email: ${user.email}
+//       Phone: ${user.phone}
+//       Date: ${user.date}
+//       Password: ${user.password}
+//       Confirm Password: ${user.confirmPassword}
+//     `;
+//     window.alert(userDetails);
+//   };
+//   const downloadPDF = () => {
+//     const doc = new jsPDF();
+//     const tableData = currentUsers.map((user, index) => [
+//       index + 1,
+//       user.name,
+//       user.email,
+//       user.phone,
+//       moment.utc(user.date).local().format('DD/MM/YYYY'),
+//       user.password,
+//     ]);
+
+//     doc.autoTable({
+//       head: [['S.No', 'Name', 'Email', 'Phone', 'Date', 'Password']],
+//       body: tableData,
+//     });
+//     doc.save('users_data.pdf');
+//   };
+
+//   const downloadExcel = () => {
+//     const worksheet = XLSX.utils.json_to_sheet(
+//       currentUsers.map((user, index) => ({
+//         S_No: index + 1,
+//         Name: user.name,
+//         Email: user.email,
+//         Phone: user.phone,
+//         Date: moment.utc(user.date).local().format('DD/MM/YYYY'),
+//         Password: user.password,
+//       }))
+//     );
+//     const workbook = XLSX.utils.book_new();
+//     XLSX.utils.book_append_sheet(workbook, worksheet, 'Users');
+//     XLSX.writeFile(workbook, 'users_data.xlsx');
+//   };
+
+//   const downloadCSV = () => {
+//     const csvData = currentUsers.map((user, index) => ({
+//       S_No: index + 1,
+//       Name: user.name,
+//       Email: user.email,
+//       Phone: user.phone,
+//       Date: moment.utc(user.date).local().format('DD/MM/YYYY'),
+//       Password: user.password,
+//     }));
+
+//     const csvContent = "data:text/csv;charset=utf-8," 
+//       + [Object.keys(csvData[0]), ...csvData.map(item => Object.values(item))].map(e => e.join(',')).join('\n');
+
+//     const encodedUri = encodeURI(csvContent);
+//     const link = document.createElement('a');
+//     link.setAttribute('href', encodedUri);
+//     link.setAttribute('download', 'users_data.csv');
+//     document.body.appendChild(link);
+//     link.click();
+//   };
+
+//   const handleDelete = async (id) => {
+//     const confirmed = window.confirm('Are you sure you want to delete this user?');
+//     if (!confirmed) return;
+
+//     try {
+//       await axios.delete(`http://localhost:5000/users/${id}`);
+//       setUsers(users.filter((user) => user._id !== id));
+//     } catch (err) {
+//       console.error('Error deleting user:', err);
+//     }
+//   };
+
+//   // Handle bulk delete
+//   const handleBulkDelete = async () => {
+//     const confirmed = window.confirm('Are you sure you want to delete the selected users?');
+//     if (!confirmed) return;
+
+//     try {
+//       await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
+//       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
+//       setSelectedUsers([]);
+//     } catch (err) {
+//       console.error('Error deleting users:', err);
+//     }
+//   };
+
+//   return (
+//     <Container className="manage-products-container p-5">
+//       <Row>
+//         <Col md={12}>
+//           {selectedUsers.length > 0 && (
+//             <Button variant="danger" className="bulkdelete" onClick={handleBulkDelete}>
+//               Delete Selected ({selectedUsers.length})
+//             </Button>
+//           )}
+//           <h2 className="text-left manageuser">Manage Users</h2>
+//           <div className="down mt-4">
+//             <div className="filter-container">
+//               <div className="filter">
+//                 <Form.Control
+//                   type="text"
+//                   placeholder="Enter Name / E-mail / Phone Number"
+//                   value={searchQuery}
+//                   onChange={(e) => setSearchQuery(e.target.value)}
+//                   className="searchbar"
+//                 />
+
+//                 {/* Date Range Filter */}
+//                 <div className="date-filter" style={{ display: 'flex', gap: '10px' }}>
+//                   <Form.Control
+//                     type="date"
+//                     value={fromDate}
+//                     onChange={(e) => setFromDate(e.target.value)}
+//                     className="date searchbar"
+//                   />
+//                   <Form.Control
+//                     type="date"
+//                     value={toDate}
+//                     onChange={(e) => setToDate(e.target.value)}
+//                     className="date searchbar"
+//                   />
+//                 </div>
+//               </div>
+
+//               {/* Users Per Page Dropdown */}
+//               <div className="drop">
+//                 <label htmlFor="usersPerPage" className="user">Users per page: </label>
+//                 <select id="usersPerPage" value={usersPerPage} onChange={handleUsersPerPageChange}>
+//                   <option value={5}>5</option>
+//                   <option value={10}>10</option>
+//                   <option value={15}>15</option>
+//                   <option value={30}>30</option>
+//                 </select>
+
+//                 {/* Icons for PDF, Excel, CSV */}
+//                 <div className="icons">
+//                   <FaFilePdf className="pdf-icon" onClick={downloadPDF} />
+//                   <PiMicrosoftExcelLogoFill className="excel-icon" onClick={downloadExcel} />
+//                   <FaFileCsv className="csv-icon" onClick={downloadCSV} />
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* User Table */}
+//           <Table striped bordered hover className="product-table mt-3">
+//             <thead>
+//               <tr>
+//                 <th>
+//                   <input
+//                     type="checkbox"
+//                     onChange={handleSelectAll}
+//                     checked={selectedUsers.length === users.length}
+//                   />
+//                 </th>
+//                 <th>S.No</th>
+//                 <th>Image</th>
+//                 <th>Name</th>
+//                 <th>Email</th>
+//                 <th>Phone</th>
+//                 <th>Date</th>
+//                 <th>Password</th>
+//                 <th>Actions</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {currentUsers.map((user, index) => (
+//                 <tr key={user._id}>
+//                   <td>
+//                     <input
+//                       type="checkbox"
+//                       checked={selectedUsers.includes(user._id)}
+//                       onChange={() => handleSelectUser(user._id)}
+//                     />
+//                   </td>
+//                   <td>{index + 1}</td>
+//                   <td>
+//                     {user.image ? (
+//                       <img
+//                         src={`http://localhost:5000/${user.image}`}
+//                         alt="User"
+//                         style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+//                       />
+//                     ) : (
+//                       'No Image'
+//                     )}
+//                   </td>
+//                   <td>{user.name}</td>
+//                   <td>{user.email}</td>
+//                   <td>{user.phone}</td>
+//                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
+//                   <td>{user.password}</td>
+                 
+//                   <td>
+//                    <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
+//                        View
+//                     </Button>
+//                     <Button as={Link} to={`/admin/users/edituser/${user._id}`} variant="primary" className="mr-2">
+//                    Edit
+//                      </Button>
+//     <Button variant="danger" onClick={() => handleDelete(user._id)} className="mx-1">
+//            Delete
+//                   </Button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </Table>
+//           {/* Pagination and Export options here */}
+//           <div className="pagination">
+//       {Array.from({ length: totalPages }, (_, index) => (
+//               <Button
+//                 key={index + 1}
+//                 onClick={() => handlePageChange(index + 1)}
+//                 variant={index + 1 === currentPage ? 'primary' : 'secondary'}
+//                 className="mx-1"
+//               >
+//                 {index + 1}
+//               </Button>
+//             ))}
+//           </div>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
 
 const Reports = () => <h2 className="p-5">Overall-Reports Section</h2>;
 

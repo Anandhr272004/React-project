@@ -19,11 +19,6 @@ function App() {
     <>
      
 <Home />
-{/* <SignIn/> */}
-{/* <Signup /> */}
-{/* <Headersection /> */}
-{/* <Services /> */}
-{/* <FooterSection /> */}
 
       {/* <p>tailwind css</p>
    <Example/> */}

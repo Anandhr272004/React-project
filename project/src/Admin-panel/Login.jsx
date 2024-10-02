@@ -32,7 +32,7 @@ const Login = () => {
             
           <h1>🔒 Please enter your Login details.</h1>
           <form onSubmit={handleLogin}>
-            <div className="input-group">
+            <div className="input-group mt-3">
               <label>Username</label>
               <div className="input-wrapper">
                 <span className="icon">👤</span>
@@ -59,16 +59,16 @@ const Login = () => {
               </div>
             </div>
             {error && <p className="error-message">{error}</p>}
-            <div className="forgot-password">
+            {/* <div className="forgot-password">
               <a href="/forgot-password">Forgotten Password</a>
-            </div>
+            </div> */}
             <button type="submit" className="login-button"
             //  onClick={()=>Navigate("/Admin-pannel")}
              >🔍 Login</button>
-            <button type="submit" className="loginbutton"
+
+            {/* <button type="submit" className="loginbutton"
              onClick={()=>Navigate("/")} >
-              {/* <FaHome className='icone' /> */}
-             Back to Home</button>
+             Back to Home</button> */}
           </form>
         </div>
       </div>

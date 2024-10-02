@@ -376,31 +376,60 @@
   height: 35px;
   margin-top: 5px;
   display: inline-block;
+
+  border-radius: none;
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  border: none;
+  flex: 1;
 }
+
 .date{
   width: 30%;
   margin-left: 4px;
   margin-right: 4px;
   display: inline;
   border: 0.5px solid black;
+
+  padding: 10px 20px;
+  border:none;
+  background-color: #f8f8f8;
+  width: 150px;
 }
 .filter-container {
   display: flex;
   align-items: center; /* Align items vertically */
-  gap: 0.5rem;
+ 
 }
-
+.filter{
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  width: '600px', 
+}
 /* .date-filter {
   display: flex;
   gap: 3rem; 
 } */
-
+ .user{
+  padding-bottom: 10%;
+ }
+.drop{
+  /* background-color: #FF0000; */
+  margin-left: 70px;
+}
 .pagination{
   justify-content: center;
 }
 .icons{
+  /* border: 1px solid red; */
   font-size: 50px;
   display: inline-flex;
+  transform: translate(10%,24%);
+  /* margin-top: 50px; */
 }
 .pdf-icon {
   color: #FF0000; /* Red for PDF */
