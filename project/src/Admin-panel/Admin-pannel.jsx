@@ -398,6 +398,26 @@ const EditUser = ({ users, setUsers }) => {
     image: '',
   });
 
+  // useEffect(() => {
+  //   if (id) {
+  //     const existingUser = users.find((u) => u._id === id);
+  //     if (existingUser) {
+  //       setUser({
+  //         ...existingUser,
+  //         date: moment(existingUser.date).format('YYYY-MM-DD'),
+  //       });
+  //       setValue("name", existingUser.name);
+  //       setValue("email", existingUser.email);
+  //       setValue("phone", existingUser.phone);
+  //       setValue("date", moment(existingUser.date).format('YYYY-MM-DD'));
+  //       setValue("image", existingUser.image || ""); // Set image if already exists
+  //     } else {
+  //       navigate('/admin/users/manageuser');
+  //     }
+  //   }
+  // }, [id, users, navigate, setValue]);
+
+
   useEffect(() => {
     if (id) {
       const existingUser = users.find((u) => u._id === id);
@@ -410,13 +430,17 @@ const EditUser = ({ users, setUsers }) => {
         setValue("email", existingUser.email);
         setValue("phone", existingUser.phone);
         setValue("date", moment(existingUser.date).format('YYYY-MM-DD'));
-        setValue("image", existingUser.image || ""); // Set image if already exists
+        setValue("image", existingUser.image || "");
+        
+        // Add these lines to set the password and confirmPassword
+        setValue("password", existingUser.password || ""); 
+        setValue("confirmPassword", existingUser.confirmPassword || "");
       } else {
         navigate('/admin/users/manageuser');
       }
     }
   }, [id, users, navigate, setValue]);
-
+  
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     const maxSizeInMB = 2; 
