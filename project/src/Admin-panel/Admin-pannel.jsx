@@ -394,11 +394,11 @@ const EditUser = ({ users, setUsers }) => {
     phone: '',
     password: '',
     confirmPassword: '',
-    date: new Date().toISOString().split('T')[0], 
+    date: new Date().toISOString().split('T')[0],
     image: '',
   });
 
-//use effect
+  //use effect
   useEffect(() => {
     if (id) {
       const existingUser = users.find((u) => u._id === id);
@@ -413,16 +413,16 @@ const EditUser = ({ users, setUsers }) => {
         setValue("phone", existingUser.phone);
         setValue("date", moment(existingUser.date).format('YYYY-MM-DD'));
         setValue("image", existingUser.image || "");
-        
+
         // Add these lines to set the password and confirmPassword
-        setValue("password", existingUser.password || ""); 
+        setValue("password", existingUser.password || "");
         setValue("confirmPassword", existingUser.confirmPassword || "");
       } else {
         navigate('/admin/users/manageuser');
       }
     }
   }, [id, users, navigate, setValue]);
-  
+
   // const handleImageUpload = (e) => {
   //   const file = e.target.files[0];
   //   const maxSizeInMB = 2; 
@@ -453,18 +453,18 @@ const EditUser = ({ users, setUsers }) => {
     const maxSizeInMB = 2;
     const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
     const allowedTypes = ['image/jpeg', 'image/png'];
-  
+
     if (file) {
       if (!allowedTypes.includes(file.type)) {
         alert('Only JPEG and PNG images are allowed.');
         return;
       }
-  
+
       if (file.size > maxSizeInBytes) {
         alert(`File size should not exceed ${maxSizeInMB}MB.`);
         return;
       }
-  
+
       const reader = new FileReader();
       reader.onloadend = () => {
         // Convert image to base64
@@ -476,7 +476,7 @@ const EditUser = ({ users, setUsers }) => {
     }
   };
 
-  
+
   // const onSubmit = async (data) => {
 
   //   try {
@@ -485,7 +485,7 @@ const EditUser = ({ users, setUsers }) => {
   //       date: moment.utc(data.date, 'YYYY-MM-DD').toISOString(),
   //       image: user.image, // Make sure the image is included
   //     };
-     
+
 
   //     if (id) {
   //       await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
@@ -507,24 +507,24 @@ const EditUser = ({ users, setUsers }) => {
   // };
 
   // const onSubmit = async (data) => {
-  
+
 
   //   try {
   //     const formData = new FormData();
-      
+
   //     formData.append('name', data.name);
   //     formData.append('email', data.email);
   //     formData.append('phone', data.phone);
   //     formData.append('password', data.password);
   //     formData.append('confirmPassword', data.confirmPassword);
   //     formData.append('date', data.date);
-      
+
   //     // Add image file if user uploaded a new one
   //     if ( user.image instanceof File) {
   //       formData.append('image', user.image); 
   //     }
   //     console.log([...formData]); // Log FormData entries to see what is being sent
-  
+
   //     if (id) {
   //       await axios.put(`http://localhost:5000/edituser/${id}`, formData, {
   //         headers: { 'Content-Type': 'multipart/form-data' }
@@ -543,13 +543,13 @@ const EditUser = ({ users, setUsers }) => {
   //       setUsers((prevUsers) => [response.data, ...prevUsers]);
   //       window.alert('User Added Successfully!');
   //     }
-  
+
   //     navigate('/admin/users/manageuser');
   //   } catch (err) {
   //     console.error('Error saving user:', err);
   //   }
   // };
-  
+
 
   // const onSubmit = async (data) => {
   //   try {
@@ -562,21 +562,21 @@ const EditUser = ({ users, setUsers }) => {
   //     formData.append('date', data.date);
   //     formData.append('image', user.image); // Make sure user.image is a File object
 
-  
+
   //     // Add image file if user uploaded a new one
   //     // if (user.image instanceof File) {
   //     //   formData.append('image', user.image); 
   //     // }
-  
+
   //     console.log([...formData]); // Log FormData entries
-  
+
   //     const url = id ? `http://localhost:5000/edituser/${id}` : 'http://localhost:5000/adduser';
   //     const method = id ? axios.put : axios.post;
-  
+
   //     const response = await method(url, formData, {
   //       headers: { 'Content-Type': 'multipart/form-data' },
   //     });
-  
+
   //     // Update users state or perform other actions
   //     if (id) {
   //       // Assuming you have a way to update the existing user in state
@@ -585,7 +585,7 @@ const EditUser = ({ users, setUsers }) => {
   //       setUsers((prevUsers) => [response.data, ...prevUsers]);
   //       window.alert('User added successfully!');
   //     }
-  
+
   //     navigate('/admin/users/manageuser');
   //   } catch (err) {
   //     console.error('Error saving user:', err);
@@ -600,28 +600,28 @@ const EditUser = ({ users, setUsers }) => {
   //       ...data,
   //       image: user.image, // The image in Base64 format
   //     };
-  
+
   //     const url = id ? `http://localhost:5000/edituser/${id}` : 'http://localhost:5000/adduser';
   //     const method = id ? axios.put : axios.post;
-  
+
   //     const response = await method(url, formattedUser, {
   //       headers: { 'Content-Type': 'application/json' },
   //     });
-  
+
   //     if (id) {
   //       window.alert('User updated successfully!');
   //     } else {
   //       setUsers((prevUsers) => [response.data, ...prevUsers]);
   //       window.alert('User added successfully!');
   //     }
-  
+
   //     navigate('/admin/users/manageuser');
   //   } catch (err) {
   //     console.error('Error saving user:', err);
   //     window.alert(err.response?.data?.message || 'An error occurred. Please try again.');
   //   }
   // };
-  
+
   const onSubmit = async (data) => {
     try {
       const formData = new FormData();
@@ -632,21 +632,21 @@ const EditUser = ({ users, setUsers }) => {
       formData.append('confirmPassword', data.confirmPassword);
       formData.append('date', data.date);
       formData.append('image', user.image);
-  
+
       const url = id ? `http://localhost:5000/edituser/${id}` : 'http://localhost:5000/adduser';
       const method = id ? axios.put : axios.post;
-  
+
       const response = await method(url, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-  
+
       if (id) {
         window.alert('User updated successfully!');
       } else {
         setUsers((prevUsers) => [response.data, ...prevUsers]);
         window.alert('User added successfully!');
       }
-  
+
       navigate('/admin/users/manageuser');
     } catch (err) {
       console.error('Error saving user:', err);
@@ -654,8 +654,8 @@ const EditUser = ({ users, setUsers }) => {
       console.log(err.response);  // Log the full error response
     }
   };
-  
-  
+
+
   return (
     <Container className="signclass">
       <Row className="signrow">
@@ -738,7 +738,7 @@ const EditUser = ({ users, setUsers }) => {
                     placeholder="Enter Phone number"
                     {...field}
                     isInvalid={!!errors.phone}
-                     disabled={!!id} // Disable phone field when editing
+                    disabled={!!id} // Disable phone field when editing
                   />
                 )}
                 rules={{ required: 'Phone number is required' }}
@@ -1043,12 +1043,12 @@ const AllUsers = ({ users, setUsers }) => {
                 </select>
 
 
-              {/* Icons for PDF, Excel, CSV */}
-              <div className="icons">
-                <FaFilePdf className="pdf-icon" onClick={downloadPDF} />
-                <PiMicrosoftExcelLogoFill className="excel-icon" onClick={downloadExcel} />
-                <FaFileCsv className="csv-icon" onClick={downloadCSV} />
-              </div>
+                {/* Icons for PDF, Excel, CSV */}
+                <div className="icons">
+                  <FaFilePdf className="pdf-icon" onClick={downloadPDF} />
+                  <PiMicrosoftExcelLogoFill className="excel-icon" onClick={downloadExcel} />
+                  <FaFileCsv className="csv-icon" onClick={downloadCSV} />
+                </div>
               </div>
             </div>
           </div>
@@ -1085,9 +1085,20 @@ const AllUsers = ({ users, setUsers }) => {
                     />
                   </td>
                   <td>{indexOfFirstUser + index + 1}</td>
-                  <td>
+                  {/* <td>
                     {user.image ? (
                       <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} />
+                    ) : (
+                      'No Image'
+                    )}
+                  </td> */}
+                  <td>
+                    {user.image ? (
+                      <img
+                        src={`data:image/jpeg;base64,${user.image}`}
+                        alt="user"
+                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                      />
                     ) : (
                       'No Image'
                     )}
@@ -1395,7 +1406,7 @@ const AllUsers = ({ users, setUsers }) => {
 //                   <td>{user.phone}</td>
 //                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
 //                   <td>{user.password}</td>
-                 
+
 //                   <td>
 //                    <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
 //                        View
