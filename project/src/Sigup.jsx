@@ -129,36 +129,55 @@
 // export default Signup;
 
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
+
+
+
+
+import React, { useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Add axios for HTTP requests
+import axios from 'axios';
 import './Sigin.css';
 
 const Signup = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors }
-  } = useForm();
+  const { register, handleSubmit, watch, formState: { errors }, control } = useForm();
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
   const password = watch('password');
 
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
   const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('password', data.password);
+    formData.append('confirmPassword', data.confirmPassword); // Include confirm password
+    formData.append('date', data.date);
+    if (image) {
+      formData.append('image', image);
+    }
+
     try {
-      // Send POST request to backend to store user data
-      const response = await axios.post('http://localhost:5000/signup', data);
+      const response = await axios.post('http://localhost:5000/api/users', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-      // Alert user upon successful registration
-      alert("User Registered Successfully");
-
-      // Redirect to home page
-      navigate('/');
+      if (response.status === 201) {
+        alert('User registered successfully');
+        navigate('/'); // Redirect to home page upon success
+      } else {
+        alert(response.data.message);
+      }
     } catch (error) {
-      console.error('Error registering user:', error);
-      alert('Error registering user. Please try again.');
+      console.error('Error:', error.response ? error.response.data : error.message); // Log the full error
+      alert('Error uploading image or registering user');
     }
   };
 
@@ -169,8 +188,17 @@ const Signup = () => {
           <p className="sig">Sign Up for Furni.</p>
           <h6 className="text-muted">Create an account to start using Furni</h6>
 
-          <Form onSubmit={handleSubmit(onSubmit)} className="mt-4">
-            <Form.Group controlId="name">
+          <Form onSubmit={handleSubmit(onSubmit)} className="mt-4" encType="multipart/form-data">
+            <Form.Group controlId="image" className="mt-3">
+              <Form.Label>Upload Profile Picture</Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="name" className='mt-3'>
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -178,6 +206,23 @@ const Signup = () => {
                 {...register('name', { required: 'Name is required' })}
               />
               {errors.name && <p className="text-danger">{errors.name.message}</p>}
+            </Form.Group>
+
+            <Form.Group className="mt-3 name">
+              <Form.Label>Date</Form.Label>
+              <Controller
+                control={control}
+                name="date"
+                render={({ field }) => (
+                  <Form.Control
+                    type="date"
+                    {...field}
+                    isInvalid={!!errors.date}
+                  />
+                )}
+                rules={{ required: 'Date is required' }}
+              />
+              {errors.date && <Form.Text className="text-danger">{errors.date.message}</Form.Text>}
             </Form.Group>
 
             <Form.Group controlId="email" className="mt-3">
@@ -257,7 +302,7 @@ const Signup = () => {
           </div>
 
           <div className="d-flex justify-content-center align-items-center mt-3">
-            <p className="mb-0">Already registered?</p>
+            <p className="mb-0" >Already registered?</p>
             <Button variant="link" onClick={() => navigate('/')}>
               Sign In
             </Button>
@@ -269,3 +314,4 @@ const Signup = () => {
 };
 
 export default Signup;
+

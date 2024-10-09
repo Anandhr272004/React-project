@@ -398,25 +398,6 @@ const EditUser = ({ users, setUsers }) => {
     image: '',
   });
 
-  // useEffect(() => {
-  //   if (id) {
-  //     const existingUser = users.find((u) => u._id === id);
-  //     if (existingUser) {
-  //       setUser({
-  //         ...existingUser,
-  //         date: moment(existingUser.date).format('YYYY-MM-DD'),
-  //       });
-  //       setValue("name", existingUser.name);
-  //       setValue("email", existingUser.email);
-  //       setValue("phone", existingUser.phone);
-  //       setValue("date", moment(existingUser.date).format('YYYY-MM-DD'));
-  //       setValue("image", existingUser.image || ""); // Set image if already exists
-  //     } else {
-  //       navigate('/admin/users/manageuser');
-  //     }
-  //   }
-  // }, [id, users, navigate, setValue]);
-
 //use effect
   useEffect(() => {
     if (id) {
@@ -425,6 +406,7 @@ const EditUser = ({ users, setUsers }) => {
         setUser({
           ...existingUser,
           date: moment(existingUser.date).format('YYYY-MM-DD'),
+          image: existingUser.image || '',  // Set the image correctly
         });
         setValue("name", existingUser.name);
         setValue("email", existingUser.email);
@@ -468,10 +450,12 @@ const EditUser = ({ users, setUsers }) => {
   };
 
   const onSubmit = async (data) => {
+    
     try {
       const formattedUser = {
         ...data,
         date: moment.utc(data.date, 'YYYY-MM-DD').toISOString(),
+        image: user.image, // Make sure the image is included
       };
 
       if (id) {
@@ -548,6 +532,7 @@ const EditUser = ({ users, setUsers }) => {
                     placeholder="Enter Email Address"
                     {...field}
                     isInvalid={!!errors.email}
+                    disabled={!!id} // Disable email field when editing
                   />
                 )}
                 rules={{
@@ -573,6 +558,7 @@ const EditUser = ({ users, setUsers }) => {
                     placeholder="Enter Phone number"
                     {...field}
                     isInvalid={!!errors.phone}
+                     disabled={!!id} // Disable phone field when editing
                   />
                 )}
                 rules={{ required: 'Phone number is required' }}

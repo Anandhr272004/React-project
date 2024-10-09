@@ -198,6 +198,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";  // Import Link and useNavigate from react-router-dom
 import data from "./Home.json";
 import './Navebar.css';
+import { locale } from "moment";
 
 const Navebar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -205,10 +206,36 @@ const Navebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const onSignInSubmit = (e) => {
+  const onSignInSubmit =async (e) => {
     e.preventDefault();
+    // console.log(data);
+    
     // Handle sign-in logic here
-  };
+
+  try {
+    const response = await fetch('http://localhost:5000/api/users/login', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      
+      alert(result.message);
+      return;
+    }
+    window.alert('Sign-in successful');
+    navigate('/');  
+
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
 
   const handleOffcanvasClose = () => setShowOffcanvas(false);
   const handleOffcanvasShow = () => setShowOffcanvas(true);
@@ -267,7 +294,7 @@ const Navebar = () => {
                   Sign in
                 </h5>
                 <Dropdown.Menu className="dropdown-menu-custom">
-                  <form className="px-4" onSubmit={onSignInSubmit}>
+                  <form className="px-4" >
                     <div className="form-group">
                       <label htmlFor="email">Email address</label>
                       <input
@@ -287,7 +314,7 @@ const Navebar = () => {
                       />
                     </div>
                     <Button
-                      type="submit"
+                      type="submit" onClick={onSignInSubmit}
                       className="btn btn-primary btn-block mt-3"
                      >
                       Sign in
@@ -392,12 +419,5 @@ const Navebar = () => {
 };
 
 export default Navebar;
-
-
-
-
-
-
-
 
 
