@@ -423,34 +423,9 @@ const EditUser = ({ users, setUsers }) => {
     }
   }, [id, users, navigate, setValue]);
 
-  // const handleImageUpload = (e) => {
-  //   const file = e.target.files[0];
-  //   const maxSizeInMB = 2; 
-  //   const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
-  //   const allowedTypes = ['image/jpeg', 'image/png'];
-
-  //   if (file) {
-  //     if (!allowedTypes.includes(file.type)) {
-  //       alert('Only JPEG and PNG images are allowed.');
-  //       return;
-  //     }
-
-  //     if (file.size > maxSizeInBytes) {
-  //       alert(`File size should not exceed ${maxSizeInMB}MB.`);
-  //       return;
-  //     }
-
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setUser({ ...user, image: reader.result });
-  //       setValue("image", reader.result);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    const maxSizeInMB = 2;
+    const maxSizeInMB = 2; 
     const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
     const allowedTypes = ['image/jpeg', 'image/png'];
 
@@ -467,191 +442,79 @@ const EditUser = ({ users, setUsers }) => {
 
       const reader = new FileReader();
       reader.onloadend = () => {
-        // Convert image to base64
-        const base64String = reader.result;
-        setUser({ ...user, image: base64String }); // Store base64 string
-        setValue('image', base64String);
+        setUser({ ...user, image: reader.result });
+        setValue("image", reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
+  // const handleImageUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   const maxSizeInMB = 2;
+  //   const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+  //   const allowedTypes = ['image/jpeg', 'image/png'];
 
+  //   if (file) {
+  //     if (!allowedTypes.includes(file.type)) {
+  //       alert('Only JPEG and PNG images are allowed.');
+  //       return;
+  //     }
 
-  // const onSubmit = async (data) => {
+  //     if (file.size > maxSizeInBytes) {
+  //       alert(`File size should not exceed ${maxSizeInMB}MB.`);
+  //       return;
+  //     }
 
-  //   try {
-  //     const formattedUser = {
-  //       ...data,
-  //       date: moment.utc(data.date, 'YYYY-MM-DD').toISOString(),
-  //       image: user.image, // Make sure the image is included
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       // Convert image to base64
+  //       const base64String = reader.result;
+  //       setUser({ ...user, image: base64String }); // Store base64 string
+  //       setValue('image', base64String);
   //     };
-
-
-  //     if (id) {
-  //       await axios.put(`http://localhost:5000/edituser/${id}`, formattedUser);
-  //       const updatedUsers = users.map((u) =>
-  //         u._id === id ? { ...formattedUser, date: moment(formattedUser.date).format('YYYY-MM-DD') } : u
-  //       );
-  //       setUsers(updatedUsers);
-  //       window.alert('User updated successfully!');
-  //     } else {
-  //       const response = await axios.post('http://localhost:5000/adduser', formattedUser);
-  //       setUsers((prevUsers) => [response.data, ...prevUsers]);
-  //       window.alert('User Added Successfully!');
-  //     }
-
-  //     navigate('/admin/users/manageuser');
-  //   } catch (err) {
-  //     console.error('Error saving user:', err);
-  //   }
-  // };
-
-  // const onSubmit = async (data) => {
-
-
-  //   try {
-  //     const formData = new FormData();
-
-  //     formData.append('name', data.name);
-  //     formData.append('email', data.email);
-  //     formData.append('phone', data.phone);
-  //     formData.append('password', data.password);
-  //     formData.append('confirmPassword', data.confirmPassword);
-  //     formData.append('date', data.date);
-
-  //     // Add image file if user uploaded a new one
-  //     if ( user.image instanceof File) {
-  //       formData.append('image', user.image); 
-  //     }
-  //     console.log([...formData]); // Log FormData entries to see what is being sent
-
-  //     if (id) {
-  //       await axios.put(`http://localhost:5000/edituser/${id}`, formData, {
-  //         headers: { 'Content-Type': 'multipart/form-data' }
-  //       });
-  //       //         const updatedUsers = users.map((u) =>
-  //       //   u._id === id ? { ...formUser, date: moment(formUser.date).format('YYYY-MM-DD') } : u
-  //       // );
-  //       // setUsers(updatedUsers);
-  //       window.alert('User updated successfully!');
-  //       // Handle success logic
-  //     } else {
-  //       const response = await axios.post('http://localhost:5000/adduser', formData, {
-  //         headers: { 'Content-Type': 'multipart/form-data' }
-  //       });
-  //       // Handle success logic
-  //       setUsers((prevUsers) => [response.data, ...prevUsers]);
-  //       window.alert('User Added Successfully!');
-  //     }
-
-  //     navigate('/admin/users/manageuser');
-  //   } catch (err) {
-  //     console.error('Error saving user:', err);
+  //     reader.readAsDataURL(file);
   //   }
   // };
 
 
-  // const onSubmit = async (data) => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append('name', data.name);
-  //     formData.append('email', data.email);
-  //     formData.append('phone', data.phone);
-  //     formData.append('password', data.password);
-  //     formData.append('confirmPassword', data.confirmPassword);
-  //     formData.append('date', data.date);
-  //     formData.append('image', user.image); // Make sure user.image is a File object
-
-
-  //     // Add image file if user uploaded a new one
-  //     // if (user.image instanceof File) {
-  //     //   formData.append('image', user.image); 
-  //     // }
-
-  //     console.log([...formData]); // Log FormData entries
-
-  //     const url = id ? `http://localhost:5000/edituser/${id}` : 'http://localhost:5000/adduser';
-  //     const method = id ? axios.put : axios.post;
-
-  //     const response = await method(url, formData, {
-  //       headers: { 'Content-Type': 'multipart/form-data' },
-  //     });
-
-  //     // Update users state or perform other actions
-  //     if (id) {
-  //       // Assuming you have a way to update the existing user in state
-  //       window.alert('User updated successfully!');
-  //     } else {
-  //       setUsers((prevUsers) => [response.data, ...prevUsers]);
-  //       window.alert('User added successfully!');
-  //     }
-
-  //     navigate('/admin/users/manageuser');
-  //   } catch (err) {
-  //     console.error('Error saving user:', err);
-  //     window.alert(err.response?.data?.message || 'An error occurred. Please try again.');
-  //   }
-  // };
-
-  // const onSubmit = async (data) => {
-
-  //   try {
-  //     const formattedUser = {
-  //       ...data,
-  //       image: user.image, // The image in Base64 format
-  //     };
-
-  //     const url = id ? `http://localhost:5000/edituser/${id}` : 'http://localhost:5000/adduser';
-  //     const method = id ? axios.put : axios.post;
-
-  //     const response = await method(url, formattedUser, {
-  //       headers: { 'Content-Type': 'application/json' },
-  //     });
-
-  //     if (id) {
-  //       window.alert('User updated successfully!');
-  //     } else {
-  //       setUsers((prevUsers) => [response.data, ...prevUsers]);
-  //       window.alert('User added successfully!');
-  //     }
-
-  //     navigate('/admin/users/manageuser');
-  //   } catch (err) {
-  //     console.error('Error saving user:', err);
-  //     window.alert(err.response?.data?.message || 'An error occurred. Please try again.');
-  //   }
-  // };
 
   const onSubmit = async (data) => {
+
+
     try {
       const formData = new FormData();
+
       formData.append('name', data.name);
       formData.append('email', data.email);
       formData.append('phone', data.phone);
       formData.append('password', data.password);
       formData.append('confirmPassword', data.confirmPassword);
       formData.append('date', data.date);
-      formData.append('image', user.image);
 
-      const url = id ? `http://localhost:5000/edituser/${id}` : 'http://localhost:5000/adduser';
-      const method = id ? axios.put : axios.post;
-
-      const response = await method(url, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+      // Add image file if user uploaded a new one
+      if ( user.image instanceof File) {
+        formData.append('image', user.image); 
+      }
+      console.log([...formData]); // Log FormData entries to see what is being sent
 
       if (id) {
+        await axios.put(`http://localhost:5000/edituser/${id}`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        
         window.alert('User updated successfully!');
       } else {
+        const response = await axios.post('http://localhost:5000/api/users', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        // Handle success logic
         setUsers((prevUsers) => [response.data, ...prevUsers]);
-        window.alert('User added successfully!');
+        window.alert('User Added Successfully!');
       }
 
       navigate('/admin/users/manageuser');
     } catch (err) {
       console.error('Error saving user:', err);
-      window.alert(err.response?.data?.message || 'An error occurred. Please try again.');
-      console.log(err.response);  // Log the full error response
     }
   };
 
