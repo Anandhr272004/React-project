@@ -12,6 +12,7 @@ import Aboutus from './Aboutus.jsx';
 import Services from './Services.jsx';
 import Blog from './Blog.jsx';
 import { Contact } from './Contact.jsx';
+import Cart from './Cart.jsx';
 import Login from './Admin-panel/Login.jsx';
 import Adminpannel from './Admin-panel/Admin-pannel.jsx';
 
@@ -26,6 +27,7 @@ root.render(
           <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/explore" element={<Blog />} />
+          <Route path="/cart" element={<Cart />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
 
 

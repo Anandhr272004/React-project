@@ -4,7 +4,8 @@
     { "label": "Shop", "link": "/shop" },
     { "label": "About us", "link": "/about" },
     { "label": "Services", "link": "/services" },
-    { "label": "Blog", "link": "/blog" }
+    { "label": "Blog", "link": "/blog" },
+    { "label": "Cart", "link": "/cart" }
   ],
   "header": {
     "title": "Modern Interior ",
