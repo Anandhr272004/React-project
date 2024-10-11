@@ -15,10 +15,12 @@ import { Contact } from './Contact.jsx';
 import Cart from './Cart.jsx';
 import Login from './Admin-panel/Login.jsx';
 import Adminpannel from './Admin-panel/Admin-pannel.jsx';
+import { CartProvider } from "./CartContext"; // Import the CartProvider
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+     <CartProvider>
     <Router>
         <Routes>
           <Route path="/" element={<App />} />
@@ -38,7 +40,8 @@ root.render(
           {/* <Route path="/signin" element={<Signin />} /> */}
         </Routes>
       </Router>
-  </React.StrictMode>
+      </CartProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

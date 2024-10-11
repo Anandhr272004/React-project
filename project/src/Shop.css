@@ -271,3 +271,28 @@
       background-color:	#D0D0D0;
     }
   }
+
+  /* ///cart page css code */
+  .heatitle{
+    font-size: 55px;
+    color: white;
+    font-weight: bolder;
+    padding-top: 80px;
+  }
+  .cart-bg{
+    background-color: #3c5845;
+    height: 350px;
+  }
+ @media (max-width:1024px) {
+  .cart-bg{
+    height: 300px;
+  }
+ }
+ @media (max-width:430px) {
+  .heatitle{
+    font-size: 52px;
+    padding-left: 10px;
+  }
+ }
+
+ 
