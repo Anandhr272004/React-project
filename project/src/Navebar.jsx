@@ -4,7 +4,6 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";  // Import Link and useNavigate from react-router-dom
 import data from "./Home.json";
 import './Navebar.css';
-import { locale } from "moment";
 
 const Navebar = () => {
   const [showSignIn, setShowSignIn] = useState(false);

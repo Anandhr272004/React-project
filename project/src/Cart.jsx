@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Container, Table, Row, Col, Button, Form, InputGroup, Modal } from 'react-bootstrap';
+import { Container, Table, Row, Col, Button, Modal } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { CartContext } from './CartContext';
 import Navebar from "./Navebar";
 import FooterSection from "./Footer-section";
-import './Cart.css';  // Import the CSS file for styles
+import './Cart.css';  
 
 const Cart = () => {
     const { cart, setCart } = useContext(CartContext);

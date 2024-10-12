@@ -100,7 +100,7 @@
 
 
 
-import React, { useContext,useState } from "react";
+import React, { useContext} from "react";
 import Navebar from "./Navebar";
 import './Shop.css';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
@@ -138,11 +138,6 @@ const addToCart = (product) => {
 };
 
 
-  const products = [
-    { id: 1, title: "Product 1", price: 49, image: "/img/product1.jpg" },
-    { id: 2, title: "Product 2", price: 69, image: "/img/product2.jpg" },
-    // Add more products as needed
-  ];
     return (
         <div className="Shop-component">
             <div className="aboutus-bg">
