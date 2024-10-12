@@ -211,7 +211,7 @@ const addToCart = (product) => {
                             ))}
                         </Row>
                     </Container>
-                    <Button onClick={() => navigate("/cart")} className="mt-3">Go to Cart</Button>
+                    {/* <Button onClick={() => navigate("/cart")} className="mt-3">Go to Cart</Button> */}
                     <div className="bgextra"></div>
                 </div>
             </div>
@@ -223,5 +223,3 @@ const addToCart = (product) => {
 
 export default Shop;
 
-
-///alert mesage

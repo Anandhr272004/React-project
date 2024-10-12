@@ -15,8 +15,7 @@ const Navebar = () => {
   const onSignInSubmit =async (e) => {
     e.preventDefault();
     // console.log(data);
-    
-    // Handle sign-in logic here
+
 
   try {
     const response = await fetch('http://localhost:5000/api/users/login', { 

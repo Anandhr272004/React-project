@@ -26,11 +26,14 @@
 }
 
 
-/* .cart-container {
+
+
+
+.cart-container {
     padding: 20px;
 }
 
-.cart-table th, .cart-table td {
+/* .cart-table th, .cart-table td {
     text-align: center;
     vertical-align: middle;
 }
@@ -43,7 +46,116 @@
 
 .cart-quantity {
     margin: 0 10px;
+} */
+.table-responsive {
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
 }
+
+.cart-table {
+    width: 100%; /* Ensure the table takes full width */
+    border-collapse: collapse; /* Optional: for better layout */
+}
+
+.cart-table th, .cart-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px; /* Add padding for better touch target */
+    word-wrap: break-word; /* Break long words */
+}
+
+.cart-product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin: 0 auto;    
+}
+
+.cart-quantity {
+    margin: 0 10px;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .cart-table th, .cart-table td {
+        font-size: 12px; /* Reduce font size on smaller screens */
+        padding: 4px; /* Adjust padding */
+    }
+
+    .cart-product-image {
+        width: 60px; /* Reduce image size on smaller screens */
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-table th, .cart-table td {
+        font-size: 10px; /* Further reduce font size on extra small screens */
+    }
+}
+@media (max-width: 400px) {
+    .cart-table th, .cart-table td {
+        font-size: 9px; /* Reduce font size for very small screens */
+        padding: 1px; /* Minimal padding */
+    }
+
+    .cart-product-image {
+        width: 40px; /* Further reduce image size for very small screens */
+        height: 40px;
+    }
+
+    .cart-quantity {
+        margin: 0 5px; /* Adjust margin for quantity display */
+    }
+}
+@media (max-width: 330px) {
+    .cart-table th, .cart-table td {
+        font-size: 8px; /* Smaller font size for very small screens */
+        padding: 1px; /* Minimal padding */
+    }
+
+    .cart-product-image {
+        width: 35px; /* Reduce image size for smaller screens */
+        height: 35px;
+    }
+
+    .cart-quantity {
+        margin: 0 3px; /* Adjust margin for quantity display */
+    }
+
+    /* Adjust button sizes to fit smaller screens */
+    .btn {
+        font-size: 8px;
+        padding: 3px 5px; /* Smaller buttons */
+    }
+
+    /* Ensure buttons and content do not overflow */
+    .cart-table td {
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Truncate overflowing text with ellipsis */
+    }
+
+    /* Reduce spacing between rows */
+    .cart-table tbody tr {
+        margin-bottom: 5px;
+    }
+
+    /* Optional: Stack table contents vertically for easier viewing */
+    .cart-table tbody tr {
+        /* display: flex; */
+        flex-direction: column;
+    }
+
+    .cart-table tbody tr td {
+        /* display: block; */
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .cart-table tbody tr td:last-child {
+        margin-bottom: 0;
+    }
+}
+
 
 .cart-actions {
     display: flex;
@@ -58,6 +170,7 @@
     text-align: left;
     width:70%;
     float: right;
+    padding-top: 70px;
 }
 
 .cart-totals .carttotals {
@@ -68,26 +181,37 @@
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+    font-size: 19px;
 }
-
-.checkout-btn {
-    font-weight: 600;
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: #ffffff;
-    background: #2f2f2f;
-    border-color: #2f2f2f;
-    float:right;
+@media (max-width:376px) {
+     .cart-totals p{
+        font-size: 16px;
+    }
 }
-
 .cart-coupon {
-    padding: 20px;
+    /* padding: 20px; */
+    padding-top: 70px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
     margin-top: 20px;
     border-radius: 10px;
     text-align: left;
    
 }
-
+@media (max-width:753px) {
+    .cart-coupon,
+    .cart-totals{
+        padding-top: 30px;
+    }  
+}
+@media (max-width:426px) {
+    .cart-coupon,
+    .cart-totals{
+        padding-top: 0px;
+    }
+    
+}
 .cart-coupon .carttotals {
     margin-bottom: 15px;
 }
@@ -105,8 +229,39 @@
     color: #ffffff;
     background: #2f2f2f;
     border-color: #2f2f2f;
+   
 
 }
+.upcartone{
+    float: right;
+}
+
+@media (max-width: 355px) {
+    .upcart, .upcartone {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 340px) {
+    .cart-actions {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center-align the content */
+    }
+
+    .upcart, .upcartone {
+        width: 100%; /* Full width with some padding */
+        height: auto; /* Ensure the height adjusts automatically */
+        margin-bottom: 10px; /* Add space between buttons */
+    }
+
+    .mb-2 {
+        margin-bottom: 10px; /* Additional margin for the first button */
+    }
+}
+
+
+
 .yourcartempty{
     font-size: 32px;
     text-align: center;
@@ -128,53 +283,6 @@
     background: #2f2f2f;
     border-color: #2f2f2f;
 }
-
- */
-
- /* Base styles for larger screens */
-.cart-container {
-    padding: 20px;
-}
-
-.cart-table th, .cart-table td {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.cart-product-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.cart-quantity {
-    margin: 0 10px;
-}
-
-.cart-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.cart-totals {
-    padding: 20px;
-    border-radius: 8px;
-    text-align: left;
-    width: 70%;
-    float: right;
-}
-
-.cart-totals .carttotals {
-    margin-bottom: 20px;
-}
-
-.cart-totals p {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
 .checkout-btn {
     font-weight: 600;
     padding: 12px 30px;
@@ -182,227 +290,50 @@
     color: #ffffff;
     background: #2f2f2f;
     border-color: #2f2f2f;
-    float: right;
-}
-
-.cart-coupon {
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    text-align: left;
-}
-
-.cart-coupon .carttotals {
-    margin-bottom: 15px;
-}
-
-.carttotals {
-    font-size: 22px;
-    font-weight: 500;
-}
-
-.upcart {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: #ffffff;
-    background: #2f2f2f;
-    border-color: #2f2f2f;
-}
-
-.yourcartempty {
-    font-size: 32px;
-    text-align: center;
-    padding-top: 10%;
-    padding-bottom: 10%;
-}
-
-.applycode {
-    width: 60%;
-    border-radius: 10px;
-    height: 40px;
-}
-
-.applycoupon {
-    margin-left: 10px;
-    font-weight: 600;
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: #ffffff;
-    background: #2f2f2f;
-    border-color: #2f2f2f;
+    float:right;
 }
 
 
-
-
-
-/* Media Queries for Responsiveness */
-
-/* Medium screen (1024px and above) */
-@media (max-width: 1440px) {
-    .cart-container {
-        padding: 15px;
+@media (max-width:1000px) {
+    .applycoupon,
+    .upcart,
+    .checkout-btn{
+        padding: 6px 15px;
+        font-weight: 500;
+        border-radius: 20px;
+        /* border:1px solid red; */
     }
-
-    .cart-totals {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .cart-totals p {
-        font-size: 18px;
-    }
-
-    .checkout-btn, .applycoupon {
-        padding: 10px 25px;
+    .checkout-btn{
+        width: 99%;
     }
 }
-
-/* Tablets and smaller desktop screens (768px - 1024px) */
-@media (max-width: 1024px) {
-    .cart-container {
-        padding: 10px;
+@media (max-width:767px) {
+    .cart-totals{
+        float: left;
     }
-
-    .cart-totals {
-        width: 90%;
-        margin: 0 auto;
-        float: none;
-        text-align: center;
-    }
-
-    .cart-totals p {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cart-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .checkout-btn, .applycoupon {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    .cart-product-image {
-        width: 70px;
-        height: 70px;
-    }
-
-    .yourcartempty {
-        font-size: 28px;
-    }
+    
 }
 
-/* Small tablets and mobile devices (576px - 768px) */
-@media (max-width: 768px) {
-    .cart-container {
-        padding: 8px;
-    }
-
-    .cart-product-image {
-        width: 60px;
-        height: 60px;
-    }
-
-    .cart-totals {
-        width: 100%;
-        text-align: center;
-    }
-
-    .cart-totals p {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .checkout-btn, .applycoupon {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-
-    .cart-table th, .cart-table td {
-        font-size: 12px;
-    }
-}
-
-/* Mobile devices (up to 576px) */
-@media (max-width: 576px) {
-    .cart-container {
-        padding: 5px;
-    }
-
-    .cart-product-image {
-        width: 50px;
-        height: 50px;
-    }
-
-    .checkout-btn, .applycoupon {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-
-    .cart-table th, .cart-table td {
-        font-size: 10px;
-    }
-
-    .cart-totals {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .cart-totals p {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .yourcartempty {
-        font-size: 24px;
-        padding: 5% 0;
-    }
-
-    .applycode {
-        width: 100%;
-    }
-}
-
-/* Smallest screens (310px - 430px) */
+/* Stack coupon and cart totals vertically for screens smaller than 430px */
 @media (max-width: 430px) {
-    .cart-product-image {
-        width: 40px;
-        height: 40px;
+    .cart-coupon, .cart-totals {
+        margin: 20px auto; /* Center the sections */
+        text-align: center;
+        width: 90%; /* Adjust the width to fit smaller screens */
     }
 
-    .checkout-btn, .applycoupon {
-        padding: 5px 8px;
-        font-size: 10px;
+    .cart-totals span {
+        font-weight: bold;
     }
 
-    .cart-totals {
+    /* Ensure buttons stretch to 100% width on small screens */
+    .applycoupon, .checkout-btn {
         width: 100%;
-        padding: 8px;
+        margin-top: 10px;
     }
 
-    .cart-totals p {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .cart-table th, .cart-table td {
-        font-size: 9px;
-    }
-
+    /* Adjust input field for coupon code */
     .applycode {
         width: 100%;
-        height: 35px;
-    }
-
-    .cart-quantity {
-        margin: 0 5px;
     }
 }

@@ -218,33 +218,33 @@
     },
     {
       "id": 4,
-      "title": "Nordic Chair",
-      "price": 50.00,
-      "image": "./Images/product-1.png"
+      "title": "Zenith Recliner",
+      "price": 83.00,
+      "image": "./Images/sofa5.png"
     },
     {
       "id": 5,
-      "title": "Ergonomic Chair",
-      "price": 43.00,
-      "image": "./Images/product-2.png"
+      "title": "Echo Swivel",
+      "price": 72.00,
+      "image": "./Images/sofa3-removebg-preview.png"
     },
     {
       "id": 6,
-      "title": "Nordic Chair",
-      "price": 50.00,
-      "image": "./Images/product-1.png"
+      "title": "Orbita Relaxer",
+      "price": 97.00,
+      "image": "./Images/sofa10-removebg-preview.png"
     },
     {
       "id": 7,
-      "title": "Ergonomic Chair",
-      "price": 43.00,
-      "image": "./Images/product-3.png"
+      "title": "Solace Sit",
+      "price": 86.00,
+      "image": "./Images/sofa7-removebg-preview.png"
     },
     {
       "id": 8,
-      "title": "Kruzo Deluxe Chair",
+      "title": "Vista Recliner",
       "price": 99.00,
-      "image": "./Images/product-2.png"
+      "image": "./Images/sofa6.png"
     }
   ]
 
