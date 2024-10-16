@@ -22,14 +22,14 @@ const Signup = () => {
     formData.append('phone', data.phone);
     formData.append('password', data.password);
     formData.append('confirmPassword', data.confirmPassword); // Include confirm password
-    formData.append('date', data.date);
+    // formData.append('date', data.date);
    
-    if (image) {
-      formData.append('image', image); // Corrected from imageFile to image
-    } else {
-      alert('Please upload an image.');
-      return; // Prevents submission if no image is uploaded
-    }
+    // if (image) {
+    //   formData.append('image', image); // Corrected from imageFile to image
+    // } else {
+    //   alert('Please upload an image.');
+    //   return; // Prevents submission if no image is uploaded
+    // }
 
     try {
       const response = await axios.post('http://localhost:5000/api/users', formData, {
@@ -58,14 +58,14 @@ const Signup = () => {
           <h6 className="text-muted">Create an account to start using Furni</h6>
 
           <Form onSubmit={handleSubmit(onSubmit)} className="mt-4" encType="multipart/form-data">
-            <Form.Group controlId="image" className="mt-3">
+            {/* <Form.Group controlId="image" className="mt-3">
               <Form.Label>Upload Profile Picture</Form.Label>
               <Form.Control
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="name" className='mt-3'>
               <Form.Label>Name</Form.Label>
@@ -74,10 +74,10 @@ const Signup = () => {
                 placeholder="Enter Name"
                 {...register('name', { required: 'Name is required' })}
               />
-              {errors.name && <p className="text-danger">{errors.name.message}</p>}
+              {errors.name && <p className="text-danger pt-2">{errors.name.message}</p>}
             </Form.Group>
 
-            <Form.Group className="mt-3 name">
+            {/* <Form.Group className="mt-3 name">
               <Form.Label>Date</Form.Label>
               <Controller
                 control={control}
@@ -91,8 +91,8 @@ const Signup = () => {
                 )}
                 rules={{ required: 'Date is required' }}
               />
-              {errors.date && <Form.Text className="text-danger">{errors.date.message}</Form.Text>}
-            </Form.Group>
+              {errors.date && <Form.Text className="text-danger pt-2">{errors.date.message}</Form.Text>}
+            </Form.Group> */}
 
             <Form.Group controlId="email" className="mt-3">
               <Form.Label>Email Address</Form.Label>
@@ -107,7 +107,7 @@ const Signup = () => {
                   }
                 })}
               />
-              {errors.email && <p className="text-danger">{errors.email.message}</p>}
+              {errors.email && <p className="text-danger pt-2">{errors.email.message}</p>}
             </Form.Group>
 
             <Form.Group controlId="phone" className="mt-3">
@@ -123,7 +123,7 @@ const Signup = () => {
                   }
                 })}
               />
-              {errors.phone && <p className="text-danger">{errors.phone.message}</p>}
+              {errors.phone && <p className="text-danger pt-2 ">{errors.phone.message}</p>}
             </Form.Group>
 
             <Form.Group controlId="password" className="mt-3">
@@ -141,7 +141,7 @@ const Signup = () => {
                   }
                 })}
               />
-              {errors.password && <p className="text-danger">{errors.password.message}</p>}
+              {errors.password && <p className="text-danger pt-2">{errors.password.message}</p>}
             </Form.Group>
 
             <Form.Group controlId="confirmPassword" className="mt-3">
@@ -155,7 +155,7 @@ const Signup = () => {
                 })}
               />
               {errors.confirmPassword && (
-                <p className="text-danger">{errors.confirmPassword.message}</p>
+                <p className="text-danger pt-2">{errors.confirmPassword.message}</p>
               )}
             </Form.Group>
 

@@ -186,8 +186,8 @@ const EditUser = ({ users, setUsers }) => {
       phone: '',
       password: '',
       confirmPassword: '',
-      date: new Date().toISOString().split('T')[0],
-      image: '',
+      // date: new Date().toISOString().split('T')[0],
+      // image: '',
     },
   });
 
@@ -197,8 +197,8 @@ const EditUser = ({ users, setUsers }) => {
     phone: '',
     password: '',
     confirmPassword: '',
-    date: new Date().toISOString().split('T')[0],
-    image: '',
+    // date: new Date().toISOString().split('T')[0],
+    // image: '',
   });
 
   //use effect
@@ -250,17 +250,14 @@ const EditUser = ({ users, setUsers }) => {
 
 
   const onSubmit = async (data) => {
-
-
     try {
       const formData = new FormData();
-
       formData.append('name', data.name);
       formData.append('email', data.email);
       formData.append('phone', data.phone);
       formData.append('password', data.password);
       formData.append('confirmPassword', data.confirmPassword);
-      formData.append('date', data.date);
+      // formData.append('date', data.date);
 
       // Add image file if user uploaded a new one
       if ( user.image instanceof File) {
@@ -299,7 +296,7 @@ const EditUser = ({ users, setUsers }) => {
             {/* Image Upload */}
 
 
-<Form.Group className="name">
+{/* <Form.Group className="name">
   <Form.Label>Upload Image</Form.Label>
   <Form.Control
     type="file"
@@ -309,7 +306,6 @@ const EditUser = ({ users, setUsers }) => {
     className="nametext"
   />
   
-  {/* Show the previously uploaded image */}
   {user.image && !(user.image instanceof File) && (
     <div className="mt-3">
       <img
@@ -321,7 +317,7 @@ const EditUser = ({ users, setUsers }) => {
   )}
 
   {errors.image && <Form.Text className="text-danger">Image is required</Form.Text>}
-</Form.Group>
+</Form.Group> */}
 
 
             {/* Name Field */}
@@ -437,7 +433,7 @@ const EditUser = ({ users, setUsers }) => {
             </Form.Group>
 
             {/* Date Field */}
-            <Form.Group className="mt-3 name">
+            {/* <Form.Group className="mt-3 name">
               <Form.Label>Date</Form.Label>
               <Controller
                 control={control}
@@ -452,7 +448,7 @@ const EditUser = ({ users, setUsers }) => {
                 rules={{ required: 'Date is required' }}
               />
               {errors.date && <Form.Text className="text-danger">{errors.date.message}</Form.Text>}
-            </Form.Group>
+            </Form.Group> */}
 
             <Button type="submit" className="w-100 mt-3 addbutton">
               {id ? 'Save Changes' : 'Add User'}
@@ -535,7 +531,7 @@ const AllUsers = ({ users, setUsers }) => {
       Name: ${user.name}
       Email: ${user.email}
       Phone: ${user.phone}
-      Date: ${user.date}
+       Date: ${user.date}
       Password: ${user.password}
       Confirm Password: ${user.confirmPassword}
     `;
@@ -708,12 +704,13 @@ const AllUsers = ({ users, setUsers }) => {
                   />
                 </th>
                 <th>S.No</th>
-                <th>Image</th>
+                {/* <th>Image</th> */}
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Date</th>
                 <th>Password</th>
+                {/* <th>Confirm Password</th> */}
                 <th>Actions</th>
               </tr>
             </thead>
@@ -728,14 +725,8 @@ const AllUsers = ({ users, setUsers }) => {
                     />
                   </td>
                   <td>{indexOfFirstUser + index + 1}</td>
+               
                   {/* <td>
-                    {user.image ? (
-                      <img src={user.image} alt="user" style={{ width: '50px', height: '50px' }} />
-                    ) : (
-                      'No Image'
-                    )}
-                  </td> */}
-                  <td>
                     {user.image ? (
                       <img
                         src={`data:image/jpeg;base64,${user.image}`}
@@ -745,13 +736,14 @@ const AllUsers = ({ users, setUsers }) => {
                     ) : (
                       'No Image'
                     )}
-                  </td>
+                  </td> */}
 
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>{moment.utc(user.date).local().format('DD/MM/YYYY')}</td>
                   <td>{user.password}</td>
+                  {/* <td>{user.confirmPassword}</td> */}
                   <td>
                     <Button variant="secondary" className="mx-1" onClick={() => handleViewUser(user)}>
                       View
