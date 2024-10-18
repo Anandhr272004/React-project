@@ -22,14 +22,14 @@ const Signup = () => {
     formData.append('phone', data.phone);
     formData.append('password', data.password);
     formData.append('confirmPassword', data.confirmPassword); // Include confirm password
-    // formData.append('date', data.date);
+    formData.append('date', data.date);
    
-    // if (image) {
-    //   formData.append('image', image); // Corrected from imageFile to image
-    // } else {
-    //   alert('Please upload an image.');
-    //   return; // Prevents submission if no image is uploaded
-    // }
+    if (image) {
+      formData.append('image', image); // Corrected from imageFile to image
+    } else {
+      alert('Please upload an image.');
+      return; // Prevents submission if no image is uploaded
+    }
 
     try {
       const response = await axios.post('http://localhost:5000/api/users', formData, {
@@ -58,14 +58,14 @@ const Signup = () => {
           <h6 className="text-muted">Create an account to start using Furni</h6>
 
           <Form onSubmit={handleSubmit(onSubmit)} className="mt-4" encType="multipart/form-data">
-            {/* <Form.Group controlId="image" className="mt-3">
+            <Form.Group controlId="image" className="mt-3">
               <Form.Label>Upload Profile Picture</Form.Label>
               <Form.Control
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group controlId="name" className='mt-3'>
               <Form.Label>Name</Form.Label>
@@ -77,7 +77,7 @@ const Signup = () => {
               {errors.name && <p className="text-danger pt-2">{errors.name.message}</p>}
             </Form.Group>
 
-            {/* <Form.Group className="mt-3 name">
+            <Form.Group className="mt-3 name">
               <Form.Label>Date</Form.Label>
               <Controller
                 control={control}
@@ -92,7 +92,7 @@ const Signup = () => {
                 rules={{ required: 'Date is required' }}
               />
               {errors.date && <Form.Text className="text-danger pt-2">{errors.date.message}</Form.Text>}
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group controlId="email" className="mt-3">
               <Form.Label>Email Address</Form.Label>
