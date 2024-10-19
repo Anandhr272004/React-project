@@ -19,7 +19,6 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -795,7 +794,7 @@ const Siginuser = ({ users, setUsers }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users');
+        const response = await axios.get('http://localhost:5002/users');
         setUsers(response.data.reverse()); // Reverse the array to have the newest at the top
       } catch (err) {
         console.error('Error fetching users:', err);
@@ -810,7 +809,7 @@ const Siginuser = ({ users, setUsers }) => {
     if (!confirmed) return;
 
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`http://localhost:5002/users/${id}`);
       setUsers(users.filter((user) => user._id !== id));
     } catch (err) {
       console.error('Error deleting user:', err);
@@ -823,7 +822,7 @@ const Siginuser = ({ users, setUsers }) => {
     if (!confirmed) return;
 
     try {
-      await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5000/users/${id}`)));
+      await Promise.all(selectedUsers.map((id) => axios.delete(`http://localhost:5002/users/${id}`)));
       setUsers(users.filter((user) => !selectedUsers.includes(user._id)));
       setSelectedUsers([]);
     } catch (err) {
@@ -963,7 +962,7 @@ const Siginuser = ({ users, setUsers }) => {
               Delete Selected ({selectedUsers.length})
             </Button>
           )}
-          <h2 className="text-left manageuser">Manage Users</h2>
+          <h2 className="text-left manageuser">Logined Users</h2>
           <div className='down mt-4'>
             <div className="filter-container">
 
@@ -1100,8 +1099,6 @@ const Siginuser = ({ users, setUsers }) => {
     </Container>
   );
 };
-
-
 
 
 const AddProduct = () => {
